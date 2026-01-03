@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Články</title>
+
+  <style>
+    :root{
+      --paper:#fbf7ef;
+      --ink:#1c1c1c;
+      --muted: rgba(28,28,28,.72);
+      --hair: rgba(28,28,28,.18);
+      --shadow: rgba(0,0,0,.18);
+      --max: 900px;
+      --pad: 22px;
+      --radius: 10px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(0,0,0,.06), transparent 60%),
+        radial-gradient(900px 700px at 80% 30%, rgba(0,0,0,.05), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.03), transparent 35%),
+        var(--paper);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      letter-spacing:.2px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(0,0,0,.02),
+          rgba(0,0,0,.02) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      mix-blend-mode:multiply;
+      opacity:.25;
+    }
+
+    header{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 38px var(--pad) 18px;
+    }
+
+    .mast{
+      border:1px solid var(--hair);
+      border-radius: var(--radius);
+      padding: 18px 18px 14px;
+      box-shadow: 0 12px 30px var(--shadow);
+      background: rgba(255,255,255,.35);
+    }
+
+    .mast h1{
+      margin:0 0 6px;
+      font-size:22px;
+      letter-spacing:.6px;
+    }
+
+    .mast p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 0 var(--pad) 60px;
+    }
+
+    .controls{
+      margin: 0 0 18px;
+      font-size:13px;
+    }
+
+    .controls select{
+      font:inherit;
+      padding:4px 6px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .item{
+      border:1px solid var(--hair);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.25);
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+
+    .item button{
+      width:100%;
+      text-align:left;
+      border:0;
+      background:transparent;
+      padding:16px;
+      cursor:pointer;
+      font:inherit;
+      color:inherit;
+    }
+
+    .row{
+      display:flex;
+      gap:14px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+
+    .no{
+      min-width:46px;
+      font-weight:700;
+    }
+
+    .title{
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+
+    .perex{
+      margin:10px 0 0;
+      font-size:14px;
+      color:var(--muted);
+      white-space:pre-wrap;
+    }
+
+    dialog{
+      width: min(860px, calc(100vw - 28px));
+      border:1px solid var(--hair);
+      border-radius:12px;
+      padding:0;
+      background:var(--paper);
+      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+    }
+
+    dialog::backdrop{
+      background: rgba(0,0,0,.55);
+    }
+
+    .dlg{
+      padding:18px;
+      position:relative;
+    }
+
+    .dlg h2{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:.6px;
+    }
+
+    .dlg-perex{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      white-space:pre-wrap;
+    }
+
+    .body{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px dashed var(--hair);
+      line-height:1.75;
+      white-space:pre-wrap;
+    }
+
+    .close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      font:inherit;
+      padding:6px 10px;
+      border:1px solid var(--hair);
+      background:rgba(255,255,255,.35);
+      cursor:pointer;
+      border-radius:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="mast">
+    <h1>Petr Vrána - osobní blog</h1>
+    <p>:)</p>
+  </div>
+</header>
+
+<main>
+  <div class="controls">
+    <label for="sort">Řazení:</label>
+    <select id="sort">
+      <option value="newest" selected>nejnovější</option>
+      <option value="oldest">nejstarší</option>
+    </select>
+  </div>
+
+  <section class="list" id="list"></section>
+</main>
+
+<dialog id="articleDialog">
+  <div class="dlg">
+    <button class="close" id="dlgClose">Zavřít</button>
+    <h2 id="dlgTitle"></h2>
+    <p class="dlg-perex" id="dlgPerex"></p>
+    <div class="body" id="dlgBody"></div>
+  </div>
+</dialog>
+
+<script>
+  const ARTICLES = [
+    {
+      title: "Článek 2: Další název",
+      date: "2025-02-02",
+      perex: "Další perex. Kliknutím se otevře celý článek.",
+      body: `Celé tělo druhého článku.`
+    },
+    {
+      title: "Článek 1: Název",
+      date: "2025-01-10",
+      perex: "Krátký perex. Dvě až čtyři věty.",
+      body: `Celé tělo prvního článku.`
+    }
+  ];
+
+  const listEl = document.getElementById("list");
+  const sortSelect = document.getElementById("sort");
+
+  const dlg = document.getElementById("articleDialog");
+  const dlgTitle = document.getElementById("dlgTitle");
+  const dlgPerex = document.getElementById("dlgPerex");
+  const dlgBody  = document.getElementById("dlgBody");
+  const dlgClose = document.getElementById("dlgClose");
+
+  function getSortedArticles(){
+    return [...ARTICLES].sort((a,b) => {
+      const da = new Date(a.date);
+      const db = new Date(b.date);
+      return sortSelect.value === "newest" ? db - da : da - db;
+    });
+  }
+
+  function openArticle(article){
+    dlgTitle.textContent = article.title;
+    dlgPerex.textContent = article.perex;
+    dlgBody.innerHTML = article.body;
+    dlg.showModal();
+  }
+
+  function renderList(){
+    listEl.innerHTML = "";
+    getSortedArticles().forEach((a,i) => {
+      const wrap = document.createElement("article");
+      wrap.className = "item";
+
+      const btn = document.createElement("button");
+      btn.onclick = () => openArticle(a);
+
+      const row = document.createElement("div");
+      row.className = "row";
+
+      const no = document.createElement("div");
+      no.className = "no";
+      no.textContent = String(i + 1).padStart(2,"0");
+
+      const title = document.createElement("div");
+      title.className = "title";
+      title.textContent = a.title;
+
+      row.append(no,title);
+
+      const perex = document.createElement("p");
+      perex.className = "perex";
+      perex.textContent = a.perex;
+
+      btn.append(row,perex);
+      wrap.appendChild(btn);
+      listEl.appendChild(wrap);
+    });
+  }
+
+  dlgClose.onclick = () => dlg.close();
+  sortSelect.onchange = renderList;
+
+  renderList();
+</script>
+
+</body>
+</html>
