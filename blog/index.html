@@ -66,31 +66,37 @@
   let articlesData = [];
 
   async function loadArticles() {
-    articlesData = [];
     const parser = new DOMParser();
+    const fetchPromises = [];
 
+    // Vytvoření pole slibů (promises) pro paralelní načítání
     for (let i = 1; i <= MAX_POSTS; i++) {
-      try {
-        const res = await fetch(`post/${i}.html`);
-        if (!res.ok) continue; // Pokud soubor neexistuje, přeskočí se
-        
-        const text = await res.text();
-        const doc = parser.parseFromString(text, 'text/html');
-        
-        const rawDate = doc.querySelector('.post-date')?.getAttribute('content') || '2000-01-01';
-        
-        articlesData.push({
-          id: i,
-          title: doc.querySelector('.post-title')?.textContent || `Článek ${i}`,
-          date: rawDate,
-          formattedDate: new Date(rawDate).toLocaleDateString('cs-CZ'),
-          perex: doc.querySelector('.post-perex')?.textContent || '',
-          content: doc.querySelector('.post-content')?.innerHTML || ''
-        });
-      } catch (e) {
-        // Chyba fetch/parsování - článek nebude přidán do pole
-      }
+      fetchPromises.push(
+        fetch(`post/${i}.html`)
+          .then(res => res.ok ? res.text() : null)
+          .then(text => {
+            if (!text) return null;
+            const doc = parser.parseFromString(text, 'text/html');
+            const rawDate = doc.querySelector('.post-date')?.getAttribute('content') || '2000-01-01';
+            return {
+              id: i,
+              title: doc.querySelector('.post-title')?.textContent || `Článek ${i}`,
+              date: rawDate,
+              formattedDate: new Date(rawDate).toLocaleDateString('cs-CZ'),
+              perex: doc.querySelector('.post-perex')?.textContent || '',
+              content: doc.querySelector('.post-content')?.innerHTML || ''
+            };
+          })
+          .catch(() => null)
+      );
     }
+
+    // Čekání na dokončení všech požadavků najednou
+    const results = await Promise.all(fetchPromises);
+    
+    // Odfiltrování neúspěšných (null) výsledků
+    articlesData = results.filter(a => a !== null);
+    
     renderList();
   }
 
