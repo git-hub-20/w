@@ -21,8 +21,9 @@
     .perex{ margin:10px 0 0; font-size:14px; color:var(--muted); }
     dialog{ width: min(860px, calc(100vw - 28px)); border:1px solid var(--hair); border-radius:12px; padding:0; background:var(--paper); }
     .dlg{ padding:18px; position:relative; }
+    .dlg-date{ font-size:12px; color:var(--muted); margin-bottom:8px; display:block; }
     .body{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--hair); line-height:1.75; }
-    .close{ position:absolute; top:12px; right:12px; cursor:pointer; }
+    .close{ position:absolute; top:12px; right:12px; cursor:pointer; padding: 5px 10px; border-radius: 5px; border: 1px solid var(--hair); background: white; }
   </style>
 </head>
 <body>
@@ -40,23 +41,25 @@
       <option value="oldest">nejstarší</option>
     </select>
   </div>
-  <section class="list" id="list">Načítám články...</section>
+  <section class="list" id="list"></section>
 </main>
 
 <dialog id="articleDialog">
   <div class="dlg">
     <button class="close" id="dlgClose">Zavřít</button>
-    <h2 id="dlgTitle"></h2>
+    <time class="dlg-date" id="dlgDate"></time>
+    <h2 id="dlgTitle" style="margin-top:0;"></h2>
     <div class="body" id="dlgBody"></div>
   </div>
 </dialog>
 
 <script>
-  const MAX_POSTS = 100; // Maximální počet souborů ke kontrole
+  const MAX_POSTS = 20; 
   const listEl = document.getElementById("list");
   const sortSelect = document.getElementById("sort");
   const dlg = document.getElementById("articleDialog");
   const dlgTitle = document.getElementById("dlgTitle");
+  const dlgDate = document.getElementById("dlgDate");
   const dlgBody = document.getElementById("dlgBody");
   const dlgClose = document.getElementById("dlgClose");
 
@@ -69,24 +72,35 @@
     for (let i = 1; i <= MAX_POSTS; i++) {
       try {
         const res = await fetch(`post/${i}.html`);
-        if (!res.ok) continue;
+        if (!res.ok) continue; // Pokud soubor neexistuje, přeskočí se
+        
         const text = await res.text();
         const doc = parser.parseFromString(text, 'text/html');
+        
+        const rawDate = doc.querySelector('.post-date')?.getAttribute('content') || '2000-01-01';
         
         articlesData.push({
           id: i,
           title: doc.querySelector('.post-title')?.textContent || `Článek ${i}`,
-          date: doc.querySelector('.post-date')?.getAttribute('content') || '2000-01-01',
+          date: rawDate,
+          formattedDate: new Date(rawDate).toLocaleDateString('cs-CZ'),
           perex: doc.querySelector('.post-perex')?.textContent || '',
           content: doc.querySelector('.post-content')?.innerHTML || ''
         });
-      } catch (e) {}
+      } catch (e) {
+        // Chyba fetch/parsování - článek nebude přidán do pole
+      }
     }
     renderList();
   }
 
   function renderList() {
     listEl.innerHTML = "";
+    if (articlesData.length === 0) {
+      listEl.textContent = "Žádné články k zobrazení.";
+      return;
+    }
+
     const sorted = [...articlesData].sort((a, b) => {
       const da = new Date(a.date), db = new Date(b.date);
       return sortSelect.value === "newest" ? db - da : da - db;
@@ -101,6 +115,7 @@
       </button>`;
       art.querySelector('button').onclick = () => {
         dlgTitle.textContent = a.title;
+        dlgDate.textContent = a.formattedDate;
         dlgBody.innerHTML = a.content;
         dlg.showModal();
       };
