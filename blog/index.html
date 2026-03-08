@@ -224,7 +224,7 @@
 </dialog>
 
 <script>
-  // Definice článků. 'id' odpovídá názvu souboru (např. id: 1 -> posts/1.html)
+  // Definice článků. 'id' odpovídá názvu souboru (např. id: 1 -> post/1.html)
   const ARTICLES = [
     {
       id: 2,
@@ -264,7 +264,7 @@
     dlg.showModal();
 
     try {
-      const response = await fetch(`posts/${article.id}.html`);
+      const response = await fetch(`post/${article.id}.html`);
       if (!response.ok) throw new Error("Soubor nenalezen");
       const htmlContent = await response.text();
       dlgBody.innerHTML = htmlContent;
