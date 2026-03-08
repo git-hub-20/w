@@ -177,7 +177,6 @@
       padding-top:14px;
       border-top:1px dashed var(--hair);
       line-height:1.75;
-      white-space:pre-wrap;
     }
 
     .close{
@@ -225,18 +224,19 @@
 </dialog>
 
 <script>
+  // Definice článků. 'id' odpovídá názvu souboru (např. id: 1 -> posts/1.html)
   const ARTICLES = [
     {
+      id: 2,
       title: "Článek 2: Další název",
       date: "2025-02-02",
-      perex: "Další perex. Kliknutím se otevře celý článek.",
-      body: `Celé tělo druhého článku.`
+      perex: "Další perex načtený z externího HTML souboru."
     },
     {
+      id: 1,
       title: "Článek 1: Název",
       date: "2025-01-10",
-      perex: "Krátký perex. Dvě až čtyři věty.",
-      body: `Celé tělo prvního článku.`
+      perex: "Krátký perex pro první článek."
     }
   ];
 
@@ -257,11 +257,20 @@
     });
   }
 
-  function openArticle(article){
+  async function openArticle(article){
     dlgTitle.textContent = article.title;
     dlgPerex.textContent = article.perex;
-    dlgBody.innerHTML = article.body;
+    dlgBody.innerHTML = "<em>Načítám obsah...</em>";
     dlg.showModal();
+
+    try {
+      const response = await fetch(`posts/${article.id}.html`);
+      if (!response.ok) throw new Error("Soubor nenalezen");
+      const htmlContent = await response.text();
+      dlgBody.innerHTML = htmlContent;
+    } catch (err) {
+      dlgBody.innerHTML = "<p>Chyba: Článek se nepodařilo načíst.</p>";
+    }
   }
 
   function renderList(){
@@ -278,7 +287,7 @@
 
       const no = document.createElement("div");
       no.className = "no";
-      no.textContent = String(i + 1).padStart(2,"0");
+      no.textContent = String(a.id).padStart(2,"0");
 
       const title = document.createElement("div");
       title.className = "title";
