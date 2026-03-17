@@ -32,7 +32,6 @@
     .title { font-weight: 700; font-size: 18px; }
     .perex { margin: 8px 0; font-size: 14px; color: var(--muted); }
     .tag { font-size: 10px; padding: 2px 6px; border: 1px solid var(--hair); border-radius: 4px; text-transform: uppercase; opacity: 0.7; }
-    
     .pagination { margin-top: 40px; display: flex; justify-content: center; gap: 8px; }
     .page-link { padding: 8px 12px; border: 1px solid var(--hair); border-radius: 6px; cursor: pointer; background: white; font-size: 14px; }
     .page-link.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
@@ -99,7 +98,7 @@
       <select id="categoryFilter">
         <option value="ALL">Vše</option>
         <option value="FICTION">Fiction</option>
-        <option value="NON-FICTION">Non-Fiction</option>
+        <option value="NON-FICTION" selected>Non-Fiction</option>
         <option value="ART">Art</option>
       </select>
     </div>
@@ -174,7 +173,19 @@
 
     const results = await Promise.all(fetchPromises);
     allArticles = results.filter(a => a !== null);
+    
+    // Vykreslení seznamu (automaticky použije vybraný filtr z HTML)
     render();
+
+    // Kontrola URL pro automatické otevření článku
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get('post');
+    if (postId) {
+      const id = parseInt(postId);
+      if (allArticles.some(a => a.id === id)) {
+        openArticle(id);
+      }
+    }
   }
 
   function render() {
@@ -215,6 +226,45 @@
     }
   }
 
+  window.openArticle = (id) => {
+    activeArticleId = id;
+    const a = allArticles.find(x => x.id === id);
+    if (!a) return;
+
+    // Aktualizace URL pro sdílení
+    const url = new URL(window.location);
+    url.searchParams.set('post', id);
+    window.history.pushState({ articleId: id }, "", url);
+
+    document.getElementById("dlgTitle").textContent = a.title;
+    document.getElementById("dlgMeta").textContent = `${a.category} | ${a.date.toLocaleDateString('cs-CZ')}`;
+    document.getElementById("dlgBody").innerHTML = a.content;
+    
+    dlgScroll.scrollTop = 0;
+    showBookmark(id);
+    dlg.showModal();
+  };
+
+  document.getElementById("dlgClose").onclick = () => {
+    dlg.close();
+    activeArticleId = null;
+    isBookmarkingMode = false;
+    sMsg.style.display = "none";
+
+    // Odstranění parametru z URL při zavření
+    const url = new URL(window.location);
+    url.searchParams.delete('post');
+    window.history.pushState({}, "", url);
+  };
+
+  window.onpopstate = (event) => {
+    if (dlg.open) {
+      dlg.close();
+    } else if (event.state && event.state.articleId) {
+      openArticle(event.state.articleId);
+    }
+  };
+
   bTrigger.onclick = () => {
     isBookmarkingMode = true;
     sMsg.style.display = "block";
@@ -252,25 +302,6 @@
       bBanner.style.display = 'none';
     }
   }
-
-  window.openArticle = (id) => {
-    activeArticleId = id;
-    const a = allArticles.find(x => x.id === id);
-    document.getElementById("dlgTitle").textContent = a.title;
-    document.getElementById("dlgMeta").textContent = `${a.category} | ${a.date.toLocaleDateString('cs-CZ')}`;
-    document.getElementById("dlgBody").innerHTML = a.content;
-    
-    dlgScroll.scrollTop = 0;
-    showBookmark(id);
-    dlg.showModal();
-  };
-
-  document.getElementById("dlgClose").onclick = () => {
-    dlg.close();
-    activeArticleId = null;
-    isBookmarkingMode = false;
-    sMsg.style.display = "none";
-  };
 
   document.getElementById("categoryFilter").onchange = render;
   document.getElementById("sortOrder").onchange = render;
