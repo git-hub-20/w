@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PV - Blog</title>
+  <style>
+    :root {
+      --paper: #fbf7ef;
+      --ink: #1c1c1c;
+      --muted: rgba(28,28,28,.72);
+      --hair: rgba(28,28,28,.18);
+      --shadow: rgba(0,0,0,.12);
+      --accent: #2c5282;
+      --max: 800px;
+      --pad: 20px;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { color: var(--ink); background: var(--paper); font-family: ui-monospace, monospace; margin: 0; -webkit-font-smoothing: antialiased; }
+    header { max-width: var(--max); margin: 0 auto; padding: 40px var(--pad) 20px; }
+    .mast { border: 1px solid var(--hair); border-radius: var(--radius); padding: 24px; background: rgba(255,255,255,.4); box-shadow: 0 8px 20px var(--shadow); }
+    .mast h1 { margin: 0; font-size: 24px; letter-spacing: -0.5px; }
+    main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad) 80px; }
+    .controls { margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; }
+    .control-group { display: flex; align-items: center; gap: 8px; }
+    select { font: inherit; padding: 4px 8px; border: 1px solid var(--hair); border-radius: 6px; background: white; cursor: pointer; }
+    .list { display: flex; flex-direction: column; gap: 16px; }
+    .item { border: 1px solid var(--hair); border-radius: var(--radius); background: rgba(255,255,255,.3); }
+    .item button { width: 100%; text-align: left; border: 0; background: transparent; padding: 20px; cursor: pointer; font: inherit; color: inherit; }
+    .row { display: flex; gap: 12px; align-items: baseline; margin-bottom: 4px; }
+    .title { font-weight: 700; font-size: 18px; }
+    .perex { margin: 8px 0; font-size: 14px; color: var(--muted); }
+    .tag { font-size: 10px; padding: 2px 6px; border: 1px solid var(--hair); border-radius: 4px; text-transform: uppercase; opacity: 0.7; }
+    .pagination { margin-top: 40px; display: flex; justify-content: center; gap: 8px; }
+    .page-link { padding: 8px 12px; border: 1px solid var(--hair); border-radius: 6px; cursor: pointer; background: white; font-size: 14px; }
+    .page-link.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    dialog { width: min(760px, calc(100vw - 30px)); height: 80vh; border: 1px solid var(--hair); border-radius: 16px; padding: 0; background: var(--paper); box-shadow: 0 30px 60px rgba(0,0,0,.3); overflow: hidden; }
+    dialog::backdrop { background: rgba(0,0,0,0.4); backdrop-filter: blur(2px); }
+    .dlg-scroll-area { height: 100%; overflow-y: auto; padding: 30px; position: relative; scroll-behavior: smooth; }
+    .close-btn { position: sticky; top: 0; float: right; background: white; border: 1px solid var(--hair); padding: 6px 12px; border-radius: 8px; cursor: pointer; z-index: 100; }
+    .article-body { border-top: 1px dashed var(--hair); padding-top: 20px; line-height: 1.8; margin-bottom: 100px; }
+
+    #bookmark-trigger {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-size: 20px;
+    }
+    #bookmark-banner { 
+      background: #fffdf0; 
+      border: 1px solid #e2e8f0; 
+      padding: 12px; 
+      margin-bottom: 20px; 
+      border-radius: 8px; 
+      font-size: 13px; 
+      display: none; 
+      border-left: 4px solid var(--accent);
+      cursor: pointer;
+    }
+    #bookmark-banner:hover { background: #f7f3d5; }
+    #selection-msg {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: var(--accent);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: none;
+      z-index: 1000;
+      animation: fadein 0.3s;
+    }
+    @keyframes fadein { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+<header><div class="mast"><h1>PV - blog</h1></div></header>
+
+<main>
+  <div class="controls">
+    <div class="control-group">
+      <label>Kategorie:</label>
+      <select id="categoryFilter">
+        <option value="ALL">Vše</option>
+        <option value="FICTION">Fiction</option>
+        <option value="NON-FICTION" selected>Non-Fiction</option>
+        <option value="A">A</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>Řadit:</label>
+      <select id="sortOrder">
+        <option value="newest">Nejnovější</option>
+        <option value="oldest">Nejstarší</option>
+      </select>
+    </div>
+  </div>
+
+  <section class="list" id="list"></section>
+  <div class="pagination" id="pagination"></div>
+</main>
+
+<dialog id="articleDialog">
+  <div class="dlg-scroll-area" id="dlgScroll">
+    <button class="close-btn" id="dlgClose">Zavřít</button>
+    <div id="dlgMeta" style="font-size:12px; color:var(--muted); margin-bottom:8px;"></div>
+    <h2 id="dlgTitle" style="margin:0 0 20px;"></h2>
+    
+    <div id="bookmark-banner" title="Kliknutím skočíte na uložené místo">
+      <strong>Skočit na poslední záložku:</strong> <span id="bookmark-text"></span>
+    </div>
+
+    <div class="article-body" id="dlgBody"></div>
+  </div>
+  <div id="bookmark-trigger" title="Vytvořit záložku">🔖</div>
+  <div id="selection-msg">Nyní označte text myší pro uložení záložky...</div>
+</dialog>
+
+<script>
+  const CHECK_LIMIT = 100; 
+  const POSTS_PER_PAGE = 20;
+  const FOLDER = 'post';
+
+  let allArticles = [];
+  let currentPage = 1;
+  let activeArticleId = null;
+  let isBookmarkingMode = false;
+
+  const dlg = document.getElementById("articleDialog");
+  const dlgScroll = document.getElementById("dlgScroll");
+  const bTrigger = document.getElementById("bookmark-trigger");
+  const sMsg = document.getElementById("selection-msg");
+  const bBanner = document.getElementById("bookmark-banner");
+  const bText = document.getElementById("bookmark-text");
+
+  async function init() {
+    const parser = new DOMParser();
+    const fetchPromises = Array.from({length: CHECK_LIMIT}, (_, i) => 
+      fetch(`${FOLDER}/${i+1}.html`)
+        .then(res => res.ok && res.headers.get("content-type")?.includes("text/html") ? res.text() : null)
+        .then(text => {
+          if (!text) return null;
+          const doc = parser.parseFromString(text, 'text/html');
+          const title = doc.querySelector('.post-title')?.textContent;
+          const date = doc.querySelector('.post-date')?.getAttribute('content');
+          const category = doc.querySelector('.post-category')?.getAttribute('content') || 'UNCATEGORIZED';
+          if (!title || !date) return null;
+          return {
+            id: i + 1,
+            title: title.trim(),
+            date: new Date(date),
+            category: category.toUpperCase(),
+            perex: doc.querySelector('.post-perex')?.textContent.trim() || '',
+            content: doc.querySelector('.post-content')?.innerHTML || ''
+          };
+        }).catch(() => null)
+    );
+
+    const results = await Promise.all(fetchPromises);
+    allArticles = results.filter(a => a !== null);
+    
+    // Vykreslení seznamu (automaticky použije vybraný filtr z HTML)
+    render();
+
+    // Kontrola URL pro automatické otevření článku
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get('post');
+    if (postId) {
+      const id = parseInt(postId);
+      if (allArticles.some(a => a.id === id)) {
+        openArticle(id);
+      }
+    }
+  }
+
+  function render() {
+    const cat = document.getElementById("categoryFilter").value;
+    const sort = document.getElementById("sortOrder").value;
+    let filtered = allArticles.filter(a => cat === "ALL" || a.category === cat);
+    filtered.sort((a, b) => sort === "newest" ? b.date - a.date : a.date - b.date);
+
+    const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    const paginated = filtered.slice(start, start + POSTS_PER_PAGE);
+
+    document.getElementById("list").innerHTML = paginated.map(a => `
+      <article class="item">
+        <button onclick="openArticle(${a.id})">
+          <div class="row">
+            <span class="tag">${a.category}</span>
+            <span class="title">${a.title}</span>
+          </div>
+          <div style="font-size:11px; color:var(--muted)">${a.date.toLocaleDateString('cs-CZ')}</div>
+          <p class="perex">${a.perex}</p>
+        </button>
+      </article>
+    `).join('');
+    renderPagination(totalPages);
+  }
+
+  function renderPagination(total) {
+    const nav = document.getElementById("pagination");
+    nav.innerHTML = "";
+    if (total <= 1) return;
+    for (let i = 1; i <= total; i++) {
+      const btn = document.createElement("button");
+      btn.className = `page-link ${i === currentPage ? 'active' : ''}`;
+      btn.textContent = i;
+      btn.onclick = () => { currentPage = i; render(); window.scrollTo(0,0); };
+      nav.appendChild(btn);
+    }
+  }
+
+  window.openArticle = (id) => {
+    activeArticleId = id;
+    const a = allArticles.find(x => x.id === id);
+    if (!a) return;
+
+    // Aktualizace URL pro sdílení
+    const url = new URL(window.location);
+    url.searchParams.set('post', id);
+    window.history.pushState({ articleId: id }, "", url);
+
+    document.getElementById("dlgTitle").textContent = a.title;
+    document.getElementById("dlgMeta").textContent = `${a.category} | ${a.date.toLocaleDateString('cs-CZ')}`;
+    document.getElementById("dlgBody").innerHTML = a.content;
+    
+    dlgScroll.scrollTop = 0;
+    showBookmark(id);
+    dlg.showModal();
+  };
+
+  document.getElementById("dlgClose").onclick = () => {
+    dlg.close();
+    activeArticleId = null;
+    isBookmarkingMode = false;
+    sMsg.style.display = "none";
+
+    // Odstranění parametru z URL při zavření
+    const url = new URL(window.location);
+    url.searchParams.delete('post');
+    window.history.pushState({}, "", url);
+  };
+
+  window.onpopstate = (event) => {
+    if (dlg.open) {
+      dlg.close();
+    } else if (event.state && event.state.articleId) {
+      openArticle(event.state.articleId);
+    }
+  };
+
+  bTrigger.onclick = () => {
+    isBookmarkingMode = true;
+    sMsg.style.display = "block";
+    bTrigger.style.background = "var(--accent)";
+  };
+
+  document.addEventListener('mouseup', () => {
+    if (!isBookmarkingMode || !activeArticleId) return;
+
+    const selection = window.getSelection();
+    const text = selection.toString().trim();
+
+    if (text) {
+      const scrollPos = dlgScroll.scrollTop;
+      const data = { text: text, scroll: scrollPos };
+      localStorage.setItem(`bookmark_v2_${activeArticleId}`, JSON.stringify(data));
+      
+      isBookmarkingMode = false;
+      sMsg.style.display = "none";
+      bTrigger.style.background = "var(--ink)";
+      showBookmark(activeArticleId);
+      selection.removeAllRanges();
+    }
+  });
+
+  function showBookmark(id) {
+    const saved = JSON.parse(localStorage.getItem(`bookmark_v2_${id}`));
+    if (saved) {
+      bBanner.style.display = 'block';
+      bText.textContent = saved.text.length > 50 ? saved.text.substring(0, 50) + "..." : saved.text;
+      bBanner.onclick = () => {
+        dlgScroll.scrollTo({ top: saved.scroll, behavior: 'smooth' });
+      };
+    } else {
+      bBanner.style.display = 'none';
+    }
+  }
+
+  document.getElementById("categoryFilter").onchange = render;
+  document.getElementById("sortOrder").onchange = render;
+
+  init();
+</script>
+</body>
+</html>
