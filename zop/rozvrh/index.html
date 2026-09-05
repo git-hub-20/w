@@ -13,7 +13,7 @@
       --teal: #147f9c;
       --gold: #d5a23c;
       --bg: #f2f6f8;
-      --card: #fff;
+      --card: #ffffff;
       --text: #1b2c39;
       --muted: #647684;
       --line: #d6e0e6;
@@ -30,12 +30,20 @@
       --service-line: #b42318;
       --event-bg: #efe2f7;
       --event-line: #74439a;
+      --unknown-bg: #fff8e8;
+      --unknown-line: #d79c22;
 
       --radius: 16px;
       --shadow: 0 12px 28px rgba(16, 47, 73, .11);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-width: 320px;
@@ -47,8 +55,15 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
 
     .header {
       color: white;
@@ -62,7 +77,9 @@
       margin: auto;
     }
 
-    .header-inner { padding-top: 20px; }
+    .header-inner {
+      padding-top: 20px;
+    }
 
     .top {
       display: flex;
@@ -143,8 +160,13 @@
       margin-bottom: 60px;
     }
 
-    .view { display: none; }
-    .view.active { display: block; }
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
 
     .eyebrow {
       margin: 0 0 6px;
@@ -258,7 +280,9 @@
       box-shadow: 0 0 0 3px rgba(20,127,156,.14);
     }
 
-    /* ROZVRH */
+    /* ----------------------------------------------------------------------
+       ROZVRH – DESKTOP
+       ---------------------------------------------------------------------- */
 
     .schedule-scroll {
       overflow-x: auto;
@@ -289,7 +313,9 @@
       background: var(--navy);
     }
 
-    .day-head strong { display: block; }
+    .day-head strong {
+      display: block;
+    }
 
     .day-head span {
       display: block;
@@ -314,10 +340,10 @@
     }
 
     /*
-      Výška odpovídá minutám:
-      90 minut výuky = 90 px,
-      15 minut přestávky = 15 px,
-      75 minut oběda = 75 px.
+      Výška odpovídá délce v minutách:
+      90 minut výuky = 90 px
+      15 minut přestávky = 15 px
+      75 minut oběda = 75 px
     */
     .block {
       display: flex;
@@ -415,15 +441,8 @@
     .block.unknown-time {
       height: 46px;
       color: #6d4a00;
-      background: #fff8e8;
-      border-color: #d79c22;
-    }
-
-    .block.empty {
-      color: #84939e;
-      font-style: italic;
-      background: #f5f7f8;
-      border-color: #cdd7dc;
+      background: var(--unknown-bg);
+      border-color: var(--unknown-line);
     }
 
     .notice {
@@ -439,7 +458,52 @@
       border-radius: 11px;
     }
 
-    /* LEKTOŘI */
+    /* ----------------------------------------------------------------------
+       ROZVRH – MOBILNÍ AKTUÁLNÍ DEN
+       ---------------------------------------------------------------------- */
+
+    .mobile-day-panel {
+      display: none;
+    }
+
+    .mobile-day-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px;
+      color: white;
+      background: var(--navy);
+      border-radius: 14px 14px 0 0;
+    }
+
+    .mobile-day-header h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .mobile-day-header p {
+      margin: 4px 0 0;
+      color: #c8d7e4;
+      font-size: .82rem;
+    }
+
+    .mobile-day-timeline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-day-timeline .block {
+      font-size: .87rem;
+    }
+
+    .mobile-day-timeline .block-time {
+      font-size: .76rem;
+    }
+
+    /* ----------------------------------------------------------------------
+       LEKTOŘI
+       ---------------------------------------------------------------------- */
 
     .teacher-grid {
       display: grid;
@@ -502,7 +566,9 @@
       border-radius: 99px;
     }
 
-    /* MAPY */
+    /* ----------------------------------------------------------------------
+       MAPY
+       ---------------------------------------------------------------------- */
 
     .map-layout {
       display: grid;
@@ -510,7 +576,9 @@
       gap: 18px;
     }
 
-    .map-side { padding: 18px; }
+    .map-side {
+      padding: 18px;
+    }
 
     .map-side h3 {
       margin: 0 0 8px;
@@ -562,7 +630,9 @@
       box-shadow: 0 3px 12px rgba(0,0,0,.12);
     }
 
-    .map-photo.active { display: block; }
+    .map-photo.active {
+      display: block;
+    }
 
     .map-info {
       margin-top: 12px;
@@ -572,9 +642,13 @@
       text-align: center;
     }
 
-    /* HARMONOGRAM / REŽIM */
+    /* ----------------------------------------------------------------------
+       HARMONOGRAM A REŽIM
+       ---------------------------------------------------------------------- */
 
-    .table-wrap { overflow: auto; }
+    .table-wrap {
+      overflow: auto;
+    }
 
     table {
       width: 100%;
@@ -582,7 +656,8 @@
       font-size: .91rem;
     }
 
-    th, td {
+    th,
+    td {
       padding: 11px 13px;
       text-align: left;
       border-bottom: 1px solid var(--line);
@@ -603,7 +678,9 @@
       margin-bottom: 17px;
     }
 
-    .stat { padding: 17px; }
+    .stat {
+      padding: 17px;
+    }
 
     .stat-label {
       color: var(--muted);
@@ -624,7 +701,9 @@
       gap: 18px;
     }
 
-    .section { padding: 20px; }
+    .section {
+      padding: 20px;
+    }
 
     .section h3 {
       margin: 0 0 13px;
@@ -639,14 +718,18 @@
       border-bottom: 1px solid #edf1f4;
     }
 
-    .regime-row:last-child { border: 0; }
+    .regime-row:last-child {
+      border: 0;
+    }
 
     .regime-time {
       color: var(--teal);
       font-weight: 850;
     }
 
-    /* MODÁLNÍ OKNA */
+    /* ----------------------------------------------------------------------
+       MODÁLNÍ OKNO
+       ---------------------------------------------------------------------- */
 
     .overlay {
       position: fixed;
@@ -660,7 +743,9 @@
       backdrop-filter: blur(3px);
     }
 
-    .overlay.open { display: flex; }
+    .overlay.open {
+      display: flex;
+    }
 
     .modal {
       width: min(720px, 100%);
@@ -703,7 +788,9 @@
       border-radius: 8px;
     }
 
-    .modal-body { padding: 21px 22px 24px; }
+    .modal-body {
+      padding: 21px 22px 24px;
+    }
 
     .detail {
       display: grid;
@@ -765,9 +852,10 @@
       margin-top: 14px;
     }
 
-    .day-modal-timeline .block { font-size: .88rem; }
+    .day-modal-timeline .block {
+      font-size: .88rem;
+    }
 
-    .empty,
     .loading {
       padding: 48px 20px;
       color: var(--muted);
@@ -819,23 +907,22 @@
         flex-direction: column;
       }
 
-      .badge { text-align: left; }
-
-      .schedule-scroll { overflow: visible; }
-
-      .week-grid {
-        grid-template-columns: 1fr;
-        min-width: 0;
+      .badge {
+        text-align: left;
       }
 
-      .day .timeline { display: none; }
+      .schedule-scroll {
+        display: none;
+      }
 
-      .day::after {
+      .mobile-day-panel {
         display: block;
-        padding: 10px;
-        color: var(--muted);
-        font-size: .82rem;
-        content: "Otevřete detail dne pro časovou osu.";
+        overflow: hidden;
+        margin-top: 14px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(16,47,73,.05);
       }
 
       .week-label {
@@ -849,16 +936,22 @@
         width: 100%;
       }
 
-      .detail { grid-template-columns: 1fr; }
+      .detail {
+        grid-template-columns: 1fr;
+      }
 
       .detail dt {
         padding-bottom: 4px;
         border-bottom: 0;
       }
 
-      .detail dd { padding-top: 4px; }
+      .detail dd {
+        padding-top: 4px;
+      }
 
-      .map-photo { min-width: 620px; }
+      .map-photo {
+        min-width: 620px;
+      }
     }
   </style>
 </head>
@@ -869,6 +962,7 @@
       <div class="top">
         <div class="brand">
           <div class="brand-mark">III</div>
+
           <div>
             <h1>Rozvrh III. A</h1>
             <p id="subtitle">ZOP Policie · rozvrh, lektoři a orientace</p>
@@ -926,6 +1020,22 @@
 
       <div class="schedule-scroll">
         <div id="schedule-root" class="loading">Načítám rozvrh…</div>
+      </div>
+
+      <!-- Zobrazuje se pouze na telefonu -->
+      <div class="mobile-day-panel" id="mobile-day-panel">
+        <div class="mobile-day-header">
+          <div>
+            <h3 id="mobile-day-title">Aktuální den</h3>
+            <p id="mobile-day-subtitle"></p>
+          </div>
+
+          <button class="day-detail" id="mobile-day-detail">
+            Detail dne
+          </button>
+        </div>
+
+        <div class="mobile-day-timeline" id="mobile-day-timeline"></div>
       </div>
 
       <div class="notice">
@@ -1032,6 +1142,7 @@
     Rozvrh III. A · interní orientační nástroj
   </footer>
 
+  <!-- Detail hodiny / dne / lektora -->
   <div class="overlay" id="modal-overlay">
     <div class="modal">
       <div class="modal-head">
@@ -1039,6 +1150,7 @@
           <h2 id="modal-title">Detail</h2>
           <p id="modal-subtitle"></p>
         </div>
+
         <button class="close" id="modal-close" title="Zavřít">×</button>
       </div>
 
@@ -1046,8 +1158,13 @@
     </div>
   </div>
 
-  <!-- Offline ruční import: používá se jen pokud fetch data.json selže. -->
-  <input class="file-input" id="file-input" type="file" accept=".json,application/json">
+  <!-- Offline ruční import -->
+  <input
+    class="file-input"
+    id="file-input"
+    type="file"
+    accept=".json,application/json"
+  >
 
   <div class="overlay" id="loader-overlay">
     <div class="modal" style="max-width:520px">
@@ -1061,7 +1178,7 @@
       <div class="modal-body">
         <p style="margin-top:0;color:var(--muted);line-height:1.65">
           Na GitHub Pages se soubor <strong>data.json</strong> načítá automaticky.
-          Toto okno se zobrazí pouze pokud soubor na serveru není dostupný nebo
+          Toto okno se zobrazí jen pokud soubor na serveru není dostupný nebo
           pokud stránku otevíráte dvojklikem offline.
         </p>
 
@@ -1075,7 +1192,7 @@
   <script>
     "use strict";
 
-    const STORAGE_KEY = "rozvrh-iii-a-offline-data-v1";
+    const STORAGE_KEY = "rozvrh-iii-a-offline-data-v2";
     const DAYS = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"];
 
     let DB = null;
@@ -1155,19 +1272,23 @@
     }
 
     function minutes(time) {
-      if (!time || !/^\d{2}:\d{2}$/.test(time)) return null;
+      if (!time || !/^\d{2}:\d{2}$/.test(time)) {
+        return null;
+      }
 
       const [hours, mins] = time.split(":").map(Number);
       return hours * 60 + mins;
     }
 
     function duration(start, end) {
-      const a = minutes(start);
-      const b = minutes(end);
+      const startMinutes = minutes(start);
+      const endMinutes = minutes(end);
 
-      if (a === null || b === null) return null;
+      if (startMinutes === null || endMinutes === null) {
+        return null;
+      }
 
-      return Math.max(0, b - a);
+      return Math.max(0, endMinutes - startMinutes);
     }
 
     function toIso(date) {
@@ -1186,9 +1307,9 @@
 
     function monday(dateString) {
       const date = new Date(dateString + "T12:00:00");
-      const day = date.getDay() || 7;
+      const weekday = date.getDay() || 7;
 
-      date.setDate(date.getDate() - (day - 1));
+      date.setDate(date.getDate() - (weekday - 1));
       return date;
     }
 
@@ -1211,7 +1332,12 @@
       return {
         start: first?.start || "",
         end: last?.end || "",
-        pending: Boolean(first?.timePending || last?.timePending || !first?.start || !last?.end)
+        pending: Boolean(
+          first?.timePending ||
+          last?.timePending ||
+          !first?.start ||
+          !last?.end
+        )
       };
     }
 
@@ -1244,29 +1370,37 @@
     function automaticWeekIndex() {
       const availableWeeks = getWeeks();
 
-      if (!availableWeeks.length) return 0;
+      if (!availableWeeks.length) {
+        return 0;
+      }
 
       const now = new Date();
       const weekday = now.getDay();
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-      let wantedMonday = monday(toIso(now));
+      let targetMonday = monday(toIso(now));
 
       if (
         (weekday === 5 && currentMinutes >= 14 * 60) ||
         weekday === 6 ||
         weekday === 0
       ) {
-        wantedMonday = addDays(wantedMonday, 7);
+        targetMonday = addDays(targetMonday, 7);
       }
 
-      const wantedIso = toIso(wantedMonday);
+      const targetIso = toIso(targetMonday);
 
-      const exact = availableWeeks.findIndex(item => item.iso === wantedIso);
-      if (exact !== -1) return exact;
+      const exactIndex = availableWeeks.findIndex(item => item.iso === targetIso);
 
-      const next = availableWeeks.findIndex(item => item.iso > wantedIso);
-      if (next !== -1) return next;
+      if (exactIndex !== -1) {
+        return exactIndex;
+      }
+
+      const nextIndex = availableWeeks.findIndex(item => item.iso > targetIso);
+
+      if (nextIndex !== -1) {
+        return nextIndex;
+      }
 
       return availableWeeks.length - 1;
     }
@@ -1299,34 +1433,50 @@
       start = "",
       end = "",
       lessonId = "",
-      extra = "",
-      forceDuration = null
+      extra = ""
     }) {
-      const calculated = duration(start, end);
-      const pixels = forceDuration ?? (calculated === null ? 46 : Math.max(18, calculated));
+      const calculatedDuration = duration(start, end);
+      const pixelHeight = calculatedDuration === null
+        ? 46
+        : Math.max(18, calculatedDuration || 18);
+
       const tag = lessonId ? "button" : "div";
-      const lessonAttribute = lessonId ? `data-lesson="${lessonId}"` : "";
-      const timeText = start && end ? `${start}–${end}` : "čas doplnit";
+      const lessonAttribute = lessonId
+        ? `data-lesson="${lessonId}"`
+        : "";
+
+      const timeText = start && end
+        ? `${start}–${end}`
+        : "čas doplnit";
 
       return `
         <${tag}
           class="block ${cssClass}"
-          style="--duration:${pixels}px"
+          style="--duration:${pixelHeight}px"
           ${lessonAttribute}
         >
           <span class="block-content">
-            <span class="block-title">${escapeHtml(title)}${extra}</span>
-            <span class="block-time">${escapeHtml(timeText)}</span>
+            <span class="block-title">
+              ${escapeHtml(title)}${extra}
+            </span>
+
+            <span class="block-time">
+              ${escapeHtml(timeText)}
+            </span>
           </span>
         </${tag}>
       `;
     }
 
-    function makeTimeline(date, showEmptyLessons = false) {
-      const query = $("#schedule-search").value.trim().toLocaleLowerCase("cs-CZ");
+    function makeTimeline(date) {
+      const query = $("#schedule-search").value
+        .trim()
+        .toLocaleLowerCase("cs-CZ");
 
       const lessons = lessonsForDay(date).filter(item => {
-        if (!query) return true;
+        if (!query) {
+          return true;
+        }
 
         const searchable = [
           subject(item.subjectId)?.short || "",
@@ -1345,18 +1495,6 @@
         lessons.map(item => [Number(item.daySlots.from), item])
       );
 
-      const occupiedSlots = new Set();
-
-      lessons.forEach(item => {
-        for (
-          let slot = Number(item.daySlots.from);
-          slot <= Number(item.daySlots.to);
-          slot++
-        ) {
-          occupiedSlots.add(slot);
-        }
-      });
-
       const eventByStart = new Map(
         eventsForDay(date).map(event => [event.start, event])
       );
@@ -1367,30 +1505,27 @@
         if (typeof segment.id === "number") {
           const lesson = lessonByStartSlot.get(segment.id);
 
-          if (lesson) {
-            const sub = subject(lesson.subjectId);
-            const time = lessonTime(lesson);
-
-            blocks.push(
-              createBlock({
-                cssClass: time.pending ? "unknown-time" : "lesson",
-                title: `${sub.short} · ${teacherShortNames(lesson.teacherIds)}`,
-                start: time.start,
-                end: time.end,
-                lessonId: lesson.id,
-                extra: ` <small>· ${escapeHtml(roomNames(lesson.roomIds))}</small>`
-              })
-            );
-          } else if (showEmptyLessons && !occupiedSlots.has(segment.id)) {
-            blocks.push(
-              createBlock({
-                cssClass: "empty",
-                title: "Bez zapsané výuky",
-                start: segment.start,
-                end: segment.end
-              })
-            );
+          /*
+            Prázdné výukové sloty se úmyslně nevykreslují.
+            Nikde se tedy neobjeví "Bez zapsané výuky".
+          */
+          if (!lesson) {
+            continue;
           }
+
+          const sub = subject(lesson.subjectId);
+          const time = lessonTime(lesson);
+
+          blocks.push(
+            createBlock({
+              cssClass: time.pending ? "unknown-time" : "lesson",
+              title: `${sub.short} · ${teacherShortNames(lesson.teacherIds)}`,
+              start: time.start,
+              end: time.end,
+              lessonId: lesson.id,
+              extra: ` <small>· ${escapeHtml(roomNames(lesson.roomIds))}</small>`
+            })
+          );
 
           continue;
         }
@@ -1406,6 +1541,7 @@
               end: event.end
             })
           );
+
           continue;
         }
 
@@ -1426,7 +1562,8 @@
       const weeks = getWeeks();
 
       if (!weeks.length) {
-        $("#schedule-root").innerHTML = `<div class="empty">V databázi zatím není žádný rozvrh.</div>`;
+        $("#schedule-root").innerHTML =
+          `<div class="loading">V databázi zatím není žádný rozvrh.</div>`;
         return;
       }
 
@@ -1468,16 +1605,92 @@
       `;
 
       $$("[data-lesson]").forEach(button => {
-        button.addEventListener("click", () => openLesson(button.dataset.lesson));
+        button.addEventListener("click", () => {
+          openLesson(button.dataset.lesson);
+        });
       });
 
       $$("[data-day]").forEach(button => {
-        button.addEventListener("click", () => openDay(button.dataset.day));
+        button.addEventListener("click", () => {
+          openDay(button.dataset.day);
+        });
+      });
+
+      renderMobileRelevantDay();
+    }
+
+    /*
+      Pro mobil vybere:
+      - dnešek, pokud dnešní výuka ještě neskončila;
+      - jinak nejbližší následující datum se zapsanou výukou;
+      - pokud nejsou budoucí data, poslední dostupný vyučovací den.
+    */
+    function getRelevantMobileDate() {
+      const datesWithLessons = [
+        ...new Set(DB.schedule.map(item => item.date))
+      ].sort();
+
+      if (!datesWithLessons.length) {
+        return null;
+      }
+
+      const now = new Date();
+      const today = toIso(now);
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+      const dayHasLessons = datesWithLessons.includes(today);
+      const lessonsFinished = currentMinutes >= (15 * 60 + 15);
+
+      if (dayHasLessons && !lessonsFinished) {
+        return today;
+      }
+
+      const nextDate = datesWithLessons.find(date => date > today);
+
+      if (nextDate) {
+        return nextDate;
+      }
+
+      return datesWithLessons[datesWithLessons.length - 1];
+    }
+
+    function renderMobileRelevantDay() {
+      const date = getRelevantMobileDate();
+
+      if (!date) {
+        $("#mobile-day-panel").style.display = "none";
+        return;
+      }
+
+      const dateObject = new Date(date + "T12:00:00");
+      const dayName = DAYS[(dateObject.getDay() + 6) % 7];
+
+      $("#mobile-day-title").textContent =
+        `${dayName} · ${czechDate(date)}`;
+
+      const today = toIso(new Date());
+
+      $("#mobile-day-subtitle").textContent =
+        date === today
+          ? "Aktuální den"
+          : "Nejbližší následující vyučovací den";
+
+      $("#mobile-day-timeline").innerHTML = makeTimeline(date);
+
+      $("#mobile-day-detail").onclick = () => openDay(date);
+
+      $$("[data-lesson]", $("#mobile-day-timeline")).forEach(button => {
+        button.addEventListener("click", () => {
+          openLesson(button.dataset.lesson);
+        });
       });
     }
 
     function renderTeachers() {
-      const query = $("#teacher-search").value.trim().toLocaleLowerCase("cs-CZ");
+      const query = $("#teacher-search").value
+        .trim()
+        .toLocaleLowerCase("cs-CZ");
+
       const department = $("#department-filter").value;
 
       const teachers = DB.teachers
@@ -1495,33 +1708,33 @@
         })
         .sort((a, b) => a.lastName.localeCompare(b.lastName, "cs"));
 
-      $("#teacher-root").innerHTML = teachers.length
-        ? teachers.map(item => `
-          <button class="teacher-card" data-teacher="${item.id}">
-            <span class="avatar">${escapeHtml(item.short)}</span>
+      $("#teacher-root").innerHTML = teachers.map(item => `
+        <button class="teacher-card" data-teacher="${item.id}">
+          <span class="avatar">${escapeHtml(item.short)}</span>
 
-            <span>
-              <strong>
-                ${escapeHtml(teacherName(item))}
-                <span class="chip">${escapeHtml(item.short)}</span>
-              </strong>
+          <span>
+            <strong>
+              ${escapeHtml(teacherName(item))}
+              <span class="chip">${escapeHtml(item.short)}</span>
+            </strong>
 
-              <small>${escapeHtml(item.department)}</small>
+            <small>${escapeHtml(item.department)}</small>
 
-              <small>
-                ${
-                  item.office
-                    ? `Kancelář ${escapeHtml(item.office.room)} · ${escapeHtml(floorName(item.office.buildingId, item.office.floorId))}`
-                    : "Kancelář není zatím uvedena"
-                }
-              </small>
-            </span>
-          </button>
-        `).join("")
-        : `<div class="empty">Tomuto hledání neodpovídá žádný lektor.</div>`;
+            <small>
+              ${
+                item.office
+                  ? `Kancelář ${escapeHtml(item.office.room)} · ${escapeHtml(floorName(item.office.buildingId, item.office.floorId))}`
+                  : "Kancelář není zatím uvedena"
+              }
+            </small>
+          </span>
+        </button>
+      `).join("");
 
       $$("[data-teacher]").forEach(button => {
-        button.addEventListener("click", () => openTeacher(button.dataset.teacher));
+        button.addEventListener("click", () => {
+          openTeacher(button.dataset.teacher);
+        });
       });
     }
 
@@ -1572,7 +1785,11 @@
             ${DB.timeline.segments.map(item => `
               <div class="regime-row">
                 <div class="regime-time">
-                  ${item.start && item.end ? `${item.start}${item.end !== item.start ? `–${item.end}` : ""}` : "Doplnit čas"}
+                  ${
+                    item.start && item.end
+                      ? `${item.start}${item.end !== item.start ? `–${item.end}` : ""}`
+                      : "Doplnit čas"
+                  }
                 </div>
 
                 <div>
@@ -1590,6 +1807,7 @@
               <strong style="color:var(--navy)">
                 ${escapeHtml(homeRoom?.name || "Učebna 130")}
               </strong><br>
+
               ${escapeHtml(building(homeRoom?.buildingId)?.name || "Školská budova")}
               ·
               ${escapeHtml(floorName(homeRoom?.buildingId, homeRoom?.floorId))}
@@ -1611,19 +1829,24 @@
       $("#modal-overlay").classList.add("open");
 
       $$("[data-open-teacher]", $("#modal-body")).forEach(button => {
-        button.addEventListener("click", () => openTeacher(button.dataset.openTeacher));
+        button.addEventListener("click", () => {
+          openTeacher(button.dataset.openTeacher);
+        });
       });
 
       $$("[data-show-map]", $("#modal-body")).forEach(button => {
         button.addEventListener("click", () => {
-          const item = teacher(button.dataset.showMap);
+          const currentTeacher = teacher(button.dataset.showMap);
+
           closeModal();
-          showTeacherMap(item);
+          showTeacherMap(currentTeacher);
         });
       });
 
       $$("[data-lesson]", $("#modal-body")).forEach(button => {
-        button.addEventListener("click", () => openLesson(button.dataset.lesson));
+        button.addEventListener("click", () => {
+          openLesson(button.dataset.lesson);
+        });
       });
     }
 
@@ -1666,6 +1889,7 @@
                 : "";
             }).join(", ")
           }
+
           <br>
           Aktuální rozvrh má vždy přednost před obvyklým přiřazením.
         </div>
@@ -1674,7 +1898,10 @@
 
     function openLesson(id) {
       const item = getById(DB.schedule, id);
-      if (!item) return;
+
+      if (!item) {
+        return;
+      }
 
       const sub = subject(item.subjectId);
       const time = lessonTime(item);
@@ -1685,7 +1912,13 @@
         `
           <dl class="detail">
             <dt>Čas výuky</dt>
-            <dd>${time.pending ? "Čas pro tento slot zatím není doplněn." : `${escapeHtml(time.start)}–${escapeHtml(time.end)}`}</dd>
+            <dd>
+              ${
+                time.pending
+                  ? "Čas pro tento slot zatím není doplněn."
+                  : `${escapeHtml(time.start)}–${escapeHtml(time.end)}`
+              }
+            </dd>
 
             <dt>Pořadí v daném dni</dt>
             <dd>${escapeHtml(dayOrder(item))}</dd>
@@ -1696,11 +1929,11 @@
             <dt>Aktuální lektor</dt>
             <dd>
               ${
-                item.teacherIds.map(id => {
-                  const current = teacher(id);
+                item.teacherIds.map(teacherId => {
+                  const currentTeacher = teacher(teacherId);
 
-                  return current
-                    ? `<button class="teacher-link" data-open-teacher="${id}">${escapeHtml(teacherName(current))}</button>`
+                  return currentTeacher
+                    ? `<button class="teacher-link" data-open-teacher="${teacherId}">${escapeHtml(teacherName(currentTeacher))}</button>`
                     : "";
                 }).join(", ")
               }
@@ -1709,7 +1942,11 @@
             <dt>Místnost / prostor</dt>
             <dd>${escapeHtml(roomNames(item.roomIds))}</dd>
 
-            ${item.note ? `<dt>Poznámka</dt><dd>${escapeHtml(item.note)}</dd>` : ""}
+            ${
+              item.note
+                ? `<dt>Poznámka</dt><dd>${escapeHtml(item.note)}</dd>`
+                : ""
+            }
           </dl>
 
           ${defaultTeacherInfo(sub, item.teacherIds)}
@@ -1719,7 +1956,10 @@
 
     function openTeacher(id) {
       const item = teacher(id);
-      if (!item) return;
+
+      if (!item) {
+        return;
+      }
 
       const office = item.office;
       const contacts = item.contacts || {};
@@ -1767,15 +2007,15 @@
     }
 
     function openDay(date) {
-      const object = new Date(date + "T12:00:00");
-      const dayName = DAYS[(object.getDay() + 6) % 7];
+      const dateObject = new Date(date + "T12:00:00");
+      const dayName = DAYS[(dateObject.getDay() + 6) % 7];
 
       openModal(
         `${dayName} · ${czechDate(date)}`,
         "Detail denního rozvrhu",
         `
           <div class="day-modal-timeline">
-            ${makeTimeline(date, true)}
+            ${makeTimeline(date)}
           </div>
         `
       );
@@ -1809,7 +2049,9 @@
     }
 
     function showTeacherMap(item) {
-      if (!item?.office || item.office.buildingId !== "u1") return;
+      if (!item?.office || item.office.buildingId !== "u1") {
+        return;
+      }
 
       showView("maps");
       setFloor(item.office.floorId);
@@ -1817,7 +2059,10 @@
       $("#map-info").textContent =
         `${teacherName(item)} · kancelář ${item.office.room} · ${floorName(item.office.buildingId, item.office.floorId)}`;
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
 
     function populateDepartments() {
@@ -1827,9 +2072,11 @@
 
       $("#department-filter").innerHTML = `
         <option value="">Všechna oddělení</option>
-        ${departments.map(item => `
-          <option value="${escapeHtml(item)}">${escapeHtml(item)}</option>
-        `).join("")}
+        ${
+          departments.map(item => `
+            <option value="${escapeHtml(item)}">${escapeHtml(item)}</option>
+          `).join("")
+        }
       `;
     }
 
@@ -1865,7 +2112,9 @@
     }
 
     function importLocalFile(file) {
-      if (!file) return;
+      if (!file) {
+        return;
+      }
 
       const reader = new FileReader();
 
@@ -1893,10 +2142,10 @@
     }
 
     /*
-      GitHub Pages / běžný hosting:
-      1. Vždy zkusí načíst aktuální data.json ze stejné složky.
-      2. Jen při chybě použije offline kopii z localStorage.
-      3. Pokud není ani jedna možnost, zobrazí ruční import.
+      GitHub Pages:
+      1. Vždy se nejdříve načte aktuální ./data.json.
+      2. Pokud se fetch nepodaří, použije se naposledy uložený offline JSON.
+      3. Pokud není ani offline kopie, objeví se ruční výběr souboru.
     */
     async function loadDatabase() {
       try {
@@ -1916,7 +2165,7 @@
 
         DB = parsed;
 
-        /* Uloží kopii pro případ offline dvojkliku. */
+        /* Uložení kopie pro offline použití. */
         localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
 
         applyDatabase();
@@ -1947,7 +2196,9 @@
 
     function attachEvents() {
       $$(".nav button").forEach(button => {
-        button.addEventListener("click", () => showView(button.dataset.view));
+        button.addEventListener("click", () => {
+          showView(button.dataset.view);
+        });
       });
 
       $("#prev-week").addEventListener("click", () => {
@@ -1965,22 +2216,36 @@
         renderSchedule();
       });
 
-      $("#schedule-search").addEventListener("input", renderSchedule);
-      $("#teacher-search").addEventListener("input", renderTeachers);
-      $("#department-filter").addEventListener("change", renderTeachers);
+      $("#schedule-search").addEventListener("input", () => {
+        renderSchedule();
+      });
+
+      $("#teacher-search").addEventListener("input", () => {
+        renderTeachers();
+      });
+
+      $("#department-filter").addEventListener("change", () => {
+        renderTeachers();
+      });
 
       $("#modal-close").addEventListener("click", closeModal);
 
       $("#modal-overlay").addEventListener("click", event => {
-        if (event.target === $("#modal-overlay")) closeModal();
+        if (event.target === $("#modal-overlay")) {
+          closeModal();
+        }
       });
 
       document.addEventListener("keydown", event => {
-        if (event.key === "Escape") closeModal();
+        if (event.key === "Escape") {
+          closeModal();
+        }
       });
 
       $$(".floor-btn").forEach(button => {
-        button.addEventListener("click", () => setFloor(button.dataset.floor));
+        button.addEventListener("click", () => {
+          setFloor(button.dataset.floor);
+        });
       });
 
       $("#update-data").addEventListener("click", () => {
@@ -1989,6 +2254,8 @@
 
       $("#file-input").addEventListener("change", event => {
         importLocalFile(event.target.files[0]);
+
+        /* Umožní načíst znovu tentýž soubor po úpravě. */
         event.target.value = "";
       });
     }
