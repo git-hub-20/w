@@ -1,0 +1,2071 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#112f49">
+  <title>Rozvrh III. A</title>
+
+  <style>
+    :root {
+      --navy: #112f49;
+      --navy2: #1d496d;
+      --teal: #147f9c;
+      --gold: #d5a23c;
+
+      --bg: #f2f6f8;
+      --card: #ffffff;
+      --text: #1b2c39;
+      --muted: #657786;
+      --line: #d6e0e6;
+
+      --lesson-bg: #e2f0da;
+      --lesson-line: #4f772d;
+      --break-bg: #e8eff3;
+      --break-line: #607989;
+      --assembly-bg: #d9edf7;
+      --assembly-line: #1478a8;
+      --lunch-bg: #fff0d4;
+      --lunch-line: #b85e09;
+      --service-bg: #ffe2df;
+      --service-line: #b42318;
+      --event-bg: #efe2f7;
+      --event-line: #74439a;
+
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(17, 47, 73, .11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(20, 127, 156, .12), transparent 32rem),
+        var(--bg);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .header {
+      color: #fff;
+      background: linear-gradient(125deg, var(--navy), var(--navy2));
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner,
+    main {
+      width: min(1440px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .header-inner {
+      padding-top: 20px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      color: var(--navy);
+      font-weight: 900;
+      background: var(--gold);
+      border-radius: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+    }
+
+    #subtitle {
+      margin: 4px 0 0;
+      color: #c8d9e6;
+      font-size: .9rem;
+    }
+
+    .header-tools {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .badge {
+      padding: 9px 12px;
+      font-size: .84rem;
+      font-weight: 700;
+      text-align: right;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 9px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3px;
+      overflow-x: auto;
+    }
+
+    .nav button {
+      padding: 12px 16px;
+      color: #c9d9e5;
+      white-space: nowrap;
+      background: transparent;
+      border: 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav button:hover,
+    .nav button.active {
+      color: #fff;
+      background: rgba(255, 255, 255, .09);
+      border-bottom-color: var(--gold);
+    }
+
+    main {
+      margin-top: 25px;
+      margin-bottom: 60px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--teal);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+    }
+
+    .hero > p:last-child {
+      max-width: 800px;
+      margin: 9px 0 18px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(17, 47, 73, .05);
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 17px;
+    }
+
+    .group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn,
+    .icon {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 12px;
+      color: var(--navy);
+      font-weight: 750;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      transition: .17s;
+    }
+
+    .btn:hover,
+    .icon:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 12px rgba(20, 127, 156, .16);
+      transform: translateY(-1px);
+    }
+
+    .btn.primary {
+      color: #fff;
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .btn.header-btn {
+      color: #fff;
+      background: rgba(255, 255, 255, .09);
+      border-color: rgba(255, 255, 255, .3);
+    }
+
+    .btn:disabled,
+    .icon:disabled {
+      cursor: default;
+      opacity: .42;
+      transform: none;
+    }
+
+    .week-label {
+      min-width: 220px;
+      color: var(--navy);
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .input,
+    .select {
+      width: min(100%, 350px);
+      min-height: 41px;
+      padding: 9px 12px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .input:focus,
+    .select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(20, 127, 156, .14);
+    }
+
+    /* ROZVRH */
+
+    .schedule-scroll {
+      overflow-x: auto;
+      padding-bottom: 9px;
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(235px, 1fr));
+      min-width: 1200px;
+      gap: 12px;
+    }
+
+    .day {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7px;
+      padding: 13px 14px;
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .day-head strong {
+      display: block;
+    }
+
+    .day-head span {
+      display: block;
+      margin-top: 2px;
+      color: #c5d5e2;
+      font-size: .78rem;
+    }
+
+    .day-detail {
+      padding: 7px 9px;
+      color: #fff;
+      font-size: .77rem;
+      font-weight: 750;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .26);
+      border-radius: 7px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /*
+      Každý pixel odpovídá 1 minutě:
+      90 minut výuky = 90 px;
+      15 minut přestávky = 15 px;
+      75 minut oběda = 75 px.
+    */
+    .block {
+      display: flex;
+      width: 100%;
+      height: var(--duration);
+      min-height: 18px;
+      align-items: center;
+      padding: 0 9px;
+      overflow: hidden;
+      color: var(--text);
+      font-size: .73rem;
+      line-height: 1.1;
+      text-align: left;
+      background: #fff;
+      border: 0;
+      border-left: 4px solid;
+      border-radius: 0;
+    }
+
+    .block-content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .block-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .block-title small {
+      font-size: .67rem;
+      font-weight: 600;
+      opacity: .85;
+    }
+
+    .block-time {
+      flex: 0 0 auto;
+      font-size: .66rem;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+      opacity: .83;
+    }
+
+    .block.lesson {
+      color: #254b16;
+      font-weight: 850;
+      background: var(--lesson-bg);
+      border-color: var(--lesson-line);
+    }
+
+    .block.lesson:hover {
+      filter: brightness(.97);
+      box-shadow: inset 0 0 0 1px rgba(79, 119, 45, .35);
+    }
+
+    .block.break {
+      color: #506572;
+      background: var(--break-bg);
+      border-color: var(--break-line);
+    }
+
+    .block.assembly,
+    .block.preparation {
+      color: #07567c;
+      font-weight: 750;
+      background: var(--assembly-bg);
+      border-color: var(--assembly-line);
+    }
+
+    .block.lunch,
+    .block.meal {
+      color: #834300;
+      font-weight: 800;
+      background: var(--lunch-bg);
+      border-color: var(--lunch-line);
+    }
+
+    .block.service,
+    .block.service-end {
+      color: #8c1912;
+      font-weight: 750;
+      background: var(--service-bg);
+      border-color: var(--service-line);
+    }
+
+    .block.event {
+      color: #64378a;
+      font-weight: 800;
+      background: var(--event-bg);
+      border-color: var(--event-line);
+    }
+
+    .block.empty {
+      color: #84939e;
+      font-style: italic;
+      background: #f5f7f8;
+      border-color: #cdd7dc;
+    }
+
+    .notice {
+      display: flex;
+      gap: 10px;
+      padding: 13px 15px;
+      margin-top: 16px;
+      color: #455967;
+      font-size: .9rem;
+      line-height: 1.5;
+      background: #eaf5f9;
+      border: 1px solid #cce5ef;
+      border-radius: 11px;
+    }
+
+    /* LEKTOŘI */
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .teacher-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+      padding: 14px;
+      color: var(--text);
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: .17s;
+    }
+
+    .teacher-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .avatar {
+      display: grid;
+      flex: 0 0 auto;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 900;
+      background: linear-gradient(145deg, var(--teal), var(--navy));
+      border-radius: 50%;
+    }
+
+    .teacher-card strong {
+      display: block;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .teacher-card small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 3px 7px;
+      color: #175d76;
+      font-size: .71rem;
+      background: #d8eff5;
+      border-radius: 99px;
+    }
+
+    /* PLÁNKY */
+
+    .map-layout {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .map-side {
+      padding: 18px;
+    }
+
+    .map-side h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .map-side p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    .floor-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .floor-btn {
+      padding: 10px;
+      color: var(--navy);
+      font-weight: 750;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .floor-btn.active {
+      color: #fff;
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .map-stage {
+      padding: 16px;
+      overflow: auto;
+      background: #e8eef1;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .map-photo {
+      display: none;
+      min-width: 680px;
+      max-width: 100%;
+      height: auto;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+    }
+
+    .map-photo.active {
+      display: block;
+    }
+
+    .map-info {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: .9rem;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    /* HARMONOGRAM A REŽIM */
+
+    .table-wrap {
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .91rem;
+    }
+
+    th,
+    td {
+      padding: 11px 13px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--navy);
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #edf4f7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+      margin-bottom: 17px;
+    }
+
+    .stat {
+      padding: 17px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: .81rem;
+      font-weight: 700;
+    }
+
+    .stat-number {
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 1.65rem;
+      font-weight: 900;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 18px;
+    }
+
+    .section {
+      padding: 20px;
+    }
+
+    .section h3 {
+      margin: 0 0 13px;
+      color: var(--navy);
+    }
+
+    .regime-row {
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #edf1f4;
+    }
+
+    .regime-row:last-child {
+      border: 0;
+    }
+
+    .regime-time {
+      color: var(--teal);
+      font-weight: 850;
+    }
+
+    /* MODÁLNÍ OKNA */
+
+    .overlay {
+      position: fixed;
+      z-index: 50;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(7, 25, 39, .65);
+      backdrop-filter: blur(3px);
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      width: min(720px, 100%);
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 25px 72px rgba(0, 0, 0, .35);
+    }
+
+    .modal-head {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+      justify-content: space-between;
+      padding: 21px 22px 16px;
+      color: #fff;
+      background: linear-gradient(125deg, var(--navy), var(--navy2));
+    }
+
+    .modal-head h2 {
+      color: #fff;
+      font-size: 1.35rem;
+    }
+
+    .modal-head p {
+      margin: 5px 0 0;
+      color: #c9d8e5;
+      font-size: .88rem;
+    }
+
+    .close {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      color: #fff;
+      font-size: 1.35rem;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 8px;
+    }
+
+    .modal-body {
+      padding: 21px 22px 24px;
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .detail dt,
+    .detail dd {
+      padding: 11px 13px;
+      margin: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail dt {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 750;
+      background: #f7f9fb;
+    }
+
+    .detail dd {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .teacher-link {
+      padding: 0;
+      color: var(--teal);
+      font-weight: 800;
+      text-decoration: underline;
+      background: transparent;
+      border: 0;
+    }
+
+    .callout {
+      padding: 13px 14px;
+      margin-top: 15px;
+      color: #405666;
+      font-size: .9rem;
+      line-height: 1.55;
+      background: #eff8fb;
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .day-modal-timeline {
+      display: flex;
+      flex-direction: column;
+      margin-top: 14px;
+    }
+
+    .day-modal-timeline .block {
+      font-size: .88rem;
+    }
+
+    .empty,
+    .loading {
+      padding: 48px 20px;
+      color: var(--muted);
+      text-align: center;
+      background: #fff;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+    }
+
+    /*
+      Input je vizuálně skrytý, ale zůstává nativně funkční.
+      Label s for="file-input" proto otevře souborový dialog i při dvojkliku.
+    */
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 22px;
+      color: #bdccd7;
+      font-size: .83rem;
+      text-align: center;
+      background: var(--navy);
+    }
+
+    @media (max-width: 900px) {
+      .map-layout,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-inner,
+      main {
+        width: min(100% - 20px, 1440px);
+      }
+
+      .top,
+      .header-tools {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .badge {
+        text-align: left;
+      }
+
+      .schedule-scroll {
+        overflow: visible;
+      }
+
+      .week-grid {
+        grid-template-columns: 1fr;
+        min-width: 0;
+      }
+
+      /* Mobil: jen hlavička dne a tlačítko detailu. */
+      .day .timeline {
+        display: none;
+      }
+
+      .day::after {
+        display: block;
+        padding: 10px;
+        color: var(--muted);
+        font-size: .82rem;
+        content: "Otevřete detail dne pro časovou osu.";
+      }
+
+      .day-head {
+        padding: 15px;
+      }
+
+      .week-label {
+        flex: 1;
+        min-width: 0;
+        font-size: .82rem;
+      }
+
+      .input,
+      .select {
+        width: 100%;
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+      }
+
+      .detail dt {
+        padding-bottom: 4px;
+        border-bottom: 0;
+      }
+
+      .detail dd {
+        padding-top: 4px;
+      }
+
+      .map-photo {
+        min-width: 620px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="top">
+        <div class="brand">
+          <div class="brand-mark">III</div>
+
+          <div>
+            <h1>Rozvrh III. A</h1>
+            <p id="subtitle">ZOP Policie · rozvrh, lektoři a orientace</p>
+          </div>
+        </div>
+
+        <div class="header-tools">
+          <div class="badge" id="home-badge">
+            Kmenová učebna: 130<br>
+            Školská budova
+          </div>
+
+          <button class="btn header-btn" id="update-data">
+            Aktualizovat data
+          </button>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="active" data-view="schedule">Rozvrh</button>
+        <button data-view="teachers">Lektoři</button>
+        <button data-view="maps">Mapy U1</button>
+        <button data-view="study">Harmonogram</button>
+        <button data-view="regime">Denní režim</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="view active" id="schedule">
+      <div class="hero">
+        <p class="eyebrow">Aktuální plán výuky</p>
+        <h2>Týdenní rozvrh</h2>
+        <p>
+          Bloky odpovídají délce skutečného času. Čas je vidět přímo v rozvrhu.
+          Kliknutím na výuku otevřete podrobnosti.
+        </p>
+      </div>
+
+      <div class="card toolbar">
+        <div class="group">
+          <button class="icon" id="prev-week" title="Předchozí týden">←</button>
+          <div class="week-label" id="week-label">Načítání…</div>
+          <button class="icon" id="next-week" title="Další týden">→</button>
+          <button class="btn" id="first-week">První týden</button>
+        </div>
+
+        <input
+          class="input"
+          id="schedule-search"
+          type="search"
+          placeholder="Hledat předmět, lektora nebo místnost…"
+        >
+      </div>
+
+      <div class="schedule-scroll">
+        <div id="schedule-root" class="loading">Nejprve načtěte databázi.</div>
+      </div>
+
+      <div class="notice">
+        <strong>Legenda:</strong>
+        <span>
+          Zeleně výuka · modře nástupy · šedomodře přestávky · oranžově oběd/strava · červeně konec služby.
+        </span>
+      </div>
+    </section>
+
+    <section class="view" id="teachers">
+      <div class="hero">
+        <p class="eyebrow">Kontakty a kanceláře</p>
+        <h2>Lektoři</h2>
+        <p>
+          Vyhledejte lektora podle jména, zkratky nebo oddělení.
+          Profil obsahuje hodnost, titul, kancelář a správné podlaží U1.
+        </p>
+      </div>
+
+      <div class="card toolbar">
+        <input
+          class="input"
+          id="teacher-search"
+          type="search"
+          placeholder="Např. Mašín, Šiz, psychologie…"
+        >
+
+        <select class="select" id="department-filter">
+          <option value="">Všechna oddělení</option>
+        </select>
+      </div>
+
+      <div id="teacher-root" class="teacher-grid"></div>
+    </section>
+
+    <section class="view" id="maps">
+      <div class="hero">
+        <p class="eyebrow">Budova U1</p>
+        <h2>Plánky kanceláří</h2>
+        <p>
+          Zobrazují se fotografie plánků uložené ve složce FOTO/PLANKY.
+        </p>
+      </div>
+
+      <div class="map-layout">
+        <aside class="card map-side">
+          <h3>Výběr podlaží</h3>
+          <p id="map-selected">U1 · 1. podlaží</p>
+
+          <div class="floor-list">
+            <button class="floor-btn active" data-floor="patro-1">U1 · 1. podlaží</button>
+            <button class="floor-btn" data-floor="patro-2">U1 · 2. podlaží</button>
+            <button class="floor-btn" data-floor="suterén">U1 · suterén</button>
+          </div>
+        </aside>
+
+        <div class="map-stage">
+          <img
+            id="plan-suterén"
+            class="map-photo"
+            src="FOTO/PLANKY/1.png"
+            alt="Budova U1 – suterén"
+          >
+
+          <img
+            id="plan-patro-1"
+            class="map-photo active"
+            src="FOTO/PLANKY/2.png"
+            alt="Budova U1 – 1. podlaží"
+          >
+
+          <img
+            id="plan-patro-2"
+            class="map-photo"
+            src="FOTO/PLANKY/3.png"
+            alt="Budova U1 – 2. podlaží"
+          >
+
+          <div class="map-info" id="map-info">
+            Aktuálně zobrazeno: U1 · 1. podlaží.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="study">
+      <div class="hero">
+        <p class="eyebrow">Studijní plán</p>
+        <h2>Harmonogram studia</h2>
+      </div>
+
+      <div class="card table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kalendářní týden</th>
+              <th>Výukový týden</th>
+              <th>Termín</th>
+              <th>Událost</th>
+              <th>Hodin výuky</th>
+            </tr>
+          </thead>
+          <tbody id="study-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="view" id="regime">
+      <div class="hero">
+        <p class="eyebrow">Organizace dne</p>
+        <h2>Denní režim</h2>
+      </div>
+
+      <div id="regime-root" class="loading">Nejprve načtěte databázi.</div>
+    </section>
+  </main>
+
+  <footer>
+    Rozvrh III. A · interní orientační nástroj · data jsou uložená v souboru <strong>data.json</strong>
+  </footer>
+
+  <!-- Detail -->
+  <div class="overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h2 id="modal-title">Detail</h2>
+          <p id="modal-subtitle"></p>
+        </div>
+
+        <button class="close" id="modal-close" title="Zavřít">×</button>
+      </div>
+
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Výběr externí databáze -->
+  <input
+    class="file-input"
+    id="file-input"
+    type="file"
+    accept=".json,application/json"
+  >
+
+  <div class="overlay open" id="loader-overlay">
+    <div class="modal" style="max-width:520px">
+      <div class="modal-head">
+        <div>
+          <h2>Načíst databázi rozvrhu</h2>
+          <p>Vyberte samostatný soubor data.json.</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p style="margin-top:0;color:var(--muted);line-height:1.65">
+          Po prvním načtení se databáze uloží přímo do tohoto prohlížeče.
+          Při dalším otevření HTML souboru dvojklikem se automaticky obnoví.
+        </p>
+
+        <label class="btn primary" for="file-input">
+          Načíst databázi rozvrhu
+        </label>
+
+        <p style="margin:18px 0 0;color:var(--muted);font-size:.83rem">
+          Pokud data později upravíte, klikněte nahoře na „Aktualizovat data“.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "rozvrh-iii-a-v6";
+    const DAYS = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"];
+
+    let DB = null;
+    let weekIndex = 0;
+
+    const $ = (selector, parent = document) => parent.querySelector(selector);
+    const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+
+    function escapeHtml(value = "") {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function getById(list, id) {
+      return (list || []).find(item => item.id === id);
+    }
+
+    function subject(id) {
+      return getById(DB.subjects, id);
+    }
+
+    function teacher(id) {
+      return getById(DB.teachers, id);
+    }
+
+    function room(id) {
+      return getById(DB.rooms, id);
+    }
+
+    function building(id) {
+      return getById(DB.buildings, id);
+    }
+
+    function teacherName(item) {
+      return [
+        item?.rank,
+        item?.title,
+        item?.firstName,
+        item?.lastName
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function teachersShort(ids) {
+      return ids
+        .map(teacher)
+        .filter(Boolean)
+        .map(item => item.short)
+        .join(", ");
+    }
+
+    function teachersFull(ids) {
+      return ids
+        .map(teacher)
+        .filter(Boolean)
+        .map(teacherName)
+        .join(", ");
+    }
+
+    function roomNames(ids) {
+      return ids
+        .map(room)
+        .filter(Boolean)
+        .map(item => item.name)
+        .join(" · ");
+    }
+
+    function floorName(buildingId, floorId) {
+      return building(buildingId)?.floors?.find(item => item.id === floorId)?.label || "";
+    }
+
+    function minutes(time) {
+      const [hours, mins] = time.split(":").map(Number);
+      return hours * 60 + mins;
+    }
+
+    function duration(start, end) {
+      return Math.max(0, minutes(end) - minutes(start));
+    }
+
+    function toIso(date) {
+      const offset = date.getTimezoneOffset();
+
+      return new Date(date.getTime() - offset * 60000)
+        .toISOString()
+        .slice(0, 10);
+    }
+
+    function addDays(date, amount) {
+      const result = new Date(date);
+      result.setDate(result.getDate() + amount);
+      return result;
+    }
+
+    function monday(dateString) {
+      const date = new Date(dateString + "T12:00:00");
+      const day = date.getDay() || 7;
+
+      date.setDate(date.getDate() - (day - 1));
+      return date;
+    }
+
+    function czechDate(dateString) {
+      return new Intl.DateTimeFormat("cs-CZ", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric"
+      }).format(new Date(dateString + "T12:00:00"));
+    }
+
+    function timelineSegment(id) {
+      return DB.timeline.segments.find(item => item.id === id);
+    }
+
+    function lessonTime(item) {
+      return {
+        start: timelineSegment(item.daySlots.from)?.start || "",
+        end: timelineSegment(item.daySlots.to)?.end || ""
+      };
+    }
+
+    function dayOrder(item) {
+      const from = Number(item.daySlots.from) + 1;
+      const to = Number(item.daySlots.to) + 1;
+
+      return from === to
+        ? `${from}. vyučovací hodina dne`
+        : `${from}.–${to}. vyučovací hodina dne`;
+    }
+
+    function getWeeks() {
+      const allMondayDates = [
+        ...new Set(DB.schedule.map(item => toIso(monday(item.date))))
+      ].sort();
+
+      return allMondayDates.map(dateString => {
+        const mondayDate = new Date(dateString + "T12:00:00");
+        const fridayDate = addDays(mondayDate, 4);
+
+        return {
+          monday: mondayDate,
+          iso: dateString,
+          label: `${czechDate(dateString)} – ${czechDate(toIso(fridayDate))}`
+        };
+      });
+    }
+
+    /*
+      Automatický výběr týdne:
+      - pondělí až pátek do 13:59 = tento týden;
+      - pátek od 14:00 = další týden;
+      - sobota a neděle = další týden;
+      - není-li týden v databázi, zvolí se nejbližší další dostupný.
+    */
+    function getAutomaticWeekIndex() {
+      const availableWeeks = getWeeks();
+
+      if (!availableWeeks.length) {
+        return 0;
+      }
+
+      const now = new Date();
+      const day = now.getDay();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+      let targetMonday = monday(toIso(now));
+
+      if (
+        (day === 5 && currentMinutes >= 14 * 60) ||
+        day === 6 ||
+        day === 0
+      ) {
+        targetMonday = addDays(targetMonday, 7);
+      }
+
+      const targetIso = toIso(targetMonday);
+
+      const exactIndex = availableWeeks.findIndex(week => week.iso === targetIso);
+
+      if (exactIndex !== -1) {
+        return exactIndex;
+      }
+
+      const nextFutureIndex = availableWeeks.findIndex(week => week.iso > targetIso);
+
+      if (nextFutureIndex !== -1) {
+        return nextFutureIndex;
+      }
+
+      return availableWeeks.length - 1;
+    }
+
+    function lessonsForDay(date) {
+      return DB.schedule
+        .filter(item => item.date === date)
+        .sort((a, b) => Number(a.daySlots.from) - Number(b.daySlots.from));
+    }
+
+    function eventsForDay(date) {
+      return (DB.events || []).filter(item => item.date === date);
+    }
+
+    function segmentClass(type) {
+      if (type === "assembly") return "assembly";
+      if (type === "preparation") return "preparation";
+      if (type === "break") return "break";
+      if (type === "lunch") return "lunch";
+      if (type === "meal") return "meal";
+      if (type === "service") return "service";
+      if (type === "service-end") return "service-end";
+
+      return "break";
+    }
+
+    function createBlock(cssClass, title, start, end, lessonId = "", extra = "") {
+      const pixels = Math.max(18, duration(start, end) || 18);
+      const tag = lessonId ? "button" : "div";
+      const lessonAttribute = lessonId ? `data-lesson="${lessonId}"` : "";
+
+      return `
+        <${tag}
+          class="block ${cssClass}"
+          style="--duration:${pixels}px"
+          ${lessonAttribute}
+        >
+          <span class="block-content">
+            <span class="block-title">
+              ${escapeHtml(title)}${extra}
+            </span>
+
+            <span class="block-time">
+              ${escapeHtml(start)}${end !== start ? `–${escapeHtml(end)}` : ""}
+            </span>
+          </span>
+        </${tag}>
+      `;
+    }
+
+    function makeTimeline(date, showEmptyLessons = false) {
+      const query = $("#schedule-search").value.trim().toLocaleLowerCase("cs-CZ");
+
+      const filteredLessons = lessonsForDay(date).filter(item => {
+        if (!query) return true;
+
+        const searchableText = [
+          subject(item.subjectId)?.short || "",
+          subject(item.subjectId)?.name || "",
+          teachersFull(item.teacherIds),
+          roomNames(item.roomIds),
+          item.note || ""
+        ]
+          .join(" ")
+          .toLocaleLowerCase("cs-CZ");
+
+        return searchableText.includes(query);
+      });
+
+      const lessonsByStartSlot = new Map(
+        filteredLessons.map(item => [Number(item.daySlots.from), item])
+      );
+
+      const occupiedSlots = new Set();
+
+      filteredLessons.forEach(item => {
+        for (
+          let slot = Number(item.daySlots.from);
+          slot <= Number(item.daySlots.to);
+          slot++
+        ) {
+          occupiedSlots.add(slot);
+        }
+      });
+
+      const dayEvents = eventsForDay(date);
+      const eventByStart = new Map(dayEvents.map(event => [event.start, event]));
+
+      const blocks = [];
+
+      for (const segment of DB.timeline.segments) {
+        /* Výukové sloty */
+        if (typeof segment.id === "number") {
+          const lesson = lessonsByStartSlot.get(segment.id);
+
+          if (lesson) {
+            const sub = subject(lesson.subjectId);
+            const time = lessonTime(lesson);
+
+            blocks.push(
+              createBlock(
+                "lesson",
+                `${sub.short} · ${teachersShort(lesson.teacherIds)}`,
+                time.start,
+                time.end,
+                lesson.id,
+                ` <small>· ${escapeHtml(roomNames(lesson.roomIds))}</small>`
+              )
+            );
+          } else if (showEmptyLessons && !occupiedSlots.has(segment.id)) {
+            blocks.push(
+              createBlock(
+                "empty",
+                "Bez zapsané výuky",
+                segment.start,
+                segment.end
+              )
+            );
+          }
+
+          continue;
+        }
+
+        /* Mimořádná organizační událost */
+        const event = eventByStart.get(segment.start);
+
+        if (event) {
+          blocks.push(
+            createBlock(
+              "event",
+              event.title,
+              event.start,
+              event.end
+            )
+          );
+
+          continue;
+        }
+
+        /* Běžné bloky: přestávky, nástupy, oběd apod. */
+        blocks.push(
+          createBlock(
+            segmentClass(segment.type),
+            segment.shortLabel || segment.label,
+            segment.start,
+            segment.end
+          )
+        );
+      }
+
+      return blocks.join("");
+    }
+
+    function renderSchedule() {
+      if (!DB) return;
+
+      const availableWeeks = getWeeks();
+
+      weekIndex = Math.max(0, Math.min(weekIndex, availableWeeks.length - 1));
+
+      const currentWeek = availableWeeks[weekIndex];
+
+      $("#week-label").textContent =
+        `Týden ${weekIndex + 1}/${availableWeeks.length} · ${currentWeek.label}`;
+
+      $("#prev-week").disabled = weekIndex === 0;
+      $("#next-week").disabled = weekIndex === availableWeeks.length - 1;
+
+      $("#schedule-root").innerHTML = `
+        <div class="week-grid">
+          ${DAYS.map((dayName, index) => {
+            const date = toIso(addDays(currentWeek.monday, index));
+
+            return `
+              <article class="day">
+                <header class="day-head">
+                  <div>
+                    <strong>${dayName}</strong>
+                    <span>${czechDate(date)}</span>
+                  </div>
+
+                  <button class="day-detail" data-day="${date}">
+                    Detail dne
+                  </button>
+                </header>
+
+                <div class="timeline">
+                  ${makeTimeline(date, false)}
+                </div>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+
+      $$("[data-lesson]").forEach(button => {
+        button.addEventListener("click", () => openLesson(button.dataset.lesson));
+      });
+
+      $$("[data-day]").forEach(button => {
+        button.addEventListener("click", () => openDay(button.dataset.day));
+      });
+    }
+
+    function renderTeachers() {
+      if (!DB) return;
+
+      const query = $("#teacher-search").value.trim().toLocaleLowerCase("cs-CZ");
+      const department = $("#department-filter").value;
+
+      const teacherList = DB.teachers
+        .filter(item => {
+          const searchableText = [
+            teacherName(item),
+            item.short,
+            item.department
+          ]
+            .join(" ")
+            .toLocaleLowerCase("cs-CZ");
+
+          return (!query || searchableText.includes(query)) &&
+            (!department || item.department === department);
+        })
+        .sort((a, b) => a.lastName.localeCompare(b.lastName, "cs"));
+
+      $("#teacher-root").innerHTML = teacherList.length
+        ? teacherList.map(item => `
+          <button class="teacher-card" data-teacher="${item.id}">
+            <span class="avatar">${escapeHtml(item.short)}</span>
+
+            <span>
+              <strong>
+                ${escapeHtml(teacherName(item))}
+                <span class="chip">${escapeHtml(item.short)}</span>
+              </strong>
+
+              <small>${escapeHtml(item.department)}</small>
+
+              <small>
+                ${
+                  item.office
+                    ? `Kancelář ${escapeHtml(item.office.room)} · ${escapeHtml(floorName(item.office.buildingId, item.office.floorId))}`
+                    : "Kancelář není zatím uvedena"
+                }
+              </small>
+            </span>
+          </button>
+        `).join("")
+        : `<div class="empty">Tomuto hledání neodpovídá žádný lektor.</div>`;
+
+      $$("[data-teacher]").forEach(button => {
+        button.addEventListener("click", () => openTeacher(button.dataset.teacher));
+      });
+    }
+
+    function renderStudy() {
+      $("#study-body").innerHTML = (DB.studySchedule || [])
+        .map(item => `
+          <tr>
+            <td><strong>${item.calendarWeek}.</strong></td>
+            <td>${item.teachingWeek}.</td>
+            <td>${escapeHtml(item.dateRange)}</td>
+            <td>${escapeHtml(item.event || "—")}</td>
+            <td><strong>${item.teachingHours}</strong></td>
+          </tr>
+        `)
+        .join("");
+    }
+
+    function renderRegime() {
+      const homeRoom = room(DB.meta.homeRoomId);
+
+      $("#regime-root").innerHTML = `
+        <div class="stats">
+          <article class="card stat">
+            <div class="stat-label">Položek rozvrhu</div>
+            <div class="stat-number">${DB.schedule.length}</div>
+          </article>
+
+          <article class="card stat">
+            <div class="stat-label">Předmětů v rozvrhu</div>
+            <div class="stat-number">${new Set(DB.schedule.map(item => item.subjectId)).size}</div>
+          </article>
+
+          <article class="card stat">
+            <div class="stat-label">Lektorů v rozvrhu</div>
+            <div class="stat-number">${new Set(DB.schedule.flatMap(item => item.teacherIds)).size}</div>
+          </article>
+
+          <article class="card stat">
+            <div class="stat-label">Kmenová učebna</div>
+            <div class="stat-number">${escapeHtml(homeRoom?.name?.replace("Učebna ", "") || "130")}</div>
+          </article>
+        </div>
+
+        <div class="two-col">
+          <section class="card section">
+            <h3>Časový režim dne</h3>
+
+            ${DB.timeline.segments.map(item => `
+              <div class="regime-row">
+                <div class="regime-time">
+                  ${item.start}${item.end !== item.start ? `–${item.end}` : ""}
+                </div>
+
+                <div>
+                  ${escapeHtml(item.label)}
+                  ${item.detail ? `<br><small>${escapeHtml(item.detail)}</small>` : ""}
+                </div>
+              </div>
+            `).join("")}
+          </section>
+
+          <section class="card section">
+            <h3>Kmenová učebna</h3>
+
+            <p style="color:var(--muted);line-height:1.6">
+              <strong style="color:var(--navy)">
+                ${escapeHtml(homeRoom?.name || "Učebna 130")}
+              </strong><br>
+
+              ${escapeHtml(building(homeRoom?.buildingId)?.name || "Školská budova")}
+              ·
+              ${escapeHtml(floorName(homeRoom?.buildingId, homeRoom?.floorId))}
+            </p>
+
+            <p style="color:var(--muted);line-height:1.55;font-size:.9rem">
+              ${escapeHtml(DB.meta.scheduleRule)}
+            </p>
+          </section>
+        </div>
+      `;
+    }
+
+    function openModal(title, subtitle, html) {
+      $("#modal-title").textContent = title;
+      $("#modal-subtitle").textContent = subtitle;
+      $("#modal-body").innerHTML = html;
+
+      $("#modal-overlay").classList.add("open");
+
+      $$("[data-open-teacher]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openTeacher(button.dataset.openTeacher));
+      });
+
+      $$("[data-show-map]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => {
+          const item = teacher(button.dataset.showMap);
+          closeModal();
+          showTeacherMap(item);
+        });
+      });
+
+      $$("[data-lesson]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openLesson(button.dataset.lesson));
+      });
+    }
+
+    function closeModal() {
+      $("#modal-overlay").classList.remove("open");
+    }
+
+    function defaultTeacherInfo(sub, actualTeacherIds) {
+      const defaults = sub.defaultTeacherIds || [];
+
+      if (!defaults.length) {
+        return `
+          <div class="callout">
+            Obvyklý lektor tohoto předmětu zatím není v databázi uveden.
+          </div>
+        `;
+      }
+
+      const same =
+        defaults.length === actualTeacherIds.length &&
+        defaults.every(id => actualTeacherIds.includes(id));
+
+      if (same) {
+        return `
+          <div class="callout">
+            Aktuální lektor odpovídá obvyklému přiřazení předmětu.
+          </div>
+        `;
+      }
+
+      return `
+        <div class="callout">
+          <strong>Obvyklý lektor předmětu:</strong>
+          ${
+            defaults.map(id => {
+              const item = teacher(id);
+
+              return item
+                ? `<button class="teacher-link" data-open-teacher="${id}">${escapeHtml(teacherName(item))}</button>`
+                : "";
+            }).join(", ")
+          }
+          <br>
+          Aktuální rozvrh má vždy přednost před obvyklým přiřazením.
+        </div>
+      `;
+    }
+
+    function openLesson(id) {
+      const item = getById(DB.schedule, id);
+
+      if (!item) return;
+
+      const sub = subject(item.subjectId);
+      const time = lessonTime(item);
+
+      openModal(
+        `${sub.short} · ${sub.name}`,
+        `${czechDate(item.date)} · ${time.start}–${time.end}`,
+        `
+          <dl class="detail">
+            <dt>Čas výuky</dt>
+            <dd>${escapeHtml(time.start)}–${escapeHtml(time.end)}</dd>
+
+            <dt>Pořadí v daném dni</dt>
+            <dd>${escapeHtml(dayOrder(item))}</dd>
+
+            <dt>Hodiny předmětu</dt>
+            <dd>${item.curriculumHours.from}.–${item.curriculumHours.to}. hodina předmětu</dd>
+
+            <dt>Aktuální lektor</dt>
+            <dd>
+              ${
+                item.teacherIds.map(teacherId => {
+                  const currentTeacher = teacher(teacherId);
+
+                  return currentTeacher
+                    ? `<button class="teacher-link" data-open-teacher="${teacherId}">${escapeHtml(teacherName(currentTeacher))}</button>`
+                    : "";
+                }).join(", ")
+              }
+            </dd>
+
+            <dt>Místnost / prostor</dt>
+            <dd>${escapeHtml(roomNames(item.roomIds))}</dd>
+
+            ${
+              item.note
+                ? `<dt>Poznámka</dt><dd>${escapeHtml(item.note)}</dd>`
+                : ""
+            }
+          </dl>
+
+          ${defaultTeacherInfo(sub, item.teacherIds)}
+        `
+      );
+    }
+
+    function openTeacher(id) {
+      const item = teacher(id);
+
+      if (!item) return;
+
+      const office = item.office;
+      const contacts = item.contacts || {};
+
+      openModal(
+        teacherName(item),
+        `${item.short} · ${item.department}`,
+        `
+          <dl class="detail">
+            <dt>Oddělení</dt>
+            <dd>${escapeHtml(item.department)}</dd>
+
+            <dt>Kancelář</dt>
+            <dd>${office ? escapeHtml(office.room) : "Není uvedena"}</dd>
+
+            <dt>Budova a patro</dt>
+            <dd>
+              ${
+                office
+                  ? `${escapeHtml(building(office.buildingId)?.name || "")} · ${escapeHtml(floorName(office.buildingId, office.floorId))}`
+                  : "—"
+              }
+            </dd>
+
+            <dt>E-mail</dt>
+            <dd>${contacts.email ? escapeHtml(contacts.email) : "Doplní se"}</dd>
+
+            <dt>Telefon</dt>
+            <dd>${contacts.phone ? escapeHtml(contacts.phone) : "Doplní se"}</dd>
+          </dl>
+
+          ${
+            office
+              ? `
+                <div class="actions">
+                  <button class="btn primary" data-show-map="${item.id}">
+                    Zobrazit patro na plánku
+                  </button>
+                </div>
+              `
+              : ""
+          }
+        `
+      );
+    }
+
+    function openDay(date) {
+      const dateObject = new Date(date + "T12:00:00");
+      const dayName = DAYS[(dateObject.getDay() + 6) % 7];
+
+      openModal(
+        `${dayName} · ${czechDate(date)}`,
+        "Detail denního rozvrhu",
+        `
+          <div class="day-modal-timeline">
+            ${makeTimeline(date, true)}
+          </div>
+        `
+      );
+    }
+
+    function showView(id) {
+      $$(".view").forEach(item => item.classList.remove("active"));
+      $(`#${id}`).classList.add("active");
+
+      $$(".nav button").forEach(button => {
+        button.classList.toggle("active", button.dataset.view === id);
+      });
+    }
+
+    function setFloor(floorId) {
+      $$(".map-photo").forEach(item => item.classList.remove("active"));
+      $$(".floor-btn").forEach(item => item.classList.remove("active"));
+
+      $(`#plan-${floorId}`).classList.add("active");
+      $(`.floor-btn[data-floor="${floorId}"]`).classList.add("active");
+
+      const label =
+        floorId === "suterén"
+          ? "U1 · suterén"
+          : floorId === "patro-1"
+            ? "U1 · 1. podlaží"
+            : "U1 · 2. podlaží";
+
+      $("#map-selected").textContent = label;
+      $("#map-info").textContent = `Aktuálně zobrazeno: ${label}.`;
+    }
+
+    function showTeacherMap(item) {
+      if (!item?.office) return;
+
+      showView("maps");
+      setFloor(item.office.floorId);
+
+      $("#map-info").textContent =
+        `${teacherName(item)} · kancelář ${item.office.room} · ${floorName(item.office.buildingId, item.office.floorId)}`;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function loadDepartments() {
+      const departments = [
+        ...new Set(DB.teachers.map(item => item.department))
+      ].sort((a, b) => a.localeCompare(b, "cs"));
+
+      $("#department-filter").innerHTML = `
+        <option value="">Všechna oddělení</option>
+        ${
+          departments.map(item => `
+            <option value="${escapeHtml(item)}">${escapeHtml(item)}</option>
+          `).join("")
+        }
+      `;
+    }
+
+    function applyDatabase() {
+      const homeRoom = room(DB.meta.homeRoomId);
+
+      $("#subtitle").textContent =
+        `${DB.meta.displayClassLabel} · ${DB.meta.academicYear} · rozvrh, lektoři a orientace`;
+
+      $("#home-badge").innerHTML =
+        `Kmenová učebna: ${escapeHtml(homeRoom?.name?.replace("Učebna ", "") || "130")}<br>` +
+        `${escapeHtml(building(homeRoom?.buildingId)?.name || "Školská budova")}`;
+
+      loadDepartments();
+
+      /* Automaticky vybere aktuální / následující týden. */
+      weekIndex = getAutomaticWeekIndex();
+
+      renderSchedule();
+      renderTeachers();
+      renderStudy();
+      renderRegime();
+
+      $("#loader-overlay").classList.remove("open");
+    }
+
+    function importFile(file) {
+      if (!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = event => {
+        try {
+          const parsed = JSON.parse(event.target.result);
+
+          if (
+            !parsed.meta ||
+            !Array.isArray(parsed.schedule) ||
+            !Array.isArray(parsed.teachers) ||
+            !parsed.timeline?.segments
+          ) {
+            throw new Error("Soubor nemá očekávanou strukturu data.json.");
+          }
+
+          DB = parsed;
+          localStorage.setItem(STORAGE_KEY, event.target.result);
+
+          applyDatabase();
+
+          alert(`Databáze byla načtena.\nPoložek rozvrhu: ${DB.schedule.length}`);
+        } catch (error) {
+          alert(`Databázi se nepodařilo načíst.\n\n${error.message}`);
+          console.error(error);
+        }
+      };
+
+      reader.onerror = () => {
+        alert("Vybraný soubor se nepodařilo přečíst.");
+      };
+
+      reader.readAsText(file, "utf-8");
+    }
+
+    function restoreDatabase() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+
+      if (!raw) {
+        $("#loader-overlay").classList.add("open");
+        return;
+      }
+
+      try {
+        DB = JSON.parse(raw);
+        applyDatabase();
+      } catch (error) {
+        console.error(error);
+        localStorage.removeItem(STORAGE_KEY);
+        $("#loader-overlay").classList.add("open");
+      }
+    }
+
+    function attachEvents() {
+      $$(".nav button").forEach(button => {
+        button.addEventListener("click", () => showView(button.dataset.view));
+      });
+
+      $("#prev-week").addEventListener("click", () => {
+        weekIndex--;
+        renderSchedule();
+      });
+
+      $("#next-week").addEventListener("click", () => {
+        weekIndex++;
+        renderSchedule();
+      });
+
+      $("#first-week").addEventListener("click", () => {
+        weekIndex = 0;
+        renderSchedule();
+      });
+
+      $("#schedule-search").addEventListener("input", renderSchedule);
+      $("#teacher-search").addEventListener("input", renderTeachers);
+      $("#department-filter").addEventListener("change", renderTeachers);
+
+      $("#modal-close").addEventListener("click", closeModal);
+
+      $("#modal-overlay").addEventListener("click", event => {
+        if (event.target === $("#modal-overlay")) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      $$(".floor-btn").forEach(button => {
+        button.addEventListener("click", () => setFloor(button.dataset.floor));
+      });
+
+      /*
+        Horní tlačítko aktualizace.
+        Pro první načtení používá stránka nativní label for="file-input".
+      */
+      $("#update-data").addEventListener("click", () => {
+        $("#file-input").click();
+      });
+
+      $("#file-input").addEventListener("change", event => {
+        importFile(event.target.files[0]);
+
+        /* Umožní načíst znovu stejný soubor po jeho úpravě. */
+        event.target.value = "";
+      });
+    }
+
+    attachEvents();
+    restoreDatabase();
+  </script>
+</body>
+</html>
