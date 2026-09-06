@@ -103,15 +103,6 @@
         "end": "13:45"
       },
       {
-        "id": "afternoon-preparation",
-        "type": "preparation",
-        "label": "Příprava na nástup",
-        "shortLabel": "Příprava na nástup",
-        "start": "13:25",
-        "end": "13:30",
-        "overlay": true
-      },
-      {
         "id": "afternoon-assembly",
         "type": "assembly",
         "label": "Odpolední nástup",
