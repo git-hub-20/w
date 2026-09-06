@@ -1,556 +1,1014 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102f49">
   <title>Rozvrh III. A</title>
 
   <style>
-    :root{
-      --navy:#102f49; --navy2:#1c4d70; --teal:#147f9c; --gold:#d5a23c;
-      --bg:#f2f6f8; --card:#fff; --text:#1b2c39; --muted:#647684; --line:#d6e0e6;
-      --lesson-bg:#e2f0da; --lesson-line:#4f772d;
-      --break-bg:#e8eff3; --break-line:#607989;
-      --assembly-bg:#d9edf7; --assembly-line:#1478a8;
-      --lunch-bg:#fff0d4; --lunch-line:#b85e09;
-      --service-bg:#ffe2df; --service-line:#b42318;
-      --event-bg:#efe2f7; --event-line:#74439a;
-      --unknown-bg:#fff8e8; --unknown-line:#d79c22;
-      --radius:16px; --shadow:0 12px 28px rgba(16,47,73,.11);
+    :root {
+      --navy: #102f49;
+      --navy-2: #1c4d70;
+      --teal: #147f9c;
+      --gold: #d5a23c;
+
+      --background: #f2f6f8;
+      --surface: #ffffff;
+      --text: #1b2c39;
+      --muted: #647684;
+      --line: #d6e0e6;
+
+      --lesson-bg: #e2f0da;
+      --lesson-line: #4f772d;
+      --break-bg: #e8eff3;
+      --break-line: #607989;
+      --assembly-bg: #d9edf7;
+      --assembly-line: #1478a8;
+      --lunch-bg: #fff0d4;
+      --lunch-line: #b85e09;
+      --service-bg: #ffe2df;
+      --service-line: #b42318;
+      --event-bg: #efe2f7;
+      --event-line: #74439a;
+      --unknown-bg: #fff8e8;
+      --unknown-line: #d79c22;
+
+      --radius: 16px;
+      --shadow: 0 12px 28px rgba(16, 47, 73, .11);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-
-    body{
-      min-width:320px; margin:0; color:var(--text);
-      background:radial-gradient(circle at top right,rgba(20,127,156,.13),transparent 33rem),var(--bg);
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    button,input,select{font:inherit}
-    button{cursor:pointer}
-
-    .header{
-      color:#fff; background:linear-gradient(125deg,var(--navy),var(--navy2));
-      border-bottom:4px solid var(--gold);
+    html {
+      scroll-behavior: smooth;
     }
 
-    .header-inner,main{
-      width:min(1440px,calc(100% - 32px));
-      margin:auto;
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(20, 127, 156, .13), transparent 33rem),
+        var(--background);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .header-inner{padding-top:20px}
-
-    .top{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding-bottom:18px;
+    button,
+    input,
+    select {
+      font: inherit;
     }
 
-    .brand{display:flex; align-items:center; gap:13px}
-
-    .brand-mark{
-      display:grid; place-items:center; width:50px; height:50px;
-      color:var(--navy); font-weight:900; background:var(--gold); border-radius:14px;
+    button {
+      cursor: pointer;
     }
 
-    h1{margin:0; font-size:clamp(1.35rem,3vw,1.85rem)}
-
-    #subtitle{
-      margin:4px 0 0; color:#c8d9e6; font-size:.9rem;
+    .header {
+      color: white;
+      background: linear-gradient(125deg, var(--navy), var(--navy-2));
+      border-bottom: 4px solid var(--gold);
     }
 
-    .header-tools{
-      display:flex; align-items:center; gap:9px;
+    .header-inner,
+    main {
+      width: min(1440px, calc(100% - 32px));
+      margin: auto;
     }
 
-    .badge{
-      padding:9px 12px; font-size:.84rem; font-weight:700; text-align:right;
-      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.21); border-radius:9px;
+    .header-inner {
+      padding-top: 20px;
     }
 
-    .nav{
-      display:flex; gap:3px; overflow-x:auto;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
     }
 
-    .nav button{
-      padding:12px 16px; color:#c9d9e5; white-space:nowrap;
-      background:transparent; border:0; border-bottom:3px solid transparent;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
     }
 
-    .nav button:hover,.nav button.active{
-      color:#fff; background:rgba(255,255,255,.09); border-bottom-color:var(--gold);
+    .brand-mark {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      color: var(--navy);
+      font-weight: 900;
+      background: var(--gold);
+      border-radius: 14px;
     }
 
-    main{margin-top:25px; margin-bottom:60px}
-    .view{display:none}
-    .view.active{display:block}
-
-    .eyebrow{
-      margin:0 0 6px; color:var(--teal); font-size:.76rem; font-weight:850;
-      letter-spacing:.1em; text-transform:uppercase;
+    h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
     }
 
-    h2{
-      margin:0; color:var(--navy); font-size:clamp(1.5rem,4vw,2.2rem);
+    #subtitle {
+      margin: 4px 0 0;
+      color: #c8d9e6;
+      font-size: .9rem;
     }
 
-    .hero > p:last-child{
-      max-width:800px; margin:9px 0 18px; color:var(--muted); line-height:1.55;
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 9px;
     }
 
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-      box-shadow:0 4px 16px rgba(16,47,73,.05);
+    .badge {
+      padding: 9px 12px;
+      font-size: .84rem;
+      font-weight: 700;
+      text-align: right;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .21);
+      border-radius: 9px;
     }
 
-    .toolbar{
-      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-      gap:12px; padding:14px; margin-bottom:17px;
+    .nav {
+      display: flex;
+      gap: 3px;
+      overflow-x: auto;
     }
 
-    .group{
-      display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+    .nav button {
+      padding: 12px 16px;
+      color: #c9d9e5;
+      white-space: nowrap;
+      background: transparent;
+      border: 0;
+      border-bottom: 3px solid transparent;
     }
 
-    .btn,.icon{
-      display:inline-flex; align-items:center; justify-content:center; min-height:40px;
-      padding:8px 12px; color:var(--navy); font-weight:750; background:#fff;
-      border:1px solid var(--line); border-radius:9px; transition:.17s ease;
+    .nav button:hover,
+    .nav button.active {
+      color: white;
+      background: rgba(255, 255, 255, .09);
+      border-bottom-color: var(--gold);
     }
 
-    .btn:hover,.icon:hover{
-      border-color:var(--teal); box-shadow:0 4px 12px rgba(20,127,156,.16);
-      transform:translateY(-1px);
+    main {
+      margin-top: 25px;
+      margin-bottom: 60px;
     }
 
-    .btn.primary{
-      color:#fff; background:var(--navy); border-color:var(--navy);
+    .view {
+      display: none;
     }
 
-    .btn.header-btn{
-      color:#fff; background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.3);
+    .view.active {
+      display: block;
     }
 
-    .btn:disabled,.icon:disabled{
-      cursor:default; opacity:.42; transform:none;
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--teal);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .1em;
+      text-transform: uppercase;
     }
 
-    .week-label{
-      min-width:220px; color:var(--navy); font-weight:850; text-align:center;
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
     }
 
-    .input,.select{
-      width:min(100%,350px); min-height:41px; padding:9px 12px; color:var(--text);
-      background:#fff; border:1px solid var(--line); border-radius:9px; outline:none;
+    .hero > p:last-child {
+      max-width: 800px;
+      margin: 9px 0 18px;
+      color: var(--muted);
+      line-height: 1.55;
     }
 
-    .input:focus,.select:focus{
-      border-color:var(--teal); box-shadow:0 0 0 3px rgba(20,127,156,.14);
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px rgba(16, 47, 73, .05);
     }
 
-    /* ROZVRH */
-
-    .schedule-scroll{
-      overflow-x:auto; padding-bottom:10px;
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 17px;
     }
 
-    .week-grid{
-      display:grid; grid-template-columns:repeat(5,minmax(235px,1fr));
-      min-width:1200px; gap:12px;
+    .group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
     }
 
-    .day{
-      overflow:hidden; background:#fff; border:1px solid var(--line); border-radius:14px;
+    .btn,
+    .icon {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      color: var(--navy);
+      font-weight: 750;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      transition: .17s ease;
     }
 
-    .day-head{
-      display:flex; align-items:center; justify-content:space-between; gap:7px;
-      padding:13px 14px; color:#fff; background:var(--navy);
+    .btn:hover,
+    .icon:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 12px rgba(20, 127, 156, .16);
+      transform: translateY(-1px);
     }
 
-    .day-head strong{display:block}
-
-    .day-head span{
-      display:block; margin-top:2px; color:#c8d7e4; font-size:.78rem;
+    .btn.primary {
+      color: white;
+      background: var(--navy);
+      border-color: var(--navy);
     }
 
-    .day-detail{
-      padding:7px 9px; color:#fff; font-size:.77rem; font-weight:750;
-      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:7px;
+    .btn.header-btn {
+      color: white;
+      background: rgba(255, 255, 255, .09);
+      border-color: rgba(255, 255, 255, .3);
     }
 
-    .timeline,.mobile-day-timeline,.day-modal-timeline{
-      display:flex; flex-direction:column;
+    .btn:disabled,
+    .icon:disabled {
+      cursor: default;
+      opacity: .42;
+      transform: none;
+    }
+
+    .week-label {
+      min-width: 220px;
+      color: var(--navy);
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .input,
+    .select {
+      width: min(100%, 350px);
+      min-height: 41px;
+      padding: 9px 12px;
+      color: var(--text);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
+    }
+
+    .input:focus,
+    .select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(20, 127, 156, .14);
+    }
+
+    /* ------------------------------------------------------------------ */
+    /* ROZVRH                                                             */
+    /* ------------------------------------------------------------------ */
+
+    .schedule-scroll {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(235px, 1fr));
+      min-width: 1200px;
+      gap: 12px;
+    }
+
+    .day {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .day.mobile-active {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 2px rgba(20, 127, 156, .12);
+    }
+
+    .day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7px;
+      padding: 13px 14px;
+      color: white;
+      background: var(--navy);
+    }
+
+    .day-head strong {
+      display: block;
+    }
+
+    .day-head span {
+      display: block;
+      margin-top: 2px;
+      color: #c8d7e4;
+      font-size: .78rem;
+    }
+
+    .day-detail {
+      padding: 7px 9px;
+      color: white;
+      font-size: .77rem;
+      font-weight: 750;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 7px;
+    }
+
+    .timeline,
+    .mobile-day-timeline,
+    .day-modal-timeline {
+      display: flex;
+      flex-direction: column;
     }
 
     /*
-      Výška bloků odpovídá minutám.
-      90 minut = 90 px, 15 minut = 15 px, oběd 75 minut = 75 px.
+      Standardní blok časové osy.
+      Výška odpovídá minutám: 1 px = 1 minuta.
     */
-    .block{
-      display:flex; width:100%; height:var(--duration); min-height:18px; align-items:center;
-      padding:0 9px; overflow:hidden; color:var(--text); font-size:.73rem; line-height:1.1;
-      text-align:left; border:0; border-left:4px solid;
+    .block {
+      display: flex;
+      width: 100%;
+      height: var(--duration);
+      min-height: 18px;
+      align-items: center;
+      padding: 0 9px;
+      overflow: hidden;
+      color: var(--text);
+      font-size: .73rem;
+      line-height: 1.1;
+      text-align: left;
+      border: 0;
+      border-left: 4px solid;
     }
 
-    .block-content{
-      display:flex; width:100%; align-items:center; justify-content:space-between; gap:6px;
+    .block-content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
     }
 
-    .block-title{
-      overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    .block-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .block-title small{
-      font-size:.67rem; font-weight:600; opacity:.82;
+    .block-title small {
+      font-size: .67rem;
+      font-weight: 600;
+      opacity: .82;
     }
 
-    .block-time{
-      flex:0 0 auto; font-size:.66rem; font-weight:850;
-      font-variant-numeric:tabular-nums; opacity:.85;
+    .block-time {
+      flex: 0 0 auto;
+      font-size: .66rem;
+      font-weight: 850;
+      font-variant-numeric: tabular-nums;
+      opacity: .85;
     }
 
-    .block.lesson{
-      color:#254b16; font-weight:850; background:var(--lesson-bg); border-color:var(--lesson-line);
+    .block.lesson {
+      color: #254b16;
+      font-weight: 850;
+      background: var(--lesson-bg);
+      border-color: var(--lesson-line);
     }
 
-    .block.lesson:hover{
-      filter:brightness(.97); box-shadow:inset 0 0 0 1px rgba(79,119,45,.35);
+    .block.lesson:hover {
+      filter: brightness(.97);
+      box-shadow: inset 0 0 0 1px rgba(79, 119, 45, .35);
     }
 
-    .block.break{
-      color:#506572; background:var(--break-bg); border-color:var(--break-line);
+    .block.break {
+      color: #506572;
+      background: var(--break-bg);
+      border-color: var(--break-line);
     }
 
-    .block.assembly,.block.preparation{
-      color:#07567c; font-weight:750; background:var(--assembly-bg); border-color:var(--assembly-line);
+    .block.assembly,
+    .block.preparation {
+      color: #07567c;
+      font-weight: 750;
+      background: var(--assembly-bg);
+      border-color: var(--assembly-line);
     }
 
-    .block.lunch,.block.meal{
-      color:#834300; font-weight:800; background:var(--lunch-bg); border-color:var(--lunch-line);
+    .block.lunch,
+    .block.meal {
+      color: #834300;
+      font-weight: 800;
+      background: var(--lunch-bg);
+      border-color: var(--lunch-line);
     }
 
-    .block.service,.block.service-end{
-      color:#8c1912; font-weight:750; background:var(--service-bg); border-color:var(--service-line);
+    .block.service,
+    .block.service-end {
+      color: #8c1912;
+      font-weight: 750;
+      background: var(--service-bg);
+      border-color: var(--service-line);
     }
 
-    .block.event{
-      color:#64378a; font-weight:800; background:var(--event-bg); border-color:var(--event-line);
+    .block.event {
+      color: #64378a;
+      font-weight: 800;
+      background: var(--event-bg);
+      border-color: var(--event-line);
     }
 
-    .block.unknown-time{
-      height:46px; color:#6d4a00; background:var(--unknown-bg); border-color:var(--unknown-line);
+    .block.unknown-time {
+      height: 46px;
+      color: #6d4a00;
+      background: var(--unknown-bg);
+      border-color: var(--unknown-line);
     }
 
-    .notice{
-      display:flex; gap:10px; padding:13px 15px; margin-top:16px; color:#455967;
-      font-size:.9rem; line-height:1.5; background:#eaf5f9; border:1px solid #cce5ef; border-radius:11px;
+    /*
+      Oběd zůstává přesně 12:30–13:45.
+      Příprava a odpolední nástup se vykreslí uvnitř,
+      nikoli jako další bloky prodlužující den.
+    */
+    .lunch-block {
+      position: relative;
+      height: 75px;
+      padding: 8px 10px;
+      overflow: visible;
+    }
+
+    .lunch-main {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .lunch-overlays {
+      position: absolute;
+      right: 7px;
+      bottom: 5px;
+      left: 7px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      pointer-events: none;
+    }
+
+    .overlay-chip {
+      padding: 3px 5px;
+      color: #07567c;
+      font-size: .62rem;
+      font-weight: 850;
+      background: #d9edf7;
+      border: 1px solid #1478a8;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .notice {
+      display: flex;
+      gap: 10px;
+      padding: 13px 15px;
+      margin-top: 16px;
+      color: #455967;
+      font-size: .9rem;
+      line-height: 1.5;
+      background: #eaf5f9;
+      border: 1px solid #cce5ef;
+      border-radius: 11px;
     }
 
     /* Mobilní rozvinutý aktuální den */
-    .mobile-day-panel{display:none}
-
-    .mobile-day-header{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:15px; color:#fff; background:var(--navy); border-radius:14px 14px 0 0;
+    .mobile-day-panel {
+      display: none;
     }
 
-    .mobile-day-header h3{
-      margin:0; font-size:1rem;
+    .mobile-day-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px;
+      color: white;
+      background: var(--navy);
+      border-radius: 14px 14px 0 0;
     }
 
-    .mobile-day-header p{
-      margin:4px 0 0; color:#c8d7e4; font-size:.82rem;
+    .mobile-day-header h3 {
+      margin: 0;
+      font-size: 1rem;
     }
 
-    .mobile-day-timeline .block{
-      font-size:.87rem;
+    .mobile-day-header p {
+      margin: 4px 0 0;
+      color: #c8d7e4;
+      font-size: .82rem;
     }
 
-    .mobile-day-timeline .block-time{
-      font-size:.76rem;
+    .mobile-day-timeline .block {
+      font-size: .87rem;
     }
 
-    /* LEKTOŘI */
-
-    .teacher-grid{
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px;
+    .mobile-day-timeline .block-time {
+      font-size: .76rem;
     }
 
-    .teacher-card{
-      display:flex; gap:12px; align-items:center; width:100%; padding:14px; color:var(--text);
-      text-align:left; background:#fff; border:1px solid var(--line); border-radius:12px; transition:.17s ease;
+    /* ------------------------------------------------------------------ */
+    /* LEKTOŘI                                                            */
+    /* ------------------------------------------------------------------ */
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
     }
 
-    .teacher-card:hover{
-      border-color:var(--teal); box-shadow:var(--shadow); transform:translateY(-2px);
+    .teacher-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+      padding: 14px;
+      color: var(--text);
+      text-align: left;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: .17s ease;
     }
 
-    .avatar{
-      display:grid; flex:0 0 auto; width:43px; height:43px; place-items:center; color:#fff;
-      font-size:.8rem; font-weight:900; background:linear-gradient(145deg,var(--teal),var(--navy)); border-radius:50%;
+    .teacher-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
     }
 
-    .teacher-card strong{
-      display:block; color:var(--navy); line-height:1.25;
+    .avatar {
+      display: grid;
+      flex: 0 0 auto;
+      width: 43px;
+      height: 43px;
+      place-items: center;
+      color: white;
+      font-size: .8rem;
+      font-weight: 900;
+      background: linear-gradient(145deg, var(--teal), var(--navy));
+      border-radius: 50%;
     }
 
-    .teacher-card small{
-      display:block; margin-top:3px; color:var(--muted); line-height:1.3;
+    .teacher-card strong {
+      display: block;
+      color: var(--navy);
+      line-height: 1.25;
     }
 
-    .chip{
-      display:inline-block; padding:3px 7px; color:#175d76; font-size:.71rem;
-      background:#d8eff5; border-radius:99px;
+    .teacher-card small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      line-height: 1.3;
     }
 
-    /* MAPY */
-
-    .map-layout{
-      display:grid; grid-template-columns:270px minmax(0,1fr); gap:18px;
+    .chip {
+      display: inline-block;
+      padding: 3px 7px;
+      color: #175d76;
+      font-size: .71rem;
+      background: #d8eff5;
+      border-radius: 99px;
     }
 
-    .map-side{padding:18px}
+    /* ------------------------------------------------------------------ */
+    /* MAPY                                                               */
+    /* ------------------------------------------------------------------ */
 
-    .map-side h3{
-      margin:0 0 8px; color:var(--navy);
+    .map-layout {
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
     }
 
-    .map-side p{
-      margin:0 0 14px; color:var(--muted); font-size:.9rem; line-height:1.5;
+    .map-side {
+      padding: 18px;
     }
 
-    .floor-list{
-      display:grid; gap:7px;
+    .map-side h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
     }
 
-    .floor-btn{
-      padding:10px; color:var(--navy); font-weight:750; text-align:left;
-      background:#fff; border:1px solid var(--line); border-radius:8px;
+    .map-side p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.5;
     }
 
-    .floor-btn.active{
-      color:#fff; background:var(--navy); border-color:var(--navy);
+    .floor-list {
+      display: grid;
+      gap: 7px;
     }
 
-    .map-stage{
-      padding:16px; overflow:auto; background:#e8eef1; border:1px solid var(--line); border-radius:var(--radius);
+    .floor-btn {
+      padding: 10px;
+      color: var(--navy);
+      font-weight: 750;
+      text-align: left;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
     }
 
-    .map-photo{
-      display:none; min-width:680px; max-width:100%; height:auto; background:#fff;
-      box-shadow:0 3px 12px rgba(0,0,0,.12);
+    .floor-btn.active {
+      color: white;
+      background: var(--navy);
+      border-color: var(--navy);
     }
 
-    .map-photo.active{display:block}
-
-    .map-info{
-      margin-top:12px; color:var(--navy); font-size:.9rem; font-weight:750; text-align:center;
+    .map-stage {
+      padding: 16px;
+      overflow: auto;
+      background: #e8eef1;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
     }
 
-    /* TABULKY / REŽIM */
-
-    .table-wrap{overflow:auto}
-
-    table{
-      width:100%; border-collapse:collapse; font-size:.91rem;
+    .map-photo {
+      display: none;
+      min-width: 680px;
+      max-width: 100%;
+      height: auto;
+      background: white;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
     }
 
-    th,td{
-      padding:11px 13px; text-align:left; border-bottom:1px solid var(--line);
+    .map-photo.active {
+      display: block;
     }
 
-    th{
-      color:var(--navy); font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; background:#edf4f7;
+    .map-info {
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: .9rem;
+      font-weight: 750;
+      text-align: center;
     }
 
-    .stats{
-      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; margin-bottom:17px;
+    /* ------------------------------------------------------------------ */
+    /* HARMONOGRAM A DENNÍ REŽIM                                          */
+    /* ------------------------------------------------------------------ */
+
+    .table-wrap {
+      overflow: auto;
     }
 
-    .stat{padding:17px}
-
-    .stat-label{
-      color:var(--muted); font-size:.81rem; font-weight:700;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .91rem;
     }
 
-    .stat-number{
-      margin-top:4px; color:var(--navy); font-size:1.65rem; font-weight:900;
+    th,
+    td {
+      padding: 11px 13px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
     }
 
-    .two-col{
-      display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr); gap:18px;
+    th {
+      color: var(--navy);
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: #edf4f7;
     }
 
-    .section{padding:20px}
-
-    .section h3{
-      margin:0 0 13px; color:var(--navy);
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+      margin-bottom: 17px;
     }
 
-    .regime-row{
-      display:grid; grid-template-columns:130px 1fr; gap:10px; padding:10px 0; border-bottom:1px solid #edf1f4;
+    .stat {
+      padding: 17px;
     }
 
-    .regime-row:last-child{border:0}
-
-    .regime-time{
-      color:var(--teal); font-weight:850;
+    .stat-label {
+      color: var(--muted);
+      font-size: .81rem;
+      font-weight: 700;
     }
 
-    /* MODÁLNÍ OKNO */
-
-    .overlay{
-      position:fixed; z-index:50; inset:0; display:none; align-items:center; justify-content:center;
-      padding:18px; background:rgba(7,25,39,.65); backdrop-filter:blur(3px);
+    .stat-number {
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 1.65rem;
+      font-weight: 900;
     }
 
-    .overlay.open{display:flex}
-
-    .modal{
-      width:min(720px,100%); max-height:calc(100vh - 36px); overflow:auto;
-      background:#fff; border-radius:18px; box-shadow:0 25px 72px rgba(0,0,0,.35);
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 18px;
     }
 
-    .modal-head{
-      display:flex; gap:16px; align-items:start; justify-content:space-between;
-      padding:21px 22px 16px; color:#fff; background:linear-gradient(125deg,var(--navy),var(--navy2));
+    .section {
+      padding: 20px;
     }
 
-    .modal-head h2{
-      color:#fff; font-size:1.35rem;
+    .section h3 {
+      margin: 0 0 13px;
+      color: var(--navy);
     }
 
-    .modal-head p{
-      margin:5px 0 0; color:#c9d8e5; font-size:.88rem;
+    .regime-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #edf1f4;
     }
 
-    .close{
-      width:34px; height:34px; padding:0; color:#fff; font-size:1.35rem;
-      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:8px;
+    .regime-row:last-child {
+      border: 0;
     }
 
-    .modal-body{padding:21px 22px 24px}
-
-    .detail{
-      display:grid; grid-template-columns:175px 1fr; overflow:hidden;
-      border:1px solid var(--line); border-radius:10px;
+    .regime-time {
+      color: var(--teal);
+      font-weight: 850;
     }
 
-    .detail dt,.detail dd{
-      padding:11px 13px; margin:0; border-bottom:1px solid var(--line);
+    /* ------------------------------------------------------------------ */
+    /* MODÁLNÍ OKNO                                                       */
+    /* ------------------------------------------------------------------ */
+
+    .overlay {
+      position: fixed;
+      z-index: 50;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(7, 25, 39, .65);
+      backdrop-filter: blur(3px);
     }
 
-    .detail dt{
-      color:var(--muted); font-size:.84rem; font-weight:750; background:#f7f9fb;
+    .overlay.open {
+      display: flex;
     }
 
-    .detail dd{
-      color:var(--navy); font-weight:700;
+    .modal {
+      width: min(720px, 100%);
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 25px 72px rgba(0, 0, 0, .35);
     }
 
-    .teacher-link{
-      padding:0; color:var(--teal); font-weight:800; text-decoration:underline; background:transparent; border:0;
+    .modal-head {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+      justify-content: space-between;
+      padding: 21px 22px 16px;
+      color: white;
+      background: linear-gradient(125deg, var(--navy), var(--navy-2));
     }
 
-    .callout{
-      padding:13px 14px; margin-top:15px; color:#405666; font-size:.9rem;
-      line-height:1.55; background:#eff8fb; border-left:4px solid var(--teal); border-radius:6px;
+    .modal-head h2 {
+      color: white;
+      font-size: 1.35rem;
     }
 
-    .actions{
-      display:flex; flex-wrap:wrap; gap:9px; margin-top:17px;
+    .modal-head p {
+      margin: 5px 0 0;
+      color: #c9d8e5;
+      font-size: .88rem;
     }
 
-    .file-input{
-      position:absolute; width:1px; height:1px; opacity:0; overflow:hidden;
-      clip:rect(0,0,0,0); clip-path:inset(50%); white-space:nowrap;
+    .close {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      color: white;
+      font-size: 1.35rem;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 8px;
     }
 
-    .loading{
-      padding:48px 20px; color:var(--muted); text-align:center; background:#fff;
-      border:1px dashed var(--line); border-radius:var(--radius);
+    .modal-body {
+      padding: 21px 22px 24px;
     }
 
-    footer{
-      padding:22px; color:#bdccd7; font-size:.83rem; text-align:center; background:var(--navy);
+    .detail {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
     }
 
-    @media(max-width:900px){
-      .map-layout,.two-col{grid-template-columns:1fr}
-      .stats{grid-template-columns:repeat(2,1fr)}
+    .detail dt,
+    .detail dd {
+      padding: 11px 13px;
+      margin: 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    @media(max-width:680px){
-      .header-inner,main{width:min(100% - 20px,1440px)}
+    .detail dt {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 750;
+      background: #f7f9fb;
+    }
 
-      .top,.header-tools{
-        align-items:stretch; flex-direction:column;
+    .detail dd {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .teacher-link {
+      padding: 0;
+      color: var(--teal);
+      font-weight: 800;
+      text-decoration: underline;
+      background: transparent;
+      border: 0;
+    }
+
+    .callout {
+      padding: 13px 14px;
+      margin-top: 15px;
+      color: #405666;
+      font-size: .9rem;
+      line-height: 1.55;
+      background: #eff8fb;
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .loading {
+      padding: 48px 20px;
+      color: var(--muted);
+      text-align: center;
+      background: white;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+    }
+
+    footer {
+      padding: 22px;
+      color: #bdccd7;
+      font-size: .83rem;
+      text-align: center;
+      background: var(--navy);
+    }
+
+    @media (max-width: 900px) {
+      .map-layout,
+      .two-col {
+        grid-template-columns: 1fr;
       }
 
-      .badge{text-align:left}
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-      /* Rozvinutý relevantní den zůstává nahoře. */
-      .mobile-day-panel{
-        display:block; overflow:hidden; margin:14px 0;
-        background:#fff; border:1px solid var(--line); border-radius:14px;
-        box-shadow:0 4px 16px rgba(16,47,73,.05);
+    @media (max-width: 680px) {
+      .header-inner,
+      main {
+        width: min(100% - 20px, 1440px);
       }
 
-      /*
-        Týdenní seznam zůstává viditelný.
-        Obsahuje ostatní dny jako karty s tlačítkem Detail dne.
-      */
-      .schedule-scroll{
-        display:block; overflow:visible;
+      .top,
+      .header-tools {
+        align-items: stretch;
+        flex-direction: column;
       }
 
-      .week-grid{
-        grid-template-columns:1fr; min-width:0;
+      .badge {
+        text-align: left;
       }
 
-      /*
-        Den zobrazený nahoře se neschovává úplně:
-        v seznamu je označený, ale jeho časová osa se nevykresluje.
-      */
-      .day .timeline{
-        display:none;
+      /* Nahoře rozvinutý aktuální/následující den */
+      .mobile-day-panel {
+        display: block;
+        overflow: hidden;
+        margin: 14px 0;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(16, 47, 73, .05);
       }
 
-      .day::after{
-        display:block; padding:10px 14px; color:var(--muted); font-size:.82rem;
-        content:"Otevřete detail dne pro časovou osu.";
+      /* Pod ním zůstávají všechny dny týdne jako karty */
+      .schedule-scroll {
+        display: block;
+        overflow: visible;
       }
 
-      .day.mobile-active{
-        border-color:var(--teal);
+      .week-grid {
+        grid-template-columns: 1fr;
+        min-width: 0;
       }
 
-      .day.mobile-active::after{
-        color:var(--teal);
-        font-weight:750;
-        content:"Tento den je právě rozvinutý nahoře.";
+      .day .timeline {
+        display: none;
       }
 
-      .week-label{
-        flex:1; min-width:0; font-size:.82rem;
+      .day::after {
+        display: block;
+        padding: 10px 14px;
+        color: var(--muted);
+        font-size: .82rem;
+        content: "Otevřete detail dne pro časovou osu.";
       }
 
-      .input,.select{width:100%}
-
-      .detail{grid-template-columns:1fr}
-
-      .detail dt{
-        padding-bottom:4px; border-bottom:0;
+      .day.mobile-active::after {
+        color: var(--teal);
+        font-weight: 750;
+        content: "Tento den je právě rozvinutý nahoře.";
       }
 
-      .detail dd{padding-top:4px}
+      .week-label {
+        flex: 1;
+        min-width: 0;
+        font-size: .82rem;
+      }
 
-      .map-photo{min-width:620px}
+      .input,
+      .select {
+        width: 100%;
+      }
+
+      .detail {
+        grid-template-columns: 1fr;
+      }
+
+      .detail dt {
+        padding-bottom: 4px;
+        border-bottom: 0;
+      }
+
+      .detail dd {
+        padding-top: 4px;
+      }
+
+      .map-photo {
+        min-width: 620px;
+      }
     }
   </style>
 </head>
@@ -561,6 +1019,7 @@
       <div class="top">
         <div class="brand">
           <div class="brand-mark">III</div>
+
           <div>
             <h1>Rozvrh III. A</h1>
             <p id="subtitle">ZOP Policie · rozvrh, lektoři a orientace</p>
@@ -595,8 +1054,8 @@
         <p class="eyebrow">Aktuální plán výuky</p>
         <h2>Týdenní rozvrh</h2>
         <p>
-          Rozvrh odpovídá délce jednotlivých bloků. Kliknutím na předmět zobrazíte detail,
-          aktuálního lektora a obvyklé přiřazení předmětu.
+          Výuka, přestávky a nástupy jsou zobrazeny v časových proporcích.
+          Kliknutím na předmět otevřete jeho detail.
         </p>
       </div>
 
@@ -616,7 +1075,7 @@
         >
       </div>
 
-      <!-- Na telefonu je nahoře rozvinutý aktuální / následující den. -->
+      <!-- Mobilní relevantní den -->
       <div class="mobile-day-panel" id="mobile-day-panel">
         <div class="mobile-day-header">
           <div>
@@ -632,7 +1091,7 @@
         <div class="mobile-day-timeline" id="mobile-day-timeline"></div>
       </div>
 
-      <!-- Týdenní seznam dní zůstává k dispozici na desktopu i mobilu. -->
+      <!-- Kompletní týdenní přehled -->
       <div class="schedule-scroll">
         <div id="schedule-root" class="loading">Načítám rozvrh…</div>
       </div>
@@ -650,8 +1109,8 @@
         <p class="eyebrow">Kontakty a kanceláře</p>
         <h2>Lektoři</h2>
         <p>
-          Vyhledávání podle jména, zkratky nebo oddělení. Profil obsahuje hodnost,
-          titul, kancelář a možnost otevřít příslušný plánek.
+          Vyhledávání podle jména, zkratky nebo oddělení.
+          Profil obsahuje hodnost, titul, kancelář a příslušný plánek.
         </p>
       </div>
 
@@ -728,6 +1187,7 @@
       <div class="hero">
         <p class="eyebrow">Organizace dne</p>
         <h2>Denní režim</h2>
+        <p>Časy služby, nástupů, výukových bloků, přestávek a výdeje stravy.</p>
       </div>
 
       <div id="regime-root" class="loading">Načítám informace…</div>
@@ -738,6 +1198,7 @@
     Rozvrh III. A · interní orientační nástroj
   </footer>
 
+  <!-- Detail -->
   <div class="overlay" id="modal-overlay">
     <div class="modal">
       <div class="modal-head">
@@ -753,6 +1214,7 @@
     </div>
   </div>
 
+  <!-- Offline import -->
   <input class="file-input" id="file-input" type="file" accept=".json,application/json">
 
   <div class="overlay" id="loader-overlay">
@@ -767,7 +1229,7 @@
       <div class="modal-body">
         <p style="margin-top:0;color:var(--muted);line-height:1.65">
           Na GitHub Pages se soubor <strong>data.json</strong> načítá automaticky.
-          Toto okno se zobrazí jen při offline otevření nebo pokud data.json není dostupný.
+          Toto okno se zobrazí jen při offline otevření nebo pokud soubor nelze načíst.
         </p>
 
         <label class="btn primary" for="file-input">
@@ -780,7 +1242,7 @@
   <script>
     "use strict";
 
-    const STORAGE_KEY = "rozvrh-iii-a-offline-data-v3";
+    const STORAGE_KEY = "rozvrh-iii-a-offline-data-v4";
     const DAYS = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"];
 
     let DB = null;
@@ -976,11 +1438,11 @@
 
       const targetIso = toIso(targetMonday);
 
-      const exactIndex = weeks.findIndex(week => week.iso === targetIso);
-      if (exactIndex !== -1) return exactIndex;
+      const exact = weeks.findIndex(item => item.iso === targetIso);
+      if (exact !== -1) return exact;
 
-      const followingIndex = weeks.findIndex(week => week.iso > targetIso);
-      if (followingIndex !== -1) return followingIndex;
+      const next = weeks.findIndex(item => item.iso > targetIso);
+      if (next !== -1) return next;
 
       return weeks.length - 1;
     }
@@ -996,7 +1458,7 @@
     }
 
     function cssClassFor(type) {
-      const map = {
+      const classes = {
         assembly: "assembly",
         preparation: "preparation",
         break: "break",
@@ -1006,10 +1468,10 @@
         "service-end": "service-end"
       };
 
-      return map[type] || "break";
+      return classes[type] || "break";
     }
 
-    function createBlock({
+    function createStandardBlock({
       cssClass,
       title,
       start = "",
@@ -1033,21 +1495,48 @@
           ${lessonAttribute}
         >
           <span class="block-content">
-            <span class="block-title">
-              ${escapeHtml(title)}${extra}
-            </span>
-
-            <span class="block-time">
-              ${escapeHtml(timeText)}
-            </span>
+            <span class="block-title">${escapeHtml(title)}${extra}</span>
+            <span class="block-time">${escapeHtml(timeText)}</span>
           </span>
         </${tag}>
       `;
     }
 
+    function createLunchBlock(lunchSegment, overlaySegments) {
+      const overlayHtml = overlaySegments
+        .map(segment => `
+          <span class="overlay-chip">
+            ${escapeHtml(segment.shortLabel || segment.label)}
+            ${escapeHtml(segment.start)}–${escapeHtml(segment.end)}
+          </span>
+        `)
+        .join("");
+
+      return `
+        <div class="block lunch lunch-block">
+          <div class="lunch-main">
+            <span class="block-title">
+              ${escapeHtml(lunchSegment.shortLabel || lunchSegment.label)}
+            </span>
+
+            <span class="block-time">
+              ${escapeHtml(lunchSegment.start)}–${escapeHtml(lunchSegment.end)}
+            </span>
+          </div>
+
+          ${
+            overlayHtml
+              ? `<div class="lunch-overlays">${overlayHtml}</div>`
+              : ""
+          }
+        </div>
+      `;
+    }
+
     /*
-      Prázdné sloty se zde úmyslně nepřidávají.
-      Text "Bez zapsané výuky" se nikde nevykresluje.
+      Nevykresluje prázdné sloty.
+      Overlay segmenty se nevykreslují samostatně:
+      vykreslují se uvnitř oběda.
     */
     function makeTimeline(date) {
       const query = $("#schedule-search").value
@@ -1057,7 +1546,7 @@
       const lessons = lessonsForDay(date).filter(item => {
         if (!query) return true;
 
-        const text = [
+        const searchable = [
           subject(item.subjectId)?.short || "",
           subject(item.subjectId)?.name || "",
           teacherFullNames(item.teacherIds),
@@ -1067,30 +1556,40 @@
           .join(" ")
           .toLocaleLowerCase("cs-CZ");
 
-        return text.includes(query);
+        return searchable.includes(query);
       });
 
       const lessonsByStartSlot = new Map(
         lessons.map(item => [Number(item.daySlots.from), item])
       );
 
-      const eventsByStartTime = new Map(
+      const eventsByStart = new Map(
         eventsForDay(date).map(event => [event.start, event])
+      );
+
+      const overlaySegments = DB.timeline.segments.filter(
+        segment => segment.overlay === true
       );
 
       const blocks = [];
 
       for (const segment of DB.timeline.segments) {
+        if (segment.overlay === true) {
+          continue;
+        }
+
         if (typeof segment.id === "number") {
           const lesson = lessonsByStartSlot.get(segment.id);
 
-          if (!lesson) continue;
+          if (!lesson) {
+            continue;
+          }
 
           const sub = subject(lesson.subjectId);
           const time = lessonTime(lesson);
 
           blocks.push(
-            createBlock({
+            createStandardBlock({
               cssClass: time.pending ? "unknown-time" : "lesson",
               title: `${sub.short} · ${teacherShortNames(lesson.teacherIds)}`,
               start: time.start,
@@ -1103,22 +1602,28 @@
           continue;
         }
 
-        const event = eventsByStartTime.get(segment.start);
+        const event = eventsByStart.get(segment.start);
 
         if (event) {
           blocks.push(
-            createBlock({
+            createStandardBlock({
               cssClass: "event",
               title: event.title,
               start: event.start,
               end: event.end
             })
           );
+
+          continue;
+        }
+
+        if (segment.id === "lunch") {
+          blocks.push(createLunchBlock(segment, overlaySegments));
           continue;
         }
 
         blocks.push(
-          createBlock({
+          createStandardBlock({
             cssClass: cssClassFor(segment.type),
             title: segment.shortLabel || segment.label,
             start: segment.start,
@@ -1141,16 +1646,18 @@
       const today = toIso(now);
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-      const hasLessonsToday = dates.includes(today);
-      const dayIsFinished = currentMinutes >= (15 * 60 + 15);
+      const dayHasLessons = dates.includes(today);
+      const dayFinished = currentMinutes >= (15 * 60 + 15);
 
-      if (hasLessonsToday && !dayIsFinished) {
+      if (dayHasLessons && !dayFinished) {
         return today;
       }
 
       const nextDate = dates.find(date => date > today);
 
-      if (nextDate) return nextDate;
+      if (nextDate) {
+        return nextDate;
+      }
 
       return dates[dates.length - 1];
     }
@@ -1258,7 +1765,7 @@
 
       const teachers = DB.teachers
         .filter(item => {
-          const text = [
+          const searchable = [
             teacherName(item),
             item.short,
             item.department
@@ -1266,7 +1773,7 @@
             .join(" ")
             .toLocaleLowerCase("cs-CZ");
 
-          return (!query || text.includes(query)) &&
+          return (!query || searchable.includes(query)) &&
             (!department || item.department === department);
         })
         .sort((a, b) => a.lastName.localeCompare(b.lastName, "cs"));
@@ -1337,7 +1844,9 @@
 
           <article class="card stat">
             <div class="stat-label">Kmenová učebna</div>
-            <div class="stat-number">${escapeHtml(home?.name?.replace("Učebna ", "") || "130")}</div>
+            <div class="stat-number">
+              ${escapeHtml(home?.name?.replace("Učebna ", "") || "130")}
+            </div>
           </article>
         </div>
 
@@ -1354,9 +1863,19 @@
                       : "Doplnit čas"
                   }
                 </div>
+
                 <div>
                   ${escapeHtml(item.label)}
-                  ${item.detail ? `<br><small>${escapeHtml(item.detail)}</small>` : ""}
+                  ${
+                    item.overlay
+                      ? `<br><small>Probíhá v rámci polední přestávky.</small>`
+                      : ""
+                  }
+                  ${
+                    item.detail
+                      ? `<br><small>${escapeHtml(item.detail)}</small>`
+                      : ""
+                  }
                 </div>
               </div>
             `).join("")}
@@ -1397,10 +1916,8 @@
 
       $$("[data-show-map]", $("#modal-body")).forEach(button => {
         button.addEventListener("click", () => {
-          const currentTeacher = teacher(button.dataset.showMap);
-
           closeModal();
-          showTeacherMap(currentTeacher);
+          showTeacherMap(teacher(button.dataset.showMap));
         });
       });
 
@@ -1426,11 +1943,11 @@
         `;
       }
 
-      const same =
+      const isSame =
         defaults.length === actualIds.length &&
         defaults.every(id => actualIds.includes(id));
 
-      if (same) {
+      if (isSame) {
         return `
           <div class="callout">
             Aktuální lektor odpovídá obvyklému přiřazení předmětu.
@@ -1499,7 +2016,11 @@
             <dt>Místnost / prostor</dt>
             <dd>${escapeHtml(roomNames(item.roomIds))}</dd>
 
-            ${item.note ? `<dt>Poznámka</dt><dd>${escapeHtml(item.note)}</dd>` : ""}
+            ${
+              item.note
+                ? `<dt>Poznámka</dt><dd>${escapeHtml(item.note)}</dd>`
+                : ""
+            }
           </dl>
 
           ${defaultTeacherInfo(sub, item.teacherIds)}
@@ -1703,7 +2224,7 @@
 
         DB = parsed;
 
-        /* Kopie pro případ offline otevření HTML dvojklikem. */
+        /* Offline kopie pro dvojklik na HTML. */
         localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
 
         applyDatabase();
@@ -1792,6 +2313,8 @@
 
       $("#file-input").addEventListener("change", event => {
         importLocalFile(event.target.files[0]);
+
+        /* Umožní znovu vybrat stejný soubor po úpravě. */
         event.target.value = "";
       });
     }
