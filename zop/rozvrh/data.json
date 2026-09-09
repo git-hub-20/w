@@ -8,7 +8,7 @@
     "academicYear": "2026/2027",
     "homeRoomId": "SB-130",
     "scheduleRule": "Rozhodující je vždy vyučující uvedený u konkrétní položky aktuálního rozvrhu. Obvyklý lektor předmětu je pouze informativní údaj.",
-    "updatedAt": "2026-09-06"
+    "updatedAt": "2026-09-09"
   },
   "timeline": {
     "dayStart": "06:15",
@@ -74,7 +74,11 @@
         { "id": "patro-1", "label": "1. patro" }
       ]
     },
-    { "id": "areal", "name": "Areál a externí prostory", "floors": [] }
+    {
+      "id": "areal",
+      "name": "Areál a externí prostory",
+      "floors": []
+    }
   ],
   "rooms": [
     { "id": "SB-130", "name": "Učebna 130", "buildingId": "skolska", "floorId": "patro-1", "type": "kmenová učebna" },
@@ -89,32 +93,8 @@
   "teachers": [
     { "id": "mas", "rank": "kpt.", "title": "", "firstName": "Daniel", "lastName": "Mašín", "short": "Maš", "department": "Odbor zabezpečení výuky", "office": null, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "siz", "rank": "pplk.", "title": "Mgr.", "firstName": "Iveta", "lastName": "Šizlingová", "short": "Šiz", "department": "Oddělení práva a kriminalistiky", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "119" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
-    {
-      "id": "bul",
-      "rank": "kpt.",
-      "title": "Bc.",
-      "firstName": "Jan",
-      "lastName": "Bulíř",
-      "short": "Bul",
-      "department": "Oddělení práva a kriminalistiky",
-      "office": { "buildingId": "u1", "floorId": "patro-1", "room": "106" },
-      "contacts": { "emails": ["jan.bulir@pcr.cz"], "phones": ["774233161"], "contactNote": "" }
-    },
-    {
-      "id": "cep",
-      "rank": "kpt.",
-      "title": "Mgr.",
-      "firstName": "Dagmar",
-      "lastName": "Čepicová",
-      "short": "Čep",
-      "department": "Oddělení vnější služby",
-      "office": { "buildingId": "u1", "floorId": "patro-1", "room": "128" },
-      "contacts": {
-        "emails": ["dada.hal@seznam.cz", "dagmar.cepicova@pcr.cz"],
-        "phones": ["775345654"],
-        "contactNote": ""
-      }
-    },
+    { "id": "bul", "rank": "kpt.", "title": "Bc.", "firstName": "Jan", "lastName": "Bulíř", "short": "Bul", "department": "Oddělení práva a kriminalistiky", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "106" }, "contacts": { "emails": ["jan.bulir@pcr.cz"], "phones": ["774233161"], "contactNote": "" } },
+    { "id": "cep", "rank": "kpt.", "title": "Mgr.", "firstName": "Dagmar", "lastName": "Čepicová", "short": "Čep", "department": "Oddělení vnější služby", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "128" }, "contacts": { "emails": ["dada.hal@seznam.cz", "dagmar.cepicova@pcr.cz"], "phones": ["775345654"], "contactNote": "" } },
     { "id": "tax", "rank": "kpt.", "title": "Mgr. DiS.", "firstName": "Věra", "lastName": "Taxová", "short": "Tax", "department": "Oddělení vnější služby", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "124" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "dou", "rank": "kpt.", "title": "Bc.", "firstName": "Jindřiška", "lastName": "Doubravová", "short": "Dou", "department": "Oddělení dopravní služby", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "207" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "kou", "rank": "kpt.", "title": "Ing.", "firstName": "Marian", "lastName": "Kouba", "short": "Kou", "department": "Oddělení informačních systémů a komunikačních technologií", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "1205" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
@@ -122,21 +102,12 @@
     { "id": "flx", "rank": "kpt.", "title": "Mgr.", "firstName": "Jakub", "lastName": "Flax", "short": "Flx", "department": "Oddělení informačních systémů a komunikačních technologií", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "1207" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "mar", "rank": "kpt.", "title": "Ing.", "firstName": "Jan", "lastName": "Markup", "short": "Mar", "department": "Oddělení informačních systémů a komunikačních technologií", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "1207" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "maz", "rank": "kpt.", "title": "Mgr.", "firstName": "Zuzana", "lastName": "Mališková", "short": "Maz", "department": "Oddělení informačních systémů a komunikačních technologií", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "191" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
-    {
-      "id": "nok",
-      "rank": "",
-      "title": "",
-      "firstName": "Lucie",
-      "lastName": "Nováková",
-      "short": "Nok",
-      "department": "Oddělení psychologie",
-      "office": { "buildingId": "u1", "floorId": "patro-1", "room": "129" },
-      "contacts": { "emails": ["lucie.novakova2@pcr.cz"], "phones": ["607404943"], "contactNote": "" }
-    },
+    { "id": "nok", "rank": "", "title": "", "firstName": "Lucie", "lastName": "Nováková", "short": "Nok", "department": "Oddělení psychologie", "office": { "buildingId": "u1", "floorId": "patro-1", "room": "129" }, "contacts": { "emails": ["lucie.novakova2@pcr.cz"], "phones": ["607404943"], "contactNote": "" } },
     { "id": "jed", "rank": "pplk.", "title": "Mgr.", "firstName": "Martina", "lastName": "Jedličková", "short": "Jed", "department": "Oddělení psychologie", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "237" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "smo", "rank": "kpt.", "title": "Mgr.", "firstName": "Vilém", "lastName": "Šmol", "short": "Šmo", "department": "Oddělení služební přípravy", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "236" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
     { "id": "han", "rank": "kpt.", "title": "Bc.", "firstName": "Marek", "lastName": "Hanuš", "short": "Han", "department": "Oddělení služební přípravy", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "236" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
-    { "id": "bra", "rank": "kpt.", "title": "Mgr.", "firstName": "Václav", "lastName": "Branný", "short": "Bra", "department": "Oddělení služební přípravy", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "232" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } }
+    { "id": "bra", "rank": "kpt.", "title": "Mgr.", "firstName": "Václav", "lastName": "Branný", "short": "Bra", "department": "Oddělení služební přípravy", "office": { "buildingId": "u1", "floorId": "patro-2", "room": "232" }, "contacts": { "emails": [], "phones": [], "contactNote": "" } },
+    { "id": "jand", "rank": "plk.", "title": "", "firstName": "", "lastName": "Jandová", "short": "Jan", "department": "Neuvedeno", "office": null, "contacts": { "emails": [], "phones": [], "contactNote": "" } }
   ],
   "subjects": [
     { "id": "PPC", "short": "PPČ", "name": "Příprava k policejním činnostem", "defaultTeacherIds": [], "note": "Obvyklý lektor PPČ není zatím potvrzen." },
@@ -192,69 +163,54 @@
     { "id": "2026-09-03-pra-4-5", "type": "lesson", "date": "2026-09-03", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-03-pra-7-8", "type": "lesson", "date": "2026-09-03", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
     { "id": "2026-09-04-ppz-0-5", "type": "lesson", "date": "2026-09-04", "subjectId": "PPZ", "teacherIds": ["smo", "han"], "roomIds": ["SUCHY-NACVIK"], "curriculumHours": { "from": 1, "to": 6 }, "daySlots": { "from": 0, "to": 5 }, "note": "" },
-
     { "id": "2026-09-07-kpe-0-1", "type": "lesson", "date": "2026-09-07", "subjectId": "KPE", "teacherIds": ["nok"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-07-pra-2-5", "type": "lesson", "date": "2026-09-07", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 8 }, "daySlots": { "from": 2, "to": 5 }, "note": "" },
     { "id": "2026-09-07-kri-7-8", "type": "lesson", "date": "2026-09-07", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-08-kpe-0-1", "type": "lesson", "date": "2026-09-08", "subjectId": "KPE", "teacherIds": ["nok"], "roomIds": ["SB-130"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-08-ait-2-3", "type": "lesson", "date": "2026-09-08", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-08-pdp-4-5", "type": "lesson", "date": "2026-09-08", "subjectId": "PDP", "teacherIds": ["smo", "bra"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-08-spp-7-8", "type": "lesson", "date": "2026-09-08", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-09-ait-0-1", "type": "lesson", "date": "2026-09-09", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-09-pra-2-3", "type": "lesson", "date": "2026-09-09", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-09-kri-4-5", "type": "lesson", "date": "2026-09-09", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-09-spp-7-8", "type": "lesson", "date": "2026-09-09", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-10-ppz-0-5", "type": "lesson", "date": "2026-09-10", "subjectId": "PPZ", "teacherIds": ["smo", "han"], "roomIds": ["HOLOUBETIN"], "curriculumHours": { "from": 7, "to": 12 }, "daySlots": { "from": 0, "to": 5 }, "note": "" },
     { "id": "2026-09-10-sdp-7-8", "type": "lesson", "date": "2026-09-10", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-11-ait-0-1", "type": "lesson", "date": "2026-09-11", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-11-kpe-2-3", "type": "lesson", "date": "2026-09-11", "subjectId": "KPE", "teacherIds": ["nok"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-11-pdp-4-5", "type": "lesson", "date": "2026-09-11", "subjectId": "PDP", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
-
     { "id": "2026-09-14-spp-0-1", "type": "lesson", "date": "2026-09-14", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-14-kri-2-3", "type": "lesson", "date": "2026-09-14", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-14-ait-4-5", "type": "lesson", "date": "2026-09-14", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-14-kpe-7-8", "type": "lesson", "date": "2026-09-14", "subjectId": "KPE", "teacherIds": ["nok"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-15-kri-0-1", "type": "lesson", "date": "2026-09-15", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-15-pra-2-3", "type": "lesson", "date": "2026-09-15", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 11, "to": 12 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-15-spp-4-5", "type": "lesson", "date": "2026-09-15", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 11, "to": 12 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-15-ait-7-8", "type": "lesson", "date": "2026-09-15", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-16-sdp-0-1", "type": "lesson", "date": "2026-09-16", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 3, "to": 4 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-16-spp-2-3", "type": "lesson", "date": "2026-09-16", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["AULA"], "curriculumHours": { "from": 13, "to": 14 }, "daySlots": { "from": 2, "to": 3 }, "note": "Přednáška NOC." },
     { "id": "2026-09-16-rsv-4-5", "type": "lesson", "date": "2026-09-16", "subjectId": "RSV", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 2 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-16-kri-7-8", "type": "lesson", "date": "2026-09-16", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-17-tpr-0-3", "type": "lesson", "date": "2026-09-17", "subjectId": "TPR", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 1, "to": 4 }, "daySlots": { "from": 0, "to": 3 }, "note": "" },
     { "id": "2026-09-17-pdp-4-5", "type": "lesson", "date": "2026-09-17", "subjectId": "PDP", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-17-pra-7-8", "type": "lesson", "date": "2026-09-17", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 13, "to": 14 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-18-ait-0-1", "type": "lesson", "date": "2026-09-18", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 11, "to": 12 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-18-sdp-2-3", "type": "lesson", "date": "2026-09-18", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-18-kri-4-5", "type": "lesson", "date": "2026-09-18", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 11, "to": 12 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
-
     { "id": "2026-09-21-ait-0-1", "type": "lesson", "date": "2026-09-21", "subjectId": "AIT", "teacherIds": ["kou", "jav"], "roomIds": ["SB-016", "SB-029"], "curriculumHours": { "from": 13, "to": 14 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-21-pra-2-5", "type": "lesson", "date": "2026-09-21", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 15, "to": 18 }, "daySlots": { "from": 2, "to": 5 }, "note": "" },
     { "id": "2026-09-21-kri-7-8", "type": "lesson", "date": "2026-09-21", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 13, "to": 14 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-22-spp-0-1", "type": "lesson", "date": "2026-09-22", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 15, "to": 16 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-22-sdp-2-3", "type": "lesson", "date": "2026-09-22", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-22-tpr-4-5", "type": "lesson", "date": "2026-09-22", "subjectId": "TPR", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 5, "to": 6 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-22-tpr-7-8", "type": "lesson", "date": "2026-09-22", "subjectId": "TPR", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-23-sdp-0-1", "type": "lesson", "date": "2026-09-23", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-23-pdp-2-3", "type": "lesson", "date": "2026-09-23", "subjectId": "PDP", "teacherIds": ["smo", "han"], "roomIds": ["SB-130"], "curriculumHours": { "from": 7, "to": 8 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-23-spp-4-5", "type": "lesson", "date": "2026-09-23", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 17, "to": 18 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-23-kri-7-8", "type": "lesson", "date": "2026-09-23", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-S33"], "curriculumHours": { "from": 15, "to": 16 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-24-sdp-0-3", "type": "lesson", "date": "2026-09-24", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 11, "to": 14 }, "daySlots": { "from": 0, "to": 3 }, "note": "" },
     { "id": "2026-09-24-pra-4-5", "type": "lesson", "date": "2026-09-24", "subjectId": "PRA", "teacherIds": ["siz"], "roomIds": ["SB-130"], "curriculumHours": { "from": 19, "to": 20 }, "daySlots": { "from": 4, "to": 5 }, "note": "" },
     { "id": "2026-09-24-spp-7-8", "type": "lesson", "date": "2026-09-24", "subjectId": "SPP", "teacherIds": ["cep"], "roomIds": ["SB-130"], "curriculumHours": { "from": 19, "to": 20 }, "daySlots": { "from": 7, "to": 8 }, "note": "" },
-
     { "id": "2026-09-25-kri-0-1", "type": "lesson", "date": "2026-09-25", "subjectId": "KRI", "teacherIds": ["bul"], "roomIds": ["SB-130"], "curriculumHours": { "from": 17, "to": 18 }, "daySlots": { "from": 0, "to": 1 }, "note": "" },
     { "id": "2026-09-25-sdp-2-3", "type": "lesson", "date": "2026-09-25", "subjectId": "SDP", "teacherIds": ["dou"], "roomIds": ["SB-130"], "curriculumHours": { "from": 15, "to": 16 }, "daySlots": { "from": 2, "to": 3 }, "note": "" },
     { "id": "2026-09-25-kpe-4-5", "type": "lesson", "date": "2026-09-25", "subjectId": "KPE", "teacherIds": ["nok", "jed"], "roomIds": ["SB-130"], "curriculumHours": { "from": 9, "to": 10 }, "daySlots": { "from": 4, "to": 5 }, "note": "" }
@@ -286,6 +242,68 @@
       "title": "Test — služební poměr",
       "topics": ["Služební poměr"],
       "note": ""
+    },
+    {
+      "id": "test-spp-2026-09-14",
+      "enabled": true,
+      "date": "2026-09-14",
+      "subjectId": "SPP",
+      "daySlots": { "from": 0, "to": 1 },
+      "title": "Test — služba pořádkové policie",
+      "topics": [
+        "Zákrok",
+        "Úkon",
+        "Povinnosti policisty",
+        "Zdvořilost",
+        "Iniciativa",
+        "Přiměřenost",
+        "Prokazování totožnosti",
+        "Poučování",
+        "Dokumentace a poučení",
+        "První tři čísla iniciativy",
+        "První tři písmena přiměřenosti"
+      ],
+      "note": "Supluje plk. Jandová. Během výuky nerušit."
+    },
+    {
+      "id": "test-kri-2026-09-14",
+      "enabled": true,
+      "date": "2026-09-14",
+      "subjectId": "KRI",
+      "daySlots": { "from": 2, "to": 3 },
+      "title": "Možný termín testu — Kriminalistická stopa",
+      "topics": [
+        "Kriminalistická stopa",
+        "Dělení stop",
+        "Členění kriminalistiky",
+        "Druhy popisu osoby",
+        "Markant",
+        "Informační hodnoty stop",
+        "Kriminalistická identifikace",
+        "Skupinová a individuální identifikace — druhy a příklady",
+        "Druhy popisovaných znaků"
+      ],
+      "note": "Test je plánován na pondělí 14. 9.; jako alternativní termín je uvedeno také úterý 15. 9."
+    },
+    {
+      "id": "test-kri-2026-09-15",
+      "enabled": true,
+      "date": "2026-09-15",
+      "subjectId": "KRI",
+      "daySlots": { "from": 0, "to": 1 },
+      "title": "Možný termín testu — Kriminalistická stopa",
+      "topics": [
+        "Kriminalistická stopa",
+        "Dělení stop",
+        "Členění kriminalistiky",
+        "Druhy popisu osoby",
+        "Markant",
+        "Informační hodnoty stop",
+        "Kriminalistická identifikace",
+        "Skupinová a individuální identifikace — druhy a příklady",
+        "Druhy popisovaných znaků"
+      ],
+      "note": "Alternativní možný termín k pondělí 14. 9. Přesný termín bude potvrzen."
     }
   ],
   "scheduleOverrides": [
@@ -301,7 +319,34 @@
       "curriculumHours": { "from": 5, "to": 6 },
       "note": "Operativní změna: KPE místo původně plánovaného SPP.",
       "reason": "Operativní změna rozvrhu"
-    }
+    },
+    {
+      "id": "2026-09-11-spp-misto-kpe",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-11",
+      "daySlots": { "from": 2, "to": 3 },
+      "subjectId": "SPP",
+      "teacherIds": ["cep"],
+      "roomIds": ["SB-130"],
+      "curriculumHours": { "from": 21, "to": 22 },
+      "note": "Operativní změna: SPP místo původně plánovaného KPE.",
+      "reason": "Operativní změna rozvrhu"
+    },
+	{
+	  "id": "2026-09-14-spp-suplik-jandova",
+	  "enabled": true,
+	  "action": "replace",
+	  "date": "2026-09-14",
+	  "daySlots": { "from": 0, "to": 1 },
+	  "subjectId": "SPP",
+	  "teacherIds": ["jand"],
+	  "roomIds": ["SB-130"],
+	  "curriculumHours": { "from": 9, "to": 10 },
+	  "testId": "test-spp-2026-09-14",
+	  "note": "Test SPP. Supluje plk. Jandová; během výuky nerušit.",
+	  "reason": "Suplování plk. Jandovou a test z předmětu SPP"
+	}
   ],
   "subjectPeriodRules": [
     {
@@ -379,6 +424,18 @@
     { "calendarWeek": 17, "teachingWeek": 35, "dateRange": "26.04.–30.04.2027", "event": "26.–29.04. ZZK, 30.04. vyřazení", "teachingHours": 0 }
   ],
   "changelog": [
+    {
+      "date": "2026-09-09",
+      "title": "Změny výuky a testů v září 2026",
+      "items": [
+        "Na pátek 11. 9. 2026 byla provedena operativní změna: místo KPE proběhne SPP.",
+        "Na pondělí 14. 9. 2026 byl doplněn test ze služby pořádkové policie.",
+        "Výuku SPP dne 14. 9. supluje plk. Jandová; během výuky nerušit.",
+        "Obsah testu SPP: zákrok, úkon, povinnosti policisty, zásady výkonu služby a uvedené paměťové pomůcky.",
+        "Byly doplněny možné termíny testu z kriminalistiky: pondělí 14. 9. a úterý 15. 9. 2026.",
+        "Obsah testu z kriminalistiky: kriminalistická stopa, dělení stop, členění kriminalistiky, popis osoby, markanty, informační hodnota stop a kriminalistická identifikace."
+      ]
+    },
     {
       "date": "2026-09-06",
       "title": "Rozšíření rozvrhu, služeb a výukových podkladů",
