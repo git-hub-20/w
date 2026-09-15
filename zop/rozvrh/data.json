@@ -8,7 +8,7 @@
     "academicYear": "2026/2027",
     "homeRoomId": "SB-130",
     "scheduleRule": "Rozhodující je vždy vyučující uvedený u konkrétní položky aktuálního rozvrhu. Obvyklý lektor předmětu je pouze informativní údaj.",
-    "updatedAt": "2026-09-09"
+    "updatedAt": "2026-09-15 23:29"
   },
   "timeline": {
     "dayStart": "06:15",
@@ -261,6 +261,56 @@
     {
       "id": "HOLOUBETIN",
       "name": "Holoubětín",
+      "buildingId": "areal",
+      "type": "praktická výuka"
+    },
+    {
+      "id": "SB-017",
+      "name": "PC učebna 017",
+      "buildingId": "skolska",
+      "floorId": "prizemi",
+      "type": "PC učebna"
+    },
+    {
+      "id": "SB-028",
+      "name": "PC učebna 028",
+      "buildingId": "skolska",
+      "floorId": "prizemi",
+      "type": "PC učebna"
+    },
+    {
+      "id": "FZS-SOSNOVA-POLYGON",
+      "name": "FZŠ Sosnová / Polygon VZ Praha",
+      "buildingId": "areal",
+      "type": "praktická výuka"
+    },
+    {
+      "id": "FZS-PRIBRAM-POLYGON",
+      "name": "FZŠ Příbram / Polygon VZ Praha",
+      "buildingId": "areal",
+      "type": "praktická výuka"
+    },
+    {
+      "id": "VEZNICE-PANKRAC",
+      "name": "Věznice Pankrác",
+      "buildingId": "areal",
+      "type": "součinnostní cvičení"
+    },
+    {
+      "id": "KLADNO",
+      "name": "Kladno",
+      "buildingId": "areal",
+      "type": "praktická výuka"
+    },
+    {
+      "id": "SPOLANA",
+      "name": "SPOLANA",
+      "buildingId": "areal",
+      "type": "součinnostní cvičení"
+    },
+    {
+      "id": "TV-SS",
+      "name": "TV – SŠ",
       "buildingId": "areal",
       "type": "praktická výuka"
     }
@@ -838,646 +888,2693 @@
       "title": "Nájezd etapy",
       "type": "organizacni-udalost",
       "start": "07:30",
-      "end": "13:30"
+      "end": "13:30",
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      }
+    },
+    {
+      "id": "2026-09-28-denceskéstatnosti",
+      "date": "2026-09-28",
+      "title": "Den české státnosti",
+      "type": "statni-svatek",
+      "start": "",
+      "end": "",
+      "allDay": true
+    },
+    {
+      "id": "2026-10-21-radna-dovolena-0-5",
+      "date": "2026-10-21",
+      "title": "Řádná dovolená",
+      "type": "volno",
+      "start": "",
+      "end": "",
+      "allDay": true,
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      }
+    },
+    {
+      "id": "2026-10-21-radna-dovolena-7-8",
+      "date": "2026-10-21",
+      "title": "Řádná dovolená",
+      "type": "volno",
+      "start": "",
+      "end": "",
+      "allDay": true,
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      }
+    },
+    {
+      "id": "2026-10-22-radna-dovolena-0-5",
+      "date": "2026-10-22",
+      "title": "Řádná dovolená",
+      "type": "volno",
+      "start": "",
+      "end": "",
+      "allDay": true,
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      }
+    },
+    {
+      "id": "2026-10-22-radna-dovolena-7-8",
+      "date": "2026-10-22",
+      "title": "Řádná dovolená",
+      "type": "volno",
+      "start": "",
+      "end": "",
+      "allDay": true,
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      }
+    },
+    {
+      "id": "2026-10-23-radna-dovolena-0-5",
+      "date": "2026-10-23",
+      "title": "Řádná dovolená",
+      "type": "volno",
+      "start": "",
+      "end": "",
+      "allDay": true,
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      }
+    },
+    {
+      "id": "2026-10-28-denvznikusamostatnéhoceskoslovenskéhostatu",
+      "date": "2026-10-28",
+      "title": "Den vzniku samostatného československého státu",
+      "type": "statni-svatek",
+      "start": "",
+      "end": "",
+      "allDay": true
     }
   ],
   "schedule": [
     {
-      "id": "2026-09-01-ppc-7-8",
       "type": "lesson",
+      "id": "2026-09-01-ppc-7-8",
       "date": "2026-09-01",
       "subjectId": "PPC",
-      "teacherIds": ["mas"],
-      "roomIds": ["AULA"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "mas"
+      ],
+      "roomIds": [
+        "AULA"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-02-ppc-0-5",
-      "type": "lesson",
       "date": "2026-09-02",
       "subjectId": "PPC",
-      "teacherIds": ["mas"],
-      "roomIds": ["VZDELAVACI-CENTRUM"],
-      "curriculumHours": {"from": 3, "to": 8},
-      "daySlots": {"from": 0, "to": 5},
+      "teacherIds": [
+        "mas"
+      ],
+      "roomIds": [
+        "VZDELAVACI-CENTRUM"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-02-ppc-7-8",
-      "type": "lesson",
       "date": "2026-09-02",
       "subjectId": "PPC",
-      "teacherIds": ["mas"],
-      "roomIds": ["VZDELAVACI-CENTRUM"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "mas"
+      ],
+      "roomIds": [
+        "VZDELAVACI-CENTRUM"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-03-spp-0-3",
       "type": "lesson",
+      "id": "2026-09-03-spp-0-3",
       "date": "2026-09-03",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 4},
-      "daySlots": {"from": 0, "to": 3},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-03-pra-4-5",
-      "type": "lesson",
       "date": "2026-09-03",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-03-pra-7-8",
-      "type": "lesson",
       "date": "2026-09-03",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-04-ppz-0-5",
       "type": "lesson",
+      "id": "2026-09-04-ppz-0-5",
       "date": "2026-09-04",
       "subjectId": "PPZ",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SUCHY-NACVIK"],
-      "curriculumHours": {"from": 1, "to": 6},
-      "daySlots": {"from": 0, "to": 5},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SUCHY-NACVIK"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-07-kpe-0-1",
       "type": "lesson",
+      "id": "2026-09-07-kpe-0-1",
       "date": "2026-09-07",
       "subjectId": "KPE",
-      "teacherIds": ["nok"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-07-pra-2-5",
       "type": "lesson",
+      "id": "2026-09-07-pra-2-5",
       "date": "2026-09-07",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 8},
-      "daySlots": {"from": 2, "to": 5},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-07-kri-7-8",
       "type": "lesson",
+      "id": "2026-09-07-kri-7-8",
       "date": "2026-09-07",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-08-kpe-0-1",
       "type": "lesson",
+      "id": "2026-09-08-kpe-0-1",
       "date": "2026-09-08",
       "subjectId": "KPE",
-      "teacherIds": ["nok"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-08-ait-2-3",
       "type": "lesson",
+      "id": "2026-09-08-ait-2-3",
       "date": "2026-09-08",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-08-pdp-4-5",
       "type": "lesson",
+      "id": "2026-09-08-pdp-4-5",
       "date": "2026-09-08",
       "subjectId": "PDP",
-      "teacherIds": ["smo", "bra"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "smo",
+        "bra"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-08-spp-7-8",
       "type": "lesson",
+      "id": "2026-09-08-spp-7-8",
       "date": "2026-09-08",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-09-ait-0-1",
       "type": "lesson",
+      "id": "2026-09-09-ait-0-1",
       "date": "2026-09-09",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-09-pra-2-3",
       "type": "lesson",
+      "id": "2026-09-09-pra-2-3",
       "date": "2026-09-09",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-09-kri-4-5",
       "type": "lesson",
+      "id": "2026-09-09-kri-4-5",
       "date": "2026-09-09",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-09-spp-7-8",
       "type": "lesson",
+      "id": "2026-09-09-spp-7-8",
       "date": "2026-09-09",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-10-ppz-0-5",
       "type": "lesson",
+      "id": "2026-09-10-ppz-0-5",
       "date": "2026-09-10",
       "subjectId": "PPZ",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["HOLOUBETIN"],
-      "curriculumHours": {"from": 7, "to": 12},
-      "daySlots": {"from": 0, "to": 5},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "HOLOUBETIN"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-10-sdp-7-8",
       "type": "lesson",
+      "id": "2026-09-10-sdp-7-8",
       "date": "2026-09-10",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-11-ait-0-1",
       "type": "lesson",
+      "id": "2026-09-11-ait-0-1",
       "date": "2026-09-11",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-11-kpe-2-3",
       "type": "lesson",
+      "id": "2026-09-11-kpe-2-3",
       "date": "2026-09-11",
       "subjectId": "KPE",
-      "teacherIds": ["nok"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-11-pdp-4-5",
       "type": "lesson",
+      "id": "2026-09-11-pdp-4-5",
       "date": "2026-09-11",
       "subjectId": "PDP",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-14-spp-0-1",
       "type": "lesson",
+      "id": "2026-09-14-spp-0-1",
       "date": "2026-09-14",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-14-kri-2-3",
       "type": "lesson",
+      "id": "2026-09-14-kri-2-3",
       "date": "2026-09-14",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-14-ait-4-5",
       "type": "lesson",
+      "id": "2026-09-14-ait-4-5",
       "date": "2026-09-14",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-14-kpe-7-8",
       "type": "lesson",
+      "id": "2026-09-14-kpe-7-8",
       "date": "2026-09-14",
       "subjectId": "KPE",
-      "teacherIds": ["nok"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-15-kri-0-1",
       "type": "lesson",
+      "id": "2026-09-15-kri-0-1",
       "date": "2026-09-15",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-15-pra-2-3",
       "type": "lesson",
+      "id": "2026-09-15-pra-2-3",
       "date": "2026-09-15",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 11, "to": 12},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-15-spp-4-5",
       "type": "lesson",
+      "id": "2026-09-15-spp-4-5",
       "date": "2026-09-15",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 11, "to": 12},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-15-ait-7-8",
       "type": "lesson",
+      "id": "2026-09-15-ait-7-8",
       "date": "2026-09-15",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-16-sdp-0-1",
       "type": "lesson",
+      "id": "2026-09-16-sdp-0-1",
       "date": "2026-09-16",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 3, "to": 4},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-16-spp-2-3",
       "type": "lesson",
+      "id": "2026-09-16-spp-2-3",
       "date": "2026-09-16",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["AULA"],
-      "curriculumHours": {"from": 13, "to": 14},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "AULA"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": "Přednáška NOC."
     },
     {
-      "id": "2026-09-16-rsv-4-5",
       "type": "lesson",
+      "id": "2026-09-16-rsv-4-5",
       "date": "2026-09-16",
       "subjectId": "RSV",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 2},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-16-kri-7-8",
       "type": "lesson",
+      "id": "2026-09-16-kri-7-8",
       "date": "2026-09-16",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-17-tpr-0-3",
-      "type": "lesson",
       "date": "2026-09-17",
       "subjectId": "TPR",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 1, "to": 4},
-      "daySlots": {"from": 0, "to": 3},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-17-pdp-4-5",
-      "type": "lesson",
       "date": "2026-09-17",
       "subjectId": "PDP",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-17-pra-7-8",
-      "type": "lesson",
       "date": "2026-09-17",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 13, "to": 14},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-18-ait-0-1",
       "type": "lesson",
+      "id": "2026-09-18-ait-0-1",
       "date": "2026-09-18",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 11, "to": 12},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-18-sdp-2-3",
       "type": "lesson",
+      "id": "2026-09-18-sdp-2-3",
       "date": "2026-09-18",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-18-kri-4-5",
       "type": "lesson",
+      "id": "2026-09-18-kri-4-5",
       "date": "2026-09-18",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 11, "to": 12},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-21-ait-0-1",
       "type": "lesson",
+      "id": "2026-09-21-ait-0-1",
       "date": "2026-09-21",
       "subjectId": "AIT",
-      "teacherIds": ["kou", "jav"],
-      "roomIds": ["SB-016", "SB-029"],
-      "curriculumHours": {"from": 13, "to": 14},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-21-pra-2-5",
       "type": "lesson",
+      "id": "2026-09-21-pra-2-5",
       "date": "2026-09-21",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 15, "to": 18},
-      "daySlots": {"from": 2, "to": 5},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-21-kri-7-8",
       "type": "lesson",
+      "id": "2026-09-21-kri-7-8",
       "date": "2026-09-21",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 13, "to": 14},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-22-spp-0-1",
       "type": "lesson",
+      "id": "2026-09-22-spp-0-1",
       "date": "2026-09-22",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 15, "to": 16},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-22-sdp-2-3",
       "type": "lesson",
+      "id": "2026-09-22-sdp-2-3",
       "date": "2026-09-22",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-22-tpr-4-5",
-      "type": "lesson",
       "date": "2026-09-22",
       "subjectId": "TPR",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 5, "to": 6},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
+      "type": "lesson",
       "id": "2026-09-22-tpr-7-8",
-      "type": "lesson",
       "date": "2026-09-22",
       "subjectId": "TPR",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-23-sdp-0-1",
       "type": "lesson",
+      "id": "2026-09-23-sdp-0-1",
       "date": "2026-09-23",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-23-pdp-2-3",
       "type": "lesson",
+      "id": "2026-09-23-pdp-2-3",
       "date": "2026-09-23",
       "subjectId": "PDP",
-      "teacherIds": ["smo", "han"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 7, "to": 8},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-23-spp-4-5",
       "type": "lesson",
+      "id": "2026-09-23-spp-4-5",
       "date": "2026-09-23",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 17, "to": 18},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-23-kri-7-8",
       "type": "lesson",
+      "id": "2026-09-23-kri-7-8",
       "date": "2026-09-23",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-S33"],
-      "curriculumHours": {"from": 15, "to": 16},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-S33"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-24-sdp-0-3",
       "type": "lesson",
+      "id": "2026-09-24-sdp-0-3",
       "date": "2026-09-24",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 11, "to": 14},
-      "daySlots": {"from": 0, "to": 3},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-24-pra-4-5",
       "type": "lesson",
+      "id": "2026-09-24-pra-4-5",
       "date": "2026-09-24",
       "subjectId": "PRA",
-      "teacherIds": ["siz"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 19, "to": 20},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
       "note": ""
     },
     {
-      "id": "2026-09-24-spp-7-8",
       "type": "lesson",
+      "id": "2026-09-24-spp-7-8",
       "date": "2026-09-24",
       "subjectId": "SPP",
-      "teacherIds": ["cep"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 19, "to": 20},
-      "daySlots": {"from": 7, "to": 8},
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "note": ""
     },
     {
-      "id": "2026-09-25-kri-0-1",
       "type": "lesson",
+      "id": "2026-09-25-kri-0-1",
       "date": "2026-09-25",
       "subjectId": "KRI",
-      "teacherIds": ["bul"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 17, "to": 18},
-      "daySlots": {"from": 0, "to": 1},
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
       "note": ""
     },
     {
-      "id": "2026-09-25-sdp-2-3",
       "type": "lesson",
+      "id": "2026-09-25-sdp-2-3",
       "date": "2026-09-25",
       "subjectId": "SDP",
-      "teacherIds": ["dou"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 15, "to": 16},
-      "daySlots": {"from": 2, "to": 3},
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "note": ""
     },
     {
-      "id": "2026-09-25-kpe-4-5",
       "type": "lesson",
+      "id": "2026-09-25-kpe-4-5",
       "date": "2026-09-25",
       "subjectId": "KPE",
-      "teacherIds": ["nok", "jed"],
-      "roomIds": ["SB-130"],
-      "curriculumHours": {"from": 9, "to": 10},
-      "daySlots": {"from": 4, "to": 5},
+      "teacherIds": [
+        "nok",
+        "jed"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-09-29-ppz-0-5",
+      "date": "2026-09-29",
+      "subjectId": "PPZ",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "HOLOUBETIN"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-09-29-pra-7-8",
+      "date": "2026-09-29",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-09-30-rsv-0-5",
+      "date": "2026-09-30",
+      "subjectId": "RSV",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "FZS-SOSNOVA-POLYGON"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 8
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-09-30-rsv-7-8",
+      "date": "2026-09-30",
+      "subjectId": "RSV",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "FZS-SOSNOVA-POLYGON"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-01-pdp-0-1",
+      "date": "2026-10-01",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-01-sjp-2-3",
+      "date": "2026-10-01",
+      "subjectId": "SJP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-01-spp-4-5",
+      "date": "2026-10-01",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-01-spp-7-8",
+      "date": "2026-10-01",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 23,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-02-ait-0-1",
+      "date": "2026-10-02",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-02-pra-2-3",
+      "date": "2026-10-02",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 23,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-02-sdp-4-5",
+      "date": "2026-10-02",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-05-tpr-0-3",
+      "date": "2026-10-05",
+      "subjectId": "TPR",
+      "teacherIds": [
+        "han"
+      ],
+      "roomIds": [
+        "VEZNICE-PANKRAC"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
+      "note": "Součinnostní cvičení – věznice Pankrác."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-05-kpe-4-5",
+      "date": "2026-10-05",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "VEZNICE-PANKRAC"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": "Součinnostní cvičení – věznice Pankrác."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-05-kri-7-8",
+      "date": "2026-10-05",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "VEZNICE-PANKRAC"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": "Součinnostní cvičení – věznice Pankrác."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-06-ppz-0-5",
+      "date": "2026-10-06",
+      "subjectId": "PPZ",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "KLADNO"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-06-ait-7-8",
+      "date": "2026-10-06",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-07-kri-0-1",
+      "date": "2026-10-07",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-07-pra-2-3",
+      "date": "2026-10-07",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 25,
+        "to": 26
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-07-ait-4-5",
+      "date": "2026-10-07",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-028",
+        "SB-017"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-07-spp-7-8",
+      "date": "2026-10-07",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 25,
+        "to": 26
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-08-pra-0-1",
+      "date": "2026-10-08",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 27,
+        "to": 28
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-08-ait-2-3",
+      "date": "2026-10-08",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-08-sdp-4-5",
+      "date": "2026-10-08",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-08-spp-7-8",
+      "date": "2026-10-08",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 27,
+        "to": 28
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-09-kpe-0-1",
+      "date": "2026-10-09",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-09-ait-2-3",
+      "date": "2026-10-09",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 23,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-09-spp-4-5",
+      "date": "2026-10-09",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 29,
+        "to": 30
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-12-tpr-0-3",
+      "date": "2026-10-12",
+      "subjectId": "TPR",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-12-mbp-4-5",
+      "date": "2026-10-12",
+      "subjectId": "MBP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 1,
+        "to": 2
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-12-pdp-7-8",
+      "date": "2026-10-12",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-13-sjp-0-1",
+      "date": "2026-10-13",
+      "subjectId": "SJP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-13-ait-2-3",
+      "date": "2026-10-13",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 25,
+        "to": 26
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-13-pdp-4-5",
+      "date": "2026-10-13",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 13,
+        "to": 14
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-13-kpe-7-8",
+      "date": "2026-10-13",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-14-ait-0-1",
+      "date": "2026-10-14",
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SPOLANA"
+      ],
+      "curriculumHours": {
+        "from": 27,
+        "to": 28
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": "Součinnostní cvičení – SPOLANA."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-14-sdp-2-3",
+      "date": "2026-10-14",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SPOLANA"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": "Součinnostní cvičení – SPOLANA."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-14-kpe-4-5",
+      "date": "2026-10-14",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SPOLANA"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": "Součinnostní cvičení – SPOLANA."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-14-pdp-7-8",
+      "date": "2026-10-14",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SPOLANA"
+      ],
+      "curriculumHours": {
+        "from": 15,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": "Součinnostní cvičení – SPOLANA."
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-15-pdp-0-1",
+      "date": "2026-10-15",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-15-kpe-2-3",
+      "date": "2026-10-15",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-15-kri-4-5",
+      "date": "2026-10-15",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul",
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 23,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-15-kri-7-8",
+      "date": "2026-10-15",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-028"
+      ],
+      "curriculumHours": {
+        "from": 25,
+        "to": 26
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-16-kpe-0-1",
+      "date": "2026-10-16",
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok",
+        "jed"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-16-mbp-2-3",
+      "date": "2026-10-16",
+      "subjectId": "MBP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 3,
+        "to": 4
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-16-pra-4-5",
+      "date": "2026-10-16",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 29,
+        "to": 30
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-19-pra-0-1",
+      "date": "2026-10-19",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 31,
+        "to": 32
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-19-mbp-2-3",
+      "date": "2026-10-19",
+      "subjectId": "MBP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-19-sdp-4-5",
+      "date": "2026-10-19",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 23,
+        "to": 24
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-19-kri-7-8",
+      "date": "2026-10-19",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 27,
+        "to": 28
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-20-pdp-0-1",
+      "date": "2026-10-20",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-20-ppc-2-3",
+      "date": "2026-10-20",
+      "subjectId": "PPC",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "TV-SS"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-20-sdp-4-5",
+      "date": "2026-10-20",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 25,
+        "to": 26
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-20-sjp-7-8",
+      "date": "2026-10-20",
+      "subjectId": "SJP",
+      "teacherIds": [
+        "mar",
+        "flx"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-26-sdp-0-3",
+      "date": "2026-10-26",
+      "subjectId": "SDP",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 27,
+        "to": 30
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-26-spp-4-5",
+      "date": "2026-10-26",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 31,
+        "to": 32
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-26-pdp-7-8",
+      "date": "2026-10-26",
+      "subjectId": "PDP",
+      "teacherIds": [
+        "smo",
+        "han"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-27-rsv-0-5",
+      "date": "2026-10-27",
+      "subjectId": "RSV",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "FZS-PRIBRAM-POLYGON"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 16
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-27-rsv-7-8",
+      "date": "2026-10-27",
+      "subjectId": "RSV",
+      "teacherIds": [
+        "dou"
+      ],
+      "roomIds": [
+        "FZS-PRIBRAM-POLYGON"
+      ],
+      "curriculumHours": {
+        "from": 17,
+        "to": 18
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-29-kri-0-1",
+      "date": "2026-10-29",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 29,
+        "to": 30
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-29-kri-2-3",
+      "date": "2026-10-29",
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-S33"
+      ],
+      "curriculumHours": {
+        "from": 31,
+        "to": 32
+      },
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-29-pra-4-5",
+      "date": "2026-10-29",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 33,
+        "to": 34
+      },
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-29-pra-7-8",
+      "date": "2026-10-29",
+      "subjectId": "PRA",
+      "teacherIds": [
+        "siz"
+      ],
+      "roomIds": [
+        "SB-S33"
+      ],
+      "curriculumHours": {
+        "from": 35,
+        "to": 36
+      },
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "note": ""
+    },
+    {
+      "type": "lesson",
+      "id": "2026-10-30-spp-0-5",
+      "date": "2026-10-30",
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 33,
+        "to": 38
+      },
+      "daySlots": {
+        "from": 0,
+        "to": 5
+      },
       "note": ""
     }
   ],
@@ -1487,7 +3584,10 @@
       "enabled": true,
       "date": "2026-09-09",
       "subjectId": "SPP",
-      "daySlots": {"from": 7, "to": 8},
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
       "title": "Test — zákon o Policii ČR",
       "topics": [
         "Číslo zákona",
@@ -1500,21 +3600,14 @@
       "note": ""
     },
     {
-      "id": "test-pra-2026-09-15",
-      "enabled": true,
-      "date": "2026-09-15",
-      "subjectId": "PRA",
-      "daySlots": {"from": 2, "to": 3},
-      "title": "Test — služební poměr",
-      "topics": ["Služební poměr"],
-      "note": ""
-    },
-    {
       "id": "test-spp-2026-09-14",
       "enabled": true,
       "date": "2026-09-14",
       "subjectId": "SPP",
-      "daySlots": {"from": 0, "to": 1},
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
       "title": "Test — služba pořádkové policie",
       "topics": [
         "Zákrok",
@@ -1532,189 +3625,196 @@
       "note": "Supluje plk. Jandová. Během výuky nerušit."
     },
     {
-      "id": "test-kri-2026-09-14",
+      "id": "test-kri-2026-09-16",
       "enabled": true,
-      "date": "2026-09-14",
+      "date": "2026-09-16",
       "subjectId": "KRI",
-      "daySlots": {"from": 2, "to": 3},
-      "title": "Možný termín testu — Kriminalistická stopa",
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "title": "Test — kriminalistika",
       "topics": [
-        "Kriminalistická stopa",
-        "Dělení stop",
-        "Členění kriminalistiky",
-        "Druhy popisu osoby",
-        "Markant",
-        "Informační hodnoty stop",
-        "Kriminalistická identifikace",
-        "Skupinová a individuální identifikace — druhy a příklady",
-        "Druhy popisovaných znaků"
+        "Odorologie",
+        "Daktyloskopie",
+        "Biologie"
       ],
-      "note": "Test je plánován na pondělí 14. 9.; jako alternativní termín je uvedeno také úterý 15. 9."
+      "note": ""
     },
     {
-      "id": "test-kri-2026-09-15",
+      "id": "test-pra-2026-09-17",
       "enabled": true,
-      "date": "2026-09-15",
-      "subjectId": "KRI",
-      "daySlots": {"from": 0, "to": 1},
-      "title": "Možný termín testu — Kriminalistická stopa",
+      "date": "2026-09-17",
+      "subjectId": "PRA",
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "title": "Test — služební poměr",
       "topics": [
-        "Kriminalistická stopa",
-        "Dělení stop",
-        "Členění kriminalistiky",
-        "Druhy popisu osoby",
-        "Markant",
-        "Informační hodnoty stop",
-        "Kriminalistická identifikace",
-        "Skupinová a individuální identifikace — druhy a příklady",
-        "Druhy popisovaných znaků"
+        "Služební poměr"
       ],
-      "note": "Alternativní možný termín k pondělí 14. 9. Přesný termín bude potvrzen."
+      "note": "Test byl přesunut z úterý 15. 9. 2026."
+    },
+    {
+      "id": "test-spp-2026-09-24",
+      "enabled": true,
+      "date": "2026-09-24",
+      "subjectId": "SPP",
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "title": "Test — donucovací prostředky",
+      "topics": [
+        "Donucovací prostředky"
+      ],
+      "note": ""
     }
   ],
-"scheduleOverrides": [
-  {
-    "id": "2026-09-08-kpe-misto-spp",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-08",
-    "daySlots": {
-      "from": 7,
-      "to": 8
+  "scheduleOverrides": [
+    {
+      "id": "2026-09-08-kpe-misto-spp",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-08",
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 5,
+        "to": 6
+      },
+      "note": "Operativní změna: KPE místo původně plánovaného SPP.",
+      "reason": "Operativní změna rozvrhu"
     },
-    "subjectId": "KPE",
-    "teacherIds": [
-      "nok"
-    ],
-    "roomIds": [
-      "SB-130"
-    ],
-    "curriculumHours": {
-      "from": 5,
-      "to": 6
+    {
+      "id": "2026-09-11-spp-misto-kpe",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-11",
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "note": "Operativní změna: SPP místo původně plánovaného KPE.",
+      "reason": "Operativní změna rozvrhu"
     },
-    "note": "Operativní změna: KPE místo původně plánovaného SPP.",
-    "reason": "Operativní změna rozvrhu"
-  },
-  {
-    "id": "2026-09-11-spp-misto-kpe",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-11",
-    "daySlots": {
-      "from": 2,
-      "to": 3
+    {
+      "id": "2026-09-14-ait-misto-spp",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-14",
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "subjectId": "AIT",
+      "teacherIds": [
+        "kou",
+        "jav"
+      ],
+      "roomIds": [
+        "SB-016",
+        "SB-029"
+      ],
+      "curriculumHours": {
+        "from": 7,
+        "to": 8
+      },
+      "note": "Operativní změna: AIT místo původně plánovaného SPP.",
+      "reason": "Úprava rozvrhu"
     },
-    "subjectId": "SPP",
-    "teacherIds": [
-      "cep"
-    ],
-    "roomIds": [
-      "SB-130"
-    ],
-    "curriculumHours": {
-      "from": 21,
-      "to": 22
+    {
+      "id": "2026-09-14-spp-suplik-jandova-test",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-14",
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "subjectId": "SPP",
+      "teacherIds": [
+        "jand"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "testId": "test-spp-2026-09-14",
+      "note": "Test SPP. Supluje plk. Jandová; během výuky nerušit.",
+      "reason": "Suplování plk. Jandovou a test z předmětu SPP"
     },
-    "note": "Operativní změna: SPP místo původně plánovaného KPE.",
-    "reason": "Operativní změna rozvrhu"
-  },
-  {
-    "id": "2026-09-14-ait-misto-spp",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-14",
-    "daySlots": {
-      "from": 0,
-      "to": 1
+    {
+      "id": "2026-09-14-spp-misto-ait",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-14",
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 11,
+        "to": 12
+      },
+      "note": "Operativní změna: SPP místo původně plánovaného AIT.",
+      "reason": "Úprava rozvrhu"
     },
-    "subjectId": "AIT",
-    "teacherIds": [
-      "kou",
-      "jav"
-    ],
-    "roomIds": [
-      "SB-016",
-      "SB-029"
-    ],
-    "curriculumHours": {
-      "from": 7,
-      "to": 8
-    },
-    "note": "Operativní změna: AIT místo původně plánovaného SPP.",
-    "reason": "Úprava rozvrhu"
-  },
-  {
-    "id": "2026-09-14-spp-suplik-jandova-test",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-14",
-    "daySlots": {
-      "from": 2,
-      "to": 3
-    },
-    "subjectId": "SPP",
-    "teacherIds": [
-      "jand"
-    ],
-    "roomIds": [
-      "SB-130"
-    ],
-    "curriculumHours": {
-      "from": 9,
-      "to": 10
-    },
-    "testId": "test-spp-2026-09-14",
-    "note": "Test SPP. Supluje plk. Jandová; během výuky nerušit.",
-    "reason": "Suplování plk. Jandovou a test z předmětu SPP"
-  },
-  {
-    "id": "2026-09-14-spp-misto-ait",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-14",
-    "daySlots": {
-      "from": 4,
-      "to": 5
-    },
-    "subjectId": "SPP",
-    "teacherIds": [
-      "cep"
-    ],
-    "roomIds": [
-      "SB-130"
-    ],
-    "curriculumHours": {
-      "from": 11,
-      "to": 12
-    },
-    "note": "Operativní změna: SPP místo původně plánovaného AIT.",
-    "reason": "Úprava rozvrhu"
-  },
-  {
-    "id": "2026-09-15-kri-misto-spp",
-    "enabled": true,
-    "action": "replace",
-    "date": "2026-09-15",
-    "daySlots": {
-      "from": 4,
-      "to": 5
-    },
-    "subjectId": "KRI",
-    "teacherIds": [
-      "bul"
-    ],
-    "roomIds": [
-      "SB-130"
-    ],
-    "curriculumHours": {
-      "from": 9,
-      "to": 10
-    },
-    "note": "Operativní změna: KRI místo původně plánovaného SPP.",
-    "reason": "Úprava rozvrhu"
-  }
-],
+    {
+      "id": "2026-09-15-kri-misto-spp",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-09-15",
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 9,
+        "to": 10
+      },
+      "note": "Operativní změna: KRI místo původně plánovaného SPP.",
+      "reason": "Úprava rozvrhu"
+    }
+  ],
   "subjectPeriodRules": [
     {
       "id": "kpe-u1-prvni-ctyri-tydny",
@@ -1750,22 +3850,118 @@
     }
   ],
   "servicePairs": [
-    { "id": "pair-left-01", "students": ["Fojtů", "Václavíková"] },
-    { "id": "pair-left-02", "students": ["Barcal", "Dušek"] },
-    { "id": "pair-left-03", "students": ["Santrůček", "Dadek"] },
-    { "id": "pair-left-04", "students": ["Prajzler", "Mattern"] },
-    { "id": "pair-left-05", "students": ["Petřek", "Stejskal"] },
-    { "id": "pair-center-01", "students": ["Rybin", "Švarc"] },
-    { "id": "pair-center-02", "students": ["Džurděníková", "Veselská"] },
-    { "id": "pair-center-03", "students": ["Feixová", "Vašková"] },
-    { "id": "pair-center-04", "students": ["Procházková", "Beranová"] },
-    { "id": "pair-center-05", "students": ["Vývoda", "Souček"] },
-    { "id": "pair-right-01", "students": ["Buďa", "Cosić"] },
-    { "id": "pair-right-02", "students": ["Míková", "Sieberová"] },
-    { "id": "pair-right-03", "students": ["Novák", "Špecián"] },
-    { "id": "pair-right-04", "students": ["Křížek", "Král"] },
-    { "id": "pair-right-05", "students": ["Pučelík", "Borník"] },
-    { "id": "pair-katedra", "students": ["Boučková", "Vrána"] }
+    {
+      "id": "pair-left-01",
+      "students": [
+        "Fojtů",
+        "Václavíková"
+      ]
+    },
+    {
+      "id": "pair-left-02",
+      "students": [
+        "Barcal",
+        "Dušek"
+      ]
+    },
+    {
+      "id": "pair-left-03",
+      "students": [
+        "Santrůček",
+        "Dadek"
+      ]
+    },
+    {
+      "id": "pair-left-04",
+      "students": [
+        "Prajzler",
+        "Mattern"
+      ]
+    },
+    {
+      "id": "pair-left-05",
+      "students": [
+        "Petřek",
+        "Stejskal"
+      ]
+    },
+    {
+      "id": "pair-center-01",
+      "students": [
+        "Rybin",
+        "Švarc"
+      ]
+    },
+    {
+      "id": "pair-center-02",
+      "students": [
+        "Džurděníková",
+        "Veselská"
+      ]
+    },
+    {
+      "id": "pair-center-03",
+      "students": [
+        "Feixová",
+        "Vašková"
+      ]
+    },
+    {
+      "id": "pair-center-04",
+      "students": [
+        "Procházková",
+        "Beranová"
+      ]
+    },
+    {
+      "id": "pair-center-05",
+      "students": [
+        "Vývoda",
+        "Souček"
+      ]
+    },
+    {
+      "id": "pair-right-01",
+      "students": [
+        "Buďa",
+        "Cosić"
+      ]
+    },
+    {
+      "id": "pair-right-02",
+      "students": [
+        "Míková",
+        "Sieberová"
+      ]
+    },
+    {
+      "id": "pair-right-03",
+      "students": [
+        "Novák",
+        "Špecián"
+      ]
+    },
+    {
+      "id": "pair-right-04",
+      "students": [
+        "Křížek",
+        "Král"
+      ]
+    },
+    {
+      "id": "pair-right-05",
+      "students": [
+        "Pučelík",
+        "Borník"
+      ]
+    },
+    {
+      "id": "pair-katedra",
+      "students": [
+        "Boučková",
+        "Vrána"
+      ]
+    }
   ],
   "serviceRotation": {
     "enabled": true,
@@ -1793,19 +3989,102 @@
     ]
   },
   "studySchedule": [
-    { "calendarWeek": 36, "teachingWeek": 1, "dateRange": "31.08.–04.09.2026", "event": "01.09. Nájezd etapy", "teachingHours": 24 },
-    { "calendarWeek": 37, "teachingWeek": 2, "dateRange": "07.09.–11.09.2026", "event": "", "teachingHours": 38 },
-    { "calendarWeek": 38, "teachingWeek": 3, "dateRange": "14.09.–18.09.2026", "event": "", "teachingHours": 38 },
-    { "calendarWeek": 39, "teachingWeek": 4, "dateRange": "21.09.–25.09.2026", "event": "", "teachingHours": 38 },
-    { "calendarWeek": 40, "teachingWeek": 5, "dateRange": "28.09.–02.10.2026", "event": "28.09. státní svátek", "teachingHours": 30 },
-    { "calendarWeek": 44, "teachingWeek": 9, "dateRange": "26.10.–30.10.2026", "event": "26.–27.10. ředitelské volno, 28.10. státní svátek", "teachingHours": 14 },
-    { "calendarWeek": 47, "teachingWeek": 12, "dateRange": "16.11.–20.11.2026", "event": "16.11. ředitelské volno, 17.11. státní svátek", "teachingHours": 22 },
-    { "calendarWeek": 52, "teachingWeek": 17, "dateRange": "21.12.–25.12.2026", "event": "21.–23.12. ředitelské volno, 24.–25.12. státní svátky", "teachingHours": 0 },
-    { "calendarWeek": 53, "teachingWeek": 18, "dateRange": "28.12.2026–01.01.2027", "event": "28.–31.12. ředitelské volno, 01.01. státní svátek", "teachingHours": 0 },
-    { "calendarWeek": 12, "teachingWeek": 30, "dateRange": "22.03.–26.03.2027", "event": "23.–24.03. ZK, 25.03. ředitelské volno, 26.03. státní svátek", "teachingHours": 8 },
-    { "calendarWeek": 17, "teachingWeek": 35, "dateRange": "26.04.–30.04.2027", "event": "26.–29.04. ZZK, 30.04. vyřazení", "teachingHours": 0 }
+    {
+      "calendarWeek": 36,
+      "teachingWeek": 1,
+      "dateRange": "31.08.–04.09.2026",
+      "event": "01.09. Nájezd etapy",
+      "teachingHours": 24
+    },
+    {
+      "calendarWeek": 37,
+      "teachingWeek": 2,
+      "dateRange": "07.09.–11.09.2026",
+      "event": "",
+      "teachingHours": 38
+    },
+    {
+      "calendarWeek": 38,
+      "teachingWeek": 3,
+      "dateRange": "14.09.–18.09.2026",
+      "event": "",
+      "teachingHours": 38
+    },
+    {
+      "calendarWeek": 39,
+      "teachingWeek": 4,
+      "dateRange": "21.09.–25.09.2026",
+      "event": "",
+      "teachingHours": 38
+    },
+    {
+      "calendarWeek": 40,
+      "teachingWeek": 5,
+      "dateRange": "28.09.–02.10.2026",
+      "event": "28.09. státní svátek",
+      "teachingHours": 30
+    },
+    {
+      "calendarWeek": 44,
+      "teachingWeek": 9,
+      "dateRange": "26.10.–30.10.2026",
+      "event": "26.–27.10. ředitelské volno, 28.10. státní svátek",
+      "teachingHours": 14
+    },
+    {
+      "calendarWeek": 47,
+      "teachingWeek": 12,
+      "dateRange": "16.11.–20.11.2026",
+      "event": "16.11. ředitelské volno, 17.11. státní svátek",
+      "teachingHours": 22
+    },
+    {
+      "calendarWeek": 52,
+      "teachingWeek": 17,
+      "dateRange": "21.12.–25.12.2026",
+      "event": "21.–23.12. ředitelské volno, 24.–25.12. státní svátky",
+      "teachingHours": 0
+    },
+    {
+      "calendarWeek": 53,
+      "teachingWeek": 18,
+      "dateRange": "28.12.2026–01.01.2027",
+      "event": "28.–31.12. ředitelské volno, 01.01. státní svátek",
+      "teachingHours": 0
+    },
+    {
+      "calendarWeek": 12,
+      "teachingWeek": 30,
+      "dateRange": "22.03.–26.03.2027",
+      "event": "23.–24.03. ZK, 25.03. ředitelské volno, 26.03. státní svátek",
+      "teachingHours": 8
+    },
+    {
+      "calendarWeek": 17,
+      "teachingWeek": 35,
+      "dateRange": "26.04.–30.04.2027",
+      "event": "26.–29.04. ZZK, 30.04. vyřazení",
+      "teachingHours": 0
+    }
   ],
   "changelog": [
+    {
+      "date": "2026-09-15",
+      "title": "Import rozvrhu do 30. října a aktualizace testů",
+      "items": [
+        "Do databáze byl naimportován aktuální rozvrh od 28. 9. do 30. 10. 2026.",
+        "Importer rozvrhu byl rozšířen o podporu státních svátků, řádné dovolené, externích prostor a součinnostních cvičení.",
+        "Byly přidány prostory PC učebny 017 a 028, FZŠ Sosnová / Polygon VZ Praha, FZŠ Příbram / Polygon VZ Praha, věznice Pankrác, Kladno, SPOLANA a TV – SŠ.",
+        "Do rozvrhu byly doplněny státní svátky 28. 9. a 28. 10. 2026.",
+        "Do rozvrhu byla doplněna řádná dovolená ve dnech 21.–23. 10. 2026.",
+        "Byly doplněny poznámky k součinnostním cvičením ve věznici Pankrác a ve SPOLANĚ.",
+        "Test z kriminalistiky je stanoven na 16. 9. 2026 v odpoledním bloku KRI; témata: odorologie, daktyloskopie a biologie.",
+        "Test z práva na téma služební poměr byl přesunut z 15. 9. na 17. 9. 2026.",
+        "Test z SPP na téma donucovací prostředky je stanoven na 24. 9. 2026.",
+        "Test SPP dne 14. 9. byl sjednocen s aktuální operativní změnou rozvrhu na sloty 2–3; výuku supluje plk. Jandová.",
+        "Byly odstraněny dřívější neconfirmované alternativní termíny testu z kriminalistiky ze 14. a 15. 9. 2026."
+      ]
+    },
     {
       "date": "2026-09-09",
       "title": "Změny výuky a testů v září 2026",
