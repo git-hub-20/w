@@ -529,6 +529,66 @@
       border-color: var(--unknown-line);
     }
 
+    /* Celodenní událost – svátek, dovolená nebo jiné volno. */
+    .day-event {
+      display: flex;
+      min-height: 310px;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      color: #64378a;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(116, 67, 154, .15),
+          transparent 13rem
+        ),
+        var(--event-bg);
+      border-left: 5px solid var(--event-line);
+    }
+
+    .day-event-icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      margin: 0 auto 13px;
+      color: white;
+      font-size: 1.55rem;
+      font-weight: 900;
+      background: var(--event-line);
+      border-radius: 50%;
+    }
+
+    .day-event h3 {
+      margin: 0;
+      color: #5b2d81;
+      font-size: 1.05rem;
+    }
+
+    .day-event p {
+      margin: 8px 0 0;
+      color: #704895;
+      font-size: .83rem;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
+    .day-event-label {
+      display: inline-block;
+      padding: 4px 8px;
+      margin-bottom: 9px;
+      color: #64378a;
+      font-size: .67rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, .6);
+      border: 1px solid rgba(116, 67, 154, .26);
+      border-radius: 99px;
+    }
+
     .lunch-block {
       position: relative;
       display: block;
@@ -1733,6 +1793,79 @@
       return (DB.events || []).filter(item => item.date === date);
     }
 
+    /*
+      Celodenní událost má absolutní přednost před běžným rozvrhem.
+      Díky tomu se při svátku nebo dovolené nevykreslí snídaně,
+      nástupy, přestávky, oběd ani konec služby.
+    */
+    function fullDayEventsForDay(date) {
+      return eventsForDay(date).filter(event =>
+        event.allDay === true ||
+        event.type === "statni-svatek" ||
+        event.type === "volno"
+      );
+    }
+
+    function createFullDayEventView(events) {
+      const uniqueEvents = [
+        ...new Map(
+          events.map(event => [
+            `${event.type || ""}-${event.title || ""}`,
+            event
+          ])
+        ).values()
+      ];
+
+      const title = uniqueEvents
+        .map(event => event.title || "Celodenní událost")
+        .join(" · ");
+
+      const isHoliday = uniqueEvents.some(
+        event => event.type === "statni-svatek"
+      );
+
+      const isLeave = uniqueEvents.some(
+        event => event.type === "volno"
+      );
+
+      let label = "Celodenní událost";
+      let icon = "●";
+      let description =
+        "Běžný denní režim ani výuka se v tento den nezobrazují.";
+
+      if (isHoliday) {
+        label = "Státní svátek";
+        icon = "★";
+        description =
+          "V tento den neprobíhá standardní výuka ani běžný denní režim.";
+      } else if (isLeave) {
+        label = "Volno";
+        icon = "✓";
+        description =
+          "Řádná dovolená – v tento den neprobíhá standardní výuka ani běžný denní režim.";
+      }
+
+      const notes = uniqueEvents
+        .map(event => event.note)
+        .filter(Boolean);
+
+      return `
+        <section class="day-event">
+          <div>
+            <div class="day-event-icon">${icon}</div>
+            <span class="day-event-label">${escapeHtml(label)}</span>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(description)}</p>
+            ${
+              notes.length
+                ? `<p>${escapeHtml(notes.join(" "))}</p>`
+                : ""
+            }
+          </div>
+        </section>
+      `;
+    }
+
     function lessonLocation(item) {
       return item.effectiveLocationLabel || roomNames(item.roomIds);
     }
@@ -1847,6 +1980,16 @@
     }
 
     function makeTimeline(date) {
+      /*
+        Státní svátky, dovolená a allDay události nahrazují celý
+        standardní denní režim.
+      */
+      const fullDayEvents = fullDayEventsForDay(date);
+
+      if (fullDayEvents.length) {
+        return createFullDayEventView(fullDayEvents);
+      }
+
       const query = $("#schedule-search").value
         .trim()
         .toLocaleLowerCase("cs-CZ");
@@ -1871,8 +2014,14 @@
         lessons.map(item => [Number(item.daySlots.from), item])
       );
 
+      /*
+        Časově omezené events, například Nájezd etapy, zůstávají
+        součástí normální časové osy.
+      */
       const eventsAtTime = new Map(
-        eventsForDay(date).map(event => [event.start, event])
+        eventsForDay(date)
+          .filter(event => event.allDay !== true)
+          .map(event => [event.start, event])
       );
 
       const transition = timelineSegment("afternoon-transition");
@@ -1883,6 +2032,7 @@
 
         if (typeof segment.id === "number") {
           const lesson = lessonsAtSlot.get(segment.id);
+
           if (!lesson) continue;
 
           const sub = subject(lesson.subjectId);
@@ -1944,10 +2094,14 @@
 
       return blocks.join("");
     }
-
     function getWeeks() {
+      const relevantDates = [
+        ...(DB.schedule || []).map(item => item.date),
+        ...(DB.events || []).map(item => item.date)
+      ].filter(Boolean);
+
       const dates = [
-        ...new Set(DB.schedule.map(item => toIso(monday(item.date))))
+        ...new Set(relevantDates.map(date => toIso(monday(date))))
       ].sort();
 
       return dates.map(iso => {
@@ -1993,7 +2147,10 @@
 
     function getRelevantMobileDate() {
       const dates = [
-        ...new Set(effectiveSchedule().map(item => item.date))
+        ...new Set([
+          ...effectiveSchedule().map(item => item.date),
+          ...(DB.events || []).map(item => item.date)
+        ].filter(Boolean))
       ].sort();
 
       if (!dates.length) return null;
