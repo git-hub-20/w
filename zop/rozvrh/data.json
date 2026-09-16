@@ -3662,8 +3662,8 @@
       "date": "2026-09-25",
       "subjectId": "KPE",
       "daySlots": {
-        "from": 5,
-        "to": 6
+        "from": 4,
+        "to": 5
       },
       "title": "Test",
       "topics": [
@@ -3674,7 +3674,7 @@
         "Co je etický kodex",
         "co je (ne)verbální komunikace",
         "Co je diferencializovaný přístup a 4 příklady - kombinace situace a individuality člověka, se kterým jednám",
-        "Předsudek vs stereotyp",
+        "Předsudek vs stereotyp"
       ],
       "note": ""
     },
