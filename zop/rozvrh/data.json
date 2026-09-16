@@ -3657,6 +3657,28 @@
       "note": "Test byl přesunut z úterý 15. 9. 2026."
     },
     {
+      "id": "test-kpe-2026-09-25",
+      "enabled": true,
+      "date": "2026-09-25",
+      "subjectId": "KPE",
+      "daySlots": {
+        "from": 5,
+        "to": 6
+      },
+      "title": "Test",
+      "topics": [
+        "5 základních hodnot (2 vysvětlit)",
+        "Pojem oční kontakt a proxemika + příklady",
+        "selektivní ignorace - příklad a vysvětlení",
+        "Jaké psychologické služby můžu využít jako policista",
+        "Co je etický kodex",
+        "co je (ne)verbální komunikace",
+        "Co je diferencializovaný přístup a 4 příklady - kombinace situace a individuality člověka, se kterým jednám",
+        "Předsudek vs stereotyp",
+      ],
+      "note": ""
+    },
+    {
       "id": "test-spp-2026-09-24",
       "enabled": true,
       "date": "2026-09-24",
