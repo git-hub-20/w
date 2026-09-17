@@ -3678,6 +3678,21 @@
       ],
       "note": ""
     },
+        {
+      "id": "test-kri-2026-09-18",
+      "enabled": true,
+      "date": "2026-09-25",
+      "subjectId": "KRI",
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "title": "Test",
+      "topics": [
+        "mechanoskopie a trasologie test"
+      ],
+      "note": ""
+    },
     {
       "id": "test-spp-2026-09-24",
       "enabled": true,
