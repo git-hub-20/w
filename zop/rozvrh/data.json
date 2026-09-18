@@ -3714,8 +3714,8 @@
       "date": "2026-10-02",
       "subjectId": "SDP",
       "daySlots": {
-        "from": 2,
-        "to": 3
+        "from": 4,
+        "to": 5
       },
       "title": "Test",
       "topics": [
