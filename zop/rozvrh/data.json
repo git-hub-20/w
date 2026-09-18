@@ -3693,6 +3693,36 @@
       ],
       "note": ""
     },
+        {
+      "id": "test-sdp-2026-09-25",
+      "enabled": true,
+      "date": "2026-09-25",
+      "subjectId": "SDP",
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "title": "Test",
+      "topics": [
+        "pojmy"
+      ],
+      "note": ""
+    },
+    {
+      "id": "test-sdp-2026-10-02",
+      "enabled": true,
+      "date": "2026-10-02",
+      "subjectId": "SDP",
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "title": "Test",
+      "topics": [
+        "autoskola otazky"
+      ],
+      "note": ""
+    },
     {
       "id": "test-spp-2026-09-24",
       "enabled": true,
