@@ -2283,7 +2283,7 @@
         "from": 0,
         "to": 5
       },
-      "note": "Polovina (vsichni s cislem do 17) jdou na smyk do Příbrami, ostatni polygon Sosnová - kupon na VRZ"
+      "note": "Polovina (vsichni s cislem do 17) jdou na kupon, zbytek Sosnová polygon."
     },
     {
       "type": "lesson",
@@ -3449,7 +3449,7 @@
         "from": 0,
         "to": 5
       },
-      "note": ""
+      "note": "Polovina (vsichni s cislem do 17) na polygon Příbram, zbytek kupon v Praze."
     },
     {
       "type": "lesson",
