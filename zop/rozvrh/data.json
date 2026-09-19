@@ -3931,14 +3931,7 @@
         "Dušek"
       ]
     },
-    {
-      "id": "pair-left-03",
-      "students": [
-        "Santrůček",
-        "Dadek"
-      ]
-    },
-    {
+   {
       "id": "pair-left-04",
       "students": [
         "Prajzler",
@@ -4040,7 +4033,6 @@
       "pair-katedra",
       "pair-left-05",
       "pair-left-04",
-      "pair-left-03",
       "pair-left-02",
       "pair-left-01",
       "pair-center-01",
