@@ -1,0 +1,24 @@
+[
+  {
+    "id": "test-kpe-2026-09-25",
+    "enabled": true,
+    "date": "2026-09-25",
+    "subjectId": "KPE",
+    "daySlots": {
+      "from": 4,
+      "to": 5
+    },
+    "title": "Test — komunikace a policejní etika",
+    "topics": [
+      "5 základních hodnot (2 vysvětlit)",
+      "Oční kontakt a proxemika + příklady",
+      "Selektivní ignorace — příklad a vysvětlení",
+      "Psychologické služby pro policistu",
+      "Etický kodex",
+      "Verbální a neverbální komunikace",
+      "Diferencovaný přístup a 4 příklady",
+      "Předsudek vs. stereotyp"
+    ],
+    "note": ""
+  }
+]
