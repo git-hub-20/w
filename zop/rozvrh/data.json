@@ -4128,6 +4128,29 @@
   ],
   "changelog": [
     {
+  "date": "2026-09-20",
+  "title": "Rozšíření rozvrhu, testů, služeb a navigace",
+  "items": [
+    "Rozvrh byl doplněn o další výukové týdny až do 30. 10. 2026, včetně externích výukových prostor, praktických a součinnostních cvičení.",
+    "Byly doplněny nové prostory: PC učebny 017 a 028, FZŠ Sosnová / Polygon VZ Praha, FZŠ Příbram / Polygon VZ Praha, věznice Pankrác, Kladno, SPOLANA a TV – SŠ.",
+    "Byla doplněna podpora státních svátků 28. 9. a 28. 10. 2026; ve svátek se nezobrazuje standardní denní režim ani výuka.",
+    "Byla doplněna řádná dovolená ve dnech 21.–23. 10. 2026; ve dnech volna se nezobrazuje standardní denní režim ani výuka.",
+    "Doplněna možnost samostatně spravovat testy v souboru testy.json. Testy z testy.json se spojují s testy v data.json a při shodném ID má samostatný soubor přednost.",
+    "Přidána stránka Testy s přehledem nadcházejících testů, témat a odkazy na příslušné hodiny.",
+    "Doplněn test z kriminalistiky na 16. 9. 2026: odorologie, daktyloskopie a biologie.",
+    "Test z práva na téma služební poměr byl přesunut z 15. 9. na 17. 9. 2026.",
+    "Doplněn test z SPP na 24. 9. 2026: donucovací prostředky.",
+    "Doplněn test z KPE na 25. 9. 2026: hodnoty, komunikace, etický kodex, diferencovaný přístup, psychologické služby a předsudky versus stereotypy.",
+    "V detailu výukové hodiny se nově zobrazuje celkové pořadí hodin daného předmětu v rámci výuky.",
+    "Doplněny vzájemné prokliky mezi lektory, předměty, výukovými hodinami a testy.",
+    "V profilu lektora je možné otevřít správné patro budovy U1 podle jeho kanceláře.",
+    "Týdenní rozvrh nyní automaticky otevírá aktuální týden; v pátek po 12:45 a během víkendu se otevře nejbližší následující týden.",
+    "Mobilní zobrazení automaticky ukazuje aktuální vyučovací den; po skončení služby zobrazuje nejbližší následující den.",
+    "Záložka Služby nyní obsahuje kompletní rotační rozpis služeb až do konce ZOP v dubnu 2027.",
+    "Přidána možnost ručního načtení data.json a volitelného testy.json přímo ve webu pro offline použití."
+  ]
+}
+    {
       "date": "2026-09-15",
       "title": "Import rozvrhu do 30. října a aktualizace testů",
       "items": [
