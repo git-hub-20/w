@@ -1054,6 +1054,34 @@
       background: #e8f6fa;
     }
 
+
+    /* MOBILNI_SIPKY_DNI_V1 */
+    .mobile-day-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mobile-day-arrow {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 7px;
+    }
+
+    .mobile-day-arrow:disabled {
+      cursor: default;
+      opacity: .35;
+    }
+
     @media (max-width: 900px) {
       .map-layout,
       .two-col,
@@ -1183,9 +1211,31 @@
             <p id="mobile-day-subtitle">Načítání…</p>
           </div>
 
-          <button class="day-detail" id="mobile-day-detail" type="button">
-            Detail dne
-          </button>
+          <div class="mobile-day-actions">
+            <button
+              class="mobile-day-arrow"
+              id="mobile-day-prev"
+              type="button"
+              title="Předchozí dostupný den"
+              aria-label="Předchozí dostupný den"
+            >
+              ←
+            </button>
+
+            <button class="day-detail" id="mobile-day-detail" type="button">
+              Detail dne
+            </button>
+
+            <button
+              class="mobile-day-arrow"
+              id="mobile-day-next"
+              type="button"
+              title="Následující dostupný den"
+              aria-label="Následující dostupný den"
+            >
+              →
+            </button>
+          </div>
         </div>
 
         <div class="mobile-day-timeline" id="mobile-day-timeline"></div>
@@ -3024,6 +3074,12 @@
 
         DB = parsed;
 
+        /*
+          Po načtení nové databáze znovu vyber automatický aktuální
+          nebo následující den.
+        */
+        mobileSelectedDate = null;
+
         localStorage.setItem(
           STORAGE_KEY,
           JSON.stringify(DB)
@@ -3094,6 +3150,14 @@
     }
 
     function attachEvents() {
+      $("#mobile-day-prev").addEventListener("click", () => {
+        selectPreviousMobileDay();
+      });
+
+      $("#mobile-day-next").addEventListener("click", () => {
+        selectNextMobileDay();
+      });
+
       $("#load-local-data").addEventListener("click", () => {
         $("#data-file-input").click();
       });
@@ -3493,6 +3557,97 @@
       renderChangelog();
     }
 
+
+
+    /*
+      ================================================================
+      MOBILNI_SIPKY_DNI_V1
+      ================================================================
+    */
+
+    let mobileSelectedDate = null;
+
+    function getMobileAvailableDates() {
+      return [
+        ...new Set([
+          ...effectiveSchedule().map(item => item.date),
+          ...(DB.events || []).map(item => item.date)
+        ].filter(Boolean))
+      ].sort();
+    }
+
+    function renderMobileDay() {
+      const dates = getMobileAvailableDates();
+
+      if (!dates.length) {
+        $("#mobile-day-title").textContent = "Není k dispozici";
+        $("#mobile-day-subtitle").textContent =
+          "V databázi nejsou žádné termíny.";
+        $("#mobile-day-timeline").innerHTML =
+          `<div class="loading">Rozvrh zatím neobsahuje žádné dny.</div>`;
+
+        $("#mobile-day-prev").disabled = true;
+        $("#mobile-day-next").disabled = true;
+        return;
+      }
+
+      /*
+        Při prvním načtení se použije automaticky zvolený den:
+        aktuální den, nebo po konci služby následující dostupný den.
+      */
+      if (!mobileSelectedDate || !dates.includes(mobileSelectedDate)) {
+        mobileSelectedDate = getRelevantMobileDate();
+
+        if (!mobileSelectedDate || !dates.includes(mobileSelectedDate)) {
+          mobileSelectedDate = dates[0];
+        }
+      }
+
+      const currentIndex = dates.indexOf(mobileSelectedDate);
+      const dateObject = parseDate(mobileSelectedDate);
+      const dayName = DAYS[(dateObject.getDay() + 6) % 7];
+      const today = toIso(new Date());
+
+      $("#mobile-day-title").textContent =
+        `${dayName} · ${czechDate(mobileSelectedDate)}`;
+
+      $("#mobile-day-subtitle").textContent =
+        mobileSelectedDate === today
+          ? "Aktuální vyučovací den"
+          : "Zobrazený den rozvrhu";
+
+      $("#mobile-day-timeline").innerHTML =
+        makeTimeline(mobileSelectedDate);
+
+      $("#mobile-day-detail").onclick = () => {
+        openDay(mobileSelectedDate);
+      };
+
+      $("#mobile-day-prev").disabled = currentIndex <= 0;
+      $("#mobile-day-next").disabled = currentIndex >= dates.length - 1;
+
+      attachTimelineEvents($("#mobile-day-timeline"));
+    }
+
+    function selectPreviousMobileDay() {
+      const dates = getMobileAvailableDates();
+      const index = dates.indexOf(mobileSelectedDate);
+
+      if (index > 0) {
+        mobileSelectedDate = dates[index - 1];
+        renderMobileDay();
+      }
+    }
+
+    function selectNextMobileDay() {
+      const dates = getMobileAvailableDates();
+      const index = dates.indexOf(mobileSelectedDate);
+
+      if (index !== -1 && index < dates.length - 1) {
+        mobileSelectedDate = dates[index + 1];
+        renderMobileDay();
+      }
+    }
 
     attachEvents();
     loadDatabase();
