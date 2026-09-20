@@ -13,7 +13,6 @@
       --navy-2: #1c4d70;
       --teal: #147f9c;
       --gold: #d5a23c;
-
       --bg: #f2f6f8;
       --surface: #ffffff;
       --text: #1b2c39;
@@ -36,11 +35,7 @@
       --override-line: #743db1;
       --test-bg: #d92d20;
       --test-dark: #8f1610;
-      --unknown-bg: #fff8e8;
-      --unknown-line: #d79c22;
-
       --radius: 16px;
-      --shadow: 0 12px 28px rgba(16, 47, 73, .11);
     }
 
     * {
@@ -137,12 +132,6 @@
       font-size: .9rem;
     }
 
-    .header-tools {
-      display: flex;
-      gap: 9px;
-      align-items: center;
-    }
-
     .badge {
       padding: 9px 12px;
       font-size: .84rem;
@@ -160,7 +149,7 @@
     }
 
     .nav button,
-    .nav-link {
+    .nav a {
       display: inline-flex;
       align-items: center;
       padding: 12px 16px;
@@ -175,7 +164,7 @@
 
     .nav button:hover,
     .nav button.active,
-    .nav-link:hover {
+    .nav a:hover {
       color: white;
       background: rgba(255, 255, 255, .09);
       border-bottom-color: var(--gold);
@@ -204,7 +193,7 @@
     }
 
     .hero > p:last-child {
-      max-width: 850px;
+      max-width: 900px;
       margin: 9px 0 18px;
       color: var(--muted);
       line-height: 1.55;
@@ -247,7 +236,6 @@
       background: white;
       border: 1px solid var(--line);
       border-radius: 9px;
-      transition: .17s ease;
     }
 
     .btn:hover,
@@ -263,12 +251,6 @@
       border-color: var(--navy);
     }
 
-    .btn.header-btn {
-      color: white;
-      background: rgba(255, 255, 255, .09);
-      border-color: rgba(255, 255, 255, .3);
-    }
-
     .btn:disabled,
     .icon:disabled {
       cursor: default;
@@ -277,7 +259,7 @@
     }
 
     .week-label {
-      min-width: 220px;
+      min-width: 210px;
       color: var(--navy);
       font-weight: 850;
       text-align: center;
@@ -301,9 +283,7 @@
       box-shadow: 0 0 0 3px rgba(20, 127, 156, .14);
     }
 
-    /* ================================================================ */
-    /* ROZVRH                                                           */
-    /* ================================================================ */
+    /* ROZVRH */
 
     .schedule-scroll {
       overflow-x: auto;
@@ -322,11 +302,6 @@
       background: white;
       border: 1px solid var(--line);
       border-radius: 14px;
-    }
-
-    .day.mobile-active {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 2px rgba(20, 127, 156, .12);
     }
 
     .day-head {
@@ -361,7 +336,6 @@
     }
 
     .timeline,
-    .mobile-day-timeline,
     .day-modal-timeline {
       display: flex;
       flex-direction: column;
@@ -436,42 +410,33 @@
       opacity: .88;
     }
 
-    .test-marker {
+    .test-marker,
+    .override-marker {
       position: absolute;
-      z-index: 30;
-      top: 5px;
-      right: 6px;
+      z-index: 3;
       display: inline-flex;
       min-height: 18px;
       align-items: center;
       padding: 2px 6px;
       color: white;
-      font-size: .6rem;
-      font-weight: 950;
-      line-height: 1;
-      white-space: nowrap;
-      background: var(--test-bg);
-      border: 1px solid rgba(255, 255, 255, .8);
-      border-radius: 99px;
-      box-shadow: 0 2px 5px rgba(80, 0, 0, .35);
-    }
-
-    .override-marker {
-      position: absolute;
-      z-index: 20;
-      top: 5px;
-      left: 7px;
-      display: inline-flex;
-      min-height: 18px;
-      align-items: center;
-      padding: 2px 5px;
-      color: white;
-      font-size: .56rem;
+      font-size: .59rem;
       font-weight: 900;
       line-height: 1;
       white-space: nowrap;
-      background: var(--override-line);
       border-radius: 99px;
+    }
+
+    .test-marker {
+      top: 5px;
+      right: 6px;
+      background: var(--test-bg);
+      border: 1px solid rgba(255, 255, 255, .8);
+    }
+
+    .override-marker {
+      top: 5px;
+      left: 7px;
+      background: var(--override-line);
     }
 
     .block.lesson {
@@ -502,7 +467,6 @@
       border-color: var(--lunch-line);
     }
 
-    .block.service,
     .block.service-end {
       color: #8c1912;
       background: var(--service-bg);
@@ -522,80 +486,12 @@
       border-color: var(--override-line);
     }
 
-    .block.unknown-time {
-      height: 46px;
-      color: #6d4a00;
-      background: var(--unknown-bg);
-      border-color: var(--unknown-line);
-    }
-
-    /* Celodenní událost – svátek, dovolená nebo jiné volno. */
-    .day-event {
-      display: flex;
-      min-height: 310px;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
-      color: #64378a;
-      text-align: center;
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(116, 67, 154, .15),
-          transparent 13rem
-        ),
-        var(--event-bg);
-      border-left: 5px solid var(--event-line);
-    }
-
-    .day-event-icon {
-      display: grid;
-      width: 52px;
-      height: 52px;
-      place-items: center;
-      margin: 0 auto 13px;
-      color: white;
-      font-size: 1.55rem;
-      font-weight: 900;
-      background: var(--event-line);
-      border-radius: 50%;
-    }
-
-    .day-event h3 {
-      margin: 0;
-      color: #5b2d81;
-      font-size: 1.05rem;
-    }
-
-    .day-event p {
-      margin: 8px 0 0;
-      color: #704895;
-      font-size: .83rem;
-      font-weight: 650;
-      line-height: 1.45;
-    }
-
-    .day-event-label {
-      display: inline-block;
-      padding: 4px 8px;
-      margin-bottom: 9px;
-      color: #64378a;
-      font-size: .67rem;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      background: rgba(255, 255, 255, .6);
-      border: 1px solid rgba(116, 67, 154, .26);
-      border-radius: 99px;
-    }
-
     .lunch-block {
       position: relative;
       display: block;
       height: 75px;
       min-height: 75px;
       padding: 8px 10px 30px;
-      overflow: hidden;
     }
 
     .lunch-main {
@@ -622,65 +518,73 @@
       border-radius: 4px;
     }
 
-    .notice,
-    .callout {
-      padding: 13px 15px;
-      color: #455967;
-      font-size: .9rem;
-      line-height: 1.5;
-      background: #eaf5f9;
-      border: 1px solid #cce5ef;
-      border-radius: 11px;
-    }
-
-    .notice {
+    .day-event {
       display: flex;
-      gap: 10px;
-      margin-top: 16px;
+      min-height: 310px;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      color: #64378a;
+      text-align: center;
+      background:
+        radial-gradient(circle at top right, rgba(116, 67, 154, .15), transparent 13rem),
+        var(--event-bg);
+      border-left: 5px solid var(--event-line);
     }
 
-    .test-callout {
-      margin-top: 15px;
-      color: var(--test-dark);
-      background: #fff0ef;
-      border-left: 5px solid var(--test-bg);
+    .day-event-icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      margin: 0 auto 13px;
+      color: white;
+      font-size: 1.55rem;
+      font-weight: 900;
+      background: var(--event-line);
+      border-radius: 50%;
     }
 
-    .override-callout {
-      margin-top: 15px;
-      background: var(--override-bg);
-      border-left: 5px solid var(--override-line);
+    .day-event h3 {
+      color: #5b2d81;
     }
 
-    .auto-move-callout {
-      margin-top: 15px;
-      color: #5a3d00;
-      background: #fff8e8;
-      border-left: 5px solid var(--unknown-line);
+    .day-event p {
+      max-width: 280px;
+      margin: 8px auto 0;
+      color: #704895;
+      font-size: .83rem;
+      font-weight: 650;
+      line-height: 1.45;
     }
 
-    .test-topics {
-      padding-left: 20px;
-      margin: 9px 0 0;
+    .day-event-label {
+      display: inline-block;
+      padding: 4px 8px;
+      margin-bottom: 9px;
+      color: #64378a;
+      font-size: .67rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, .6);
+      border: 1px solid rgba(116, 67, 154, .26);
+      border-radius: 99px;
     }
 
-    .mobile-day-panel {
-      display: none;
-    }
-
-    /* ================================================================ */
-    /* KARTY, SLUŽBY, MAPY                                               */
-    /* ================================================================ */
+    /* KARTY A TESTY */
 
     .teacher-grid,
-    .subject-grid {
+    .subject-grid,
+    .test-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 12px;
     }
 
     .teacher-card,
-    .subject-card {
+    .subject-card,
+    .test-card {
       display: flex;
       gap: 12px;
       align-items: center;
@@ -693,10 +597,20 @@
       border-radius: 12px;
     }
 
+    .test-card {
+      display: block;
+      border-left: 5px solid var(--test-bg);
+    }
+
     .teacher-card:hover,
-    .subject-card:hover {
+    .subject-card:hover,
+    .test-card:hover {
       border-color: var(--teal);
       box-shadow: 0 10px 24px rgba(16, 47, 73, .1);
+    }
+
+    .test-card:hover {
+      border-color: var(--test-bg);
     }
 
     .avatar,
@@ -731,6 +645,26 @@
       line-height: 1.35;
     }
 
+    .test-card-date {
+      color: var(--test-dark);
+      font-size: .76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .test-card h3 {
+      margin: 7px 0;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .test-card p {
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.4;
+    }
+
     .chip {
       display: inline-block;
       padding: 3px 7px;
@@ -739,6 +673,37 @@
       background: #d8eff5;
       border-radius: 99px;
     }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .subject-link,
+    .lesson-link,
+    .map-link {
+      display: inline-flex;
+      min-height: 31px;
+      align-items: center;
+      padding: 5px 9px;
+      color: #075f7b;
+      font-size: .8rem;
+      font-weight: 850;
+      background: #d8eff5;
+      border: 1px solid #a6d7e5;
+      border-radius: 99px;
+    }
+
+    .subject-link:hover,
+    .lesson-link:hover,
+    .map-link:hover {
+      color: white;
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+
+    /* SLUŽBY, MAPY A TABULKY */
 
     .service-top,
     .two-col {
@@ -754,20 +719,6 @@
       padding: 20px;
     }
 
-    .service-current {
-      color: #175d76;
-      font-size: .78rem;
-      font-weight: 850;
-      text-transform: uppercase;
-    }
-
-    .service-pair-name {
-      margin: 10px 0 4px;
-      color: var(--navy);
-      font-size: 1.1rem;
-      font-weight: 900;
-    }
-
     .duty-list {
       display: grid;
       gap: 10px;
@@ -777,20 +728,11 @@
     }
 
     .duty-list li {
-      position: relative;
-      padding: 11px 12px 11px 37px;
+      padding: 11px 12px;
       line-height: 1.4;
       background: #f4f8fa;
       border-left: 4px solid var(--teal);
       border-radius: 7px;
-    }
-
-    .duty-list li::before {
-      position: absolute;
-      left: 13px;
-      color: var(--teal);
-      font-weight: 900;
-      content: "✓";
     }
 
     .map-layout {
@@ -848,10 +790,6 @@
       text-align: center;
     }
 
-    /* ================================================================ */
-    /* TABULKY, REŽIM, CHANGELOG                                        */
-    /* ================================================================ */
-
     .table-wrap {
       overflow: auto;
     }
@@ -877,30 +815,6 @@
       background: #edf4f7;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 13px;
-      margin-bottom: 17px;
-    }
-
-    .stat {
-      padding: 17px;
-    }
-
-    .stat-label {
-      color: var(--muted);
-      font-size: .81rem;
-      font-weight: 700;
-    }
-
-    .stat-number {
-      margin-top: 4px;
-      color: var(--navy);
-      font-size: 1.65rem;
-      font-weight: 900;
-    }
-
     .regime-row {
       display: grid;
       grid-template-columns: 130px 1fr;
@@ -923,19 +837,13 @@
       padding: 17px;
     }
 
-    .change-entry h3 {
-      margin: 7px 0;
-    }
-
     .change-entry time {
       color: var(--teal);
       font-size: .82rem;
       font-weight: 850;
     }
 
-    /* ================================================================ */
-    /* MODÁLY                                                            */
-    /* ================================================================ */
+    /* MODAL */
 
     .overlay {
       position: fixed;
@@ -954,7 +862,7 @@
     }
 
     .modal {
-      width: min(720px, 100%);
+      width: min(760px, 100%);
       max-height: calc(100vh - 36px);
       overflow: auto;
       background: white;
@@ -1032,18 +940,39 @@
       border: 0;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 17px;
+    .notice,
+    .callout {
+      padding: 13px 15px;
+      color: #455967;
+      font-size: .9rem;
+      line-height: 1.5;
+      background: #eaf5f9;
+      border: 1px solid #cce5ef;
+      border-radius: 11px;
     }
 
-    .file-input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
+    .notice {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .test-callout {
+      margin-top: 15px;
+      color: var(--test-dark);
+      background: #fff0ef;
+      border-left: 5px solid var(--test-bg);
+    }
+
+    .override-callout {
+      margin-top: 15px;
+      background: var(--override-bg);
+      border-left: 5px solid var(--override-line);
+    }
+
+    .test-topics {
+      padding-left: 20px;
+      margin: 9px 0 0;
     }
 
     .loading {
@@ -1053,6 +982,13 @@
       background: white;
       border: 1px dashed var(--line);
       border-radius: var(--radius);
+    }
+
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
     }
 
     footer {
@@ -1069,15 +1005,60 @@
       font-weight: 750;
     }
 
+
+    /* ROZVRH_TYDEN_MOBIL_SLZBY_V1 */
+
+    .mobile-day-panel {
+      display: none;
+      overflow: hidden;
+      margin: 14px 0;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .mobile-day-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px;
+      color: white;
+      background: var(--navy);
+    }
+
+    .mobile-day-header h3 {
+      color: white;
+      font-size: 1.05rem;
+    }
+
+    .mobile-day-header p {
+      margin: 4px 0 0;
+      color: #c8d7e4;
+      font-size: .82rem;
+    }
+
+    .mobile-day-timeline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-table-title {
+      margin: 24px 0 11px;
+      color: var(--navy);
+      font-size: 1.1rem;
+    }
+
+    .service-current-row td {
+      font-weight: 850;
+      background: #e8f6fa;
+    }
+
     @media (max-width: 900px) {
       .map-layout,
       .two-col,
       .service-top {
         grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -1087,67 +1068,25 @@
         width: min(100% - 20px, 1440px);
       }
 
-      .top,
-      .header-tools {
+      .top {
         align-items: stretch;
         flex-direction: column;
       }
 
-      .badge {
-        text-align: left;
+      .week-grid {
+        min-width: 1100px;
       }
 
       .mobile-day-panel {
         display: block;
-        overflow: hidden;
-        margin: 14px 0;
-        background: white;
-        border: 1px solid var(--line);
-        border-radius: 14px;
       }
 
-      .mobile-day-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 15px;
-        color: white;
-        background: var(--navy);
-      }
-
-      .mobile-day-header h3 {
-        color: white;
-      }
-
-      .mobile-day-header p {
-        margin: 4px 0 0;
-        color: #c8d7e4;
-      }
-
+      /*
+        Na mobilu je hlavním zobrazením jedna karta aktuálního
+        nebo nejbližšího následujícího dne.
+      */
       .schedule-scroll {
-        overflow: visible;
-      }
-
-      .week-grid {
-        grid-template-columns: 1fr;
-        min-width: 0;
-      }
-
-      .day .timeline {
         display: none;
-      }
-
-      .day::after {
-        display: block;
-        padding: 10px 14px;
-        color: var(--muted);
-        font-size: .82rem;
-        content: "Otevřete detail dne pro časovou osu.";
-      }
-
-      .input,
-      .select {
-        width: 100%;
       }
 
       .detail {
@@ -1172,36 +1111,34 @@
       <div class="top">
         <div class="brand">
           <div class="brand-mark">1.A</div>
-
           <div>
             <h1>Rozvrh 1. A</h1>
             <p id="subtitle">III. etapa · rozvrh, lektoři a orientace</p>
           </div>
         </div>
 
-        <div class="header-tools">
+        <div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
           <div class="badge" id="home-badge">
             Kmenová učebna: 130<br>
             Školská budova
           </div>
 
-          <button class="btn header-btn" id="update-data" type="button">
-            Načíst jiná data
+          <button class="btn" id="load-local-data" type="button">
+            Načíst JSON
           </button>
         </div>
       </div>
 
       <nav class="nav">
         <button class="active" data-view="schedule" type="button">Rozvrh</button>
+        <button data-view="tests" type="button">Testy</button>
         <button data-view="teachers" type="button">Lektoři</button>
         <button data-view="subjects" type="button">Předměty</button>
         <button data-view="services" type="button">Služby</button>
         <button data-view="maps" type="button">Mapy U1</button>
         <button data-view="study" type="button">Harmonogram</button>
         <button data-view="regime" type="button">Denní režim</button>
-
         <a
-          class="nav-link"
           href="https://drive.google.com/drive/u/0/folders/17ioOn37-nscbrhzH9aTJPuMKuuDlyWuV"
           target="_blank"
           rel="noopener noreferrer"
@@ -1218,8 +1155,7 @@
         <p class="eyebrow">Aktuální plán výuky</p>
         <h2>Týdenní rozvrh</h2>
         <p>
-          Výuka, přestávky a nástupy jsou zobrazeny v časových proporcích.
-          Testy mají vždy prioritní červený štítek v pravém horním rohu hodiny.
+          Kliknutím na výuku otevřete detail hodiny, testu, lektora nebo předmětu.
         </p>
       </div>
 
@@ -1239,11 +1175,12 @@
         >
       </div>
 
+
       <div class="mobile-day-panel">
         <div class="mobile-day-header">
           <div>
             <h3 id="mobile-day-title">Aktuální den</h3>
-            <p id="mobile-day-subtitle"></p>
+            <p id="mobile-day-subtitle">Načítání…</p>
           </div>
 
           <button class="day-detail" id="mobile-day-detail" type="button">
@@ -1260,10 +1197,21 @@
 
       <div class="notice">
         <strong>Legenda:</strong>
-        <span>
-          Zeleně výuka · fialově změna · červeně test · modře nástupy · šedomodře přestávky · oranžově oběd.
-        </span>
+        <span>Zeleně výuka · fialově změna · červeně test · modře režim dne · oranžově oběd.</span>
       </div>
+    </section>
+
+    <section class="view" id="tests">
+      <div class="hero">
+        <p class="eyebrow">Přehled ověřování znalostí</p>
+        <h2>Nadcházející testy</h2>
+        <p>
+          Testy se čtou z <code>data.json</code> i z volitelného souboru
+          <code>testy.json</code>.
+        </p>
+      </div>
+
+      <div id="tests-root" class="test-grid"></div>
     </section>
 
     <section class="view" id="teachers">
@@ -1318,9 +1266,15 @@
           <p id="map-selected">U1 · 1. podlaží</p>
 
           <div class="floor-list">
-            <button class="floor-btn active" data-floor="patro-1" type="button">U1 · 1. podlaží</button>
-            <button class="floor-btn" data-floor="patro-2" type="button">U1 · 2. podlaží</button>
-            <button class="floor-btn" data-floor="suterén" type="button">U1 · suterén</button>
+            <button class="floor-btn active" data-floor="patro-1" type="button">
+              U1 · 1. podlaží
+            </button>
+            <button class="floor-btn" data-floor="patro-2" type="button">
+              U1 · 2. podlaží
+            </button>
+            <button class="floor-btn" data-floor="suterén" type="button">
+              U1 · suterén
+            </button>
           </div>
         </aside>
 
@@ -1389,7 +1343,6 @@
           <h2 id="modal-title">Detail</h2>
           <p id="modal-subtitle"></p>
         </div>
-
         <button class="close" id="modal-close" type="button">×</button>
       </div>
 
@@ -1397,30 +1350,25 @@
     </div>
   </div>
 
-  <input class="file-input" id="file-input" type="file" accept=".json,application/json">
+  <input
+    class="file-input"
+    id="data-file-input"
+    type="file"
+    accept=".json,application/json"
+  >
 
-  <div class="overlay" id="loader-overlay">
-    <div class="modal" style="max-width:520px">
-      <div class="modal-head">
-        <div>
-          <h2>Nelze automaticky načíst data.json</h2>
-          <p>Vyberte databázi ručně pro offline režim.</p>
-        </div>
-      </div>
-
-      <div class="modal-body">
-        <label class="btn primary" for="file-input">
-          Vybrat data.json
-        </label>
-      </div>
-    </div>
-  </div>
+  <input
+    class="file-input"
+    id="tests-file-input"
+    type="file"
+    accept=".json,application/json"
+  >
 
   <script>
     "use strict";
 
-    const STORAGE_KEY = "rozvrh-1a-offline-data-v8";
     const DAYS = ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek"];
+    const STORAGE_KEY = "rozvrh-1a-data-v12";
 
     let DB = null;
     let weekIndex = 0;
@@ -1499,15 +1447,20 @@
     }
 
     function floorName(buildingId, floorId) {
-      return building(buildingId)?.floors?.find(item => item.id === floorId)?.label || "";
+      return building(buildingId)?.floors?.find(
+        item => item.id === floorId
+      )?.label || "";
     }
 
     function toIso(date) {
       const offset = date.getTimezoneOffset();
-
       return new Date(date.getTime() - offset * 60000)
         .toISOString()
         .slice(0, 10);
+    }
+
+    function parseDate(dateString) {
+      return new Date(`${dateString}T12:00:00`);
     }
 
     function addDays(date, count) {
@@ -1517,9 +1470,8 @@
     }
 
     function monday(dateString) {
-      const date = new Date(`${dateString}T12:00:00`);
+      const date = parseDate(dateString);
       const weekday = date.getDay() || 7;
-
       date.setDate(date.getDate() - weekday + 1);
       return date;
     }
@@ -1529,12 +1481,11 @@
         day: "numeric",
         month: "numeric",
         year: "numeric"
-      }).format(new Date(`${dateString}T12:00:00`));
+      }).format(parseDate(dateString));
     }
 
     function timeToMinutes(value) {
       if (!value || !/^\d{2}:\d{2}$/.test(value)) return null;
-
       const [hours, minutes] = value.split(":").map(Number);
       return hours * 60 + minutes;
     }
@@ -1542,14 +1493,12 @@
     function duration(start, end) {
       const from = timeToMinutes(start);
       const to = timeToMinutes(end);
-
       if (from === null || to === null) return null;
-
       return Math.max(0, to - from);
     }
 
     function timelineSegment(id) {
-      return DB.timeline.segments.find(item => item.id === id);
+      return (DB.timeline?.segments || []).find(item => item.id === id);
     }
 
     function lessonTime(item) {
@@ -1569,24 +1518,41 @@
     }
 
     function dayOrder(item) {
-      const from = Number(item.daySlots.from) + 1;
-      const to = Number(item.daySlots.to) + 1;
+      const from = Number(item.daySlots?.from) + 1;
+      const to = Number(item.daySlots?.to) + 1;
 
       return from === to
         ? `${from}. vyučovací hodina dne`
         : `${from}.–${to}. vyučovací hodina dne`;
     }
 
+    function curriculumOrder(item) {
+      const from = Number(item.curriculumHours?.from);
+      const to = Number(item.curriculumHours?.to);
+
+      if (!Number.isFinite(from) || !Number.isFinite(to)) {
+        return "Není uvedeno";
+      }
+
+      return from === to
+        ? `${from}. hodina předmětu`
+        : `${from}.–${to}. hodina předmětu`;
+    }
+
     function lessonSortKey(item) {
-      return `${item.date}-${String(item.daySlots.from).padStart(2, "0")}`;
+      return `${item.date}-${String(item.daySlots?.from ?? 99).padStart(2, "0")}`;
     }
 
     function isDateInside(date, from, to) {
       return (!from || date >= from) && (!to || date <= to);
     }
 
+    function lessonLocation(item) {
+      return item.effectiveLocationLabel || roomNames(item.roomIds);
+    }
+
     function effectiveSchedule() {
-      const result = DB.schedule.map(item => ({
+      const result = (DB.schedule || []).map(item => ({
         ...item,
         teacherIds: [...(item.teacherIds || [])],
         roomIds: [...(item.roomIds || [])],
@@ -1594,9 +1560,7 @@
         effectiveLocationLabel: "",
         periodRuleNote: "",
         isOverride: false,
-        overrideReason: "",
-        originalLesson: null,
-        overrideSource: null
+        overrideReason: ""
       }));
 
       for (const override of DB.scheduleOverrides || []) {
@@ -1604,8 +1568,8 @@
 
         const index = result.findIndex(item =>
           item.date === override.date &&
-          Number(item.daySlots.from) === Number(override.daySlots.from) &&
-          Number(item.daySlots.to) === Number(override.daySlots.to)
+          Number(item.daySlots?.from) === Number(override.daySlots?.from) &&
+          Number(item.daySlots?.to) === Number(override.daySlots?.to)
         );
 
         if (override.action === "cancel") {
@@ -1623,22 +1587,14 @@
           subjectId: override.subjectId,
           teacherIds: [...(override.teacherIds || [])],
           roomIds: [...(override.roomIds || original?.roomIds || [])],
-          curriculumHours:
-            override.curriculumHours ||
+          curriculumHours: override.curriculumHours ||
             original?.curriculumHours ||
             { from: 0, to: 0 },
           daySlots: { ...override.daySlots },
           note: override.note || "",
-          explicitTestId:
-            override.testId ||
-            override.testID ||
-            override.test_id ||
-            original?.explicitTestId ||
-            "",
+          explicitTestId: override.testId || original?.explicitTestId || "",
           isOverride: true,
-          overrideReason: override.reason || "Operativní změna rozvrhu",
-          originalLesson: original,
-          overrideSource: override
+          overrideReason: override.reason || "Operativní změna rozvrhu"
         };
 
         if (override.action === "replace") {
@@ -1654,19 +1610,19 @@
         }
       }
 
-      for (const item of result) {
+      for (const lesson of result) {
         for (const rule of DB.subjectPeriodRules || []) {
           if (
             rule.enabled !== false &&
-            rule.subjectId === item.subjectId &&
-            isDateInside(item.date, rule.dateFrom, rule.dateTo)
+            rule.subjectId === lesson.subjectId &&
+            isDateInside(lesson.date, rule.dateFrom, rule.dateTo)
           ) {
             if (Array.isArray(rule.roomIds) && rule.roomIds.length) {
-              item.roomIds = [...rule.roomIds];
+              lesson.roomIds = [...rule.roomIds];
             }
 
-            item.effectiveLocationLabel = rule.locationLabel || "";
-            item.periodRuleNote = rule.note || "";
+            lesson.effectiveLocationLabel = rule.locationLabel || "";
+            lesson.periodRuleNote = rule.note || "";
           }
         }
       }
@@ -1676,13 +1632,95 @@
       );
     }
 
-    /*
-      Testy:
-      1. testId v operativní změně je absolutní priorita.
-      2. Test se při stejné hodině zobrazí normálně.
-      3. Když je původní předmět nahrazen jiným, test se přesune
-         na nejbližší následující hodinu původního předmětu.
-    */
+    function eventsForDay(date) {
+      return (DB.events || []).filter(item => item.date === date);
+    }
+
+    function fullDayEventsForDay(date) {
+      return eventsForDay(date).filter(event =>
+        event.allDay === true ||
+        event.type === "statni-svatek" ||
+        event.type === "volno"
+      );
+    }
+
+    function createFullDayEventView(events) {
+      const title = events
+        .map(event => event.title || "Celodenní událost")
+        .join(" · ");
+
+      const holiday = events.some(event => event.type === "statni-svatek");
+      const leave = events.some(event => event.type === "volno");
+
+      const label = holiday
+        ? "Státní svátek"
+        : leave
+          ? "Volno"
+          : "Celodenní událost";
+
+      const icon = holiday ? "★" : leave ? "✓" : "●";
+
+      const description = holiday
+        ? "V tento den neprobíhá standardní výuka ani běžný denní režim."
+        : leave
+          ? "Řádná dovolená – v tento den neprobíhá standardní výuka ani běžný denní režim."
+          : "Běžný denní režim ani výuka se v tento den nezobrazují.";
+
+      return `
+        <section class="day-event">
+          <div>
+            <div class="day-event-icon">${icon}</div>
+            <span class="day-event-label">${escapeHtml(label)}</span>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(description)}</p>
+          </div>
+        </section>
+      `;
+    }
+
+    function mergeTests(baseTests = [], externalTests = []) {
+      const byId = new Map();
+
+      for (const test of baseTests) {
+        if (test?.id) byId.set(String(test.id), test);
+      }
+
+      for (const test of externalTests) {
+        if (test?.id) byId.set(String(test.id), test);
+      }
+
+      return [...byId.values()].sort((a, b) => {
+        const left = `${a.date || ""}-${String(a.daySlots?.from ?? 99).padStart(2, "0")}`;
+        const right = `${b.date || ""}-${String(b.daySlots?.from ?? 99).padStart(2, "0")}`;
+        return left.localeCompare(right);
+      });
+    }
+
+    function parseTestsFile(content) {
+      if (Array.isArray(content)) return content;
+      if (content && Array.isArray(content.tests)) return content.tests;
+
+      throw new Error(
+        "testy.json musí obsahovat pole testů nebo objekt s polem tests."
+      );
+    }
+
+    async function loadExternalTests() {
+      try {
+        const response = await fetch("./testy.json", {
+          cache: "no-store"
+        });
+
+        if (response.status === 404) return [];
+        if (!response.ok) return [];
+
+        return parseTestsFile(await response.json());
+      } catch (error) {
+        console.warn("testy.json nebyl načten:", error);
+        return [];
+      }
+    }
+
     function buildTestPlacements() {
       const lessons = effectiveSchedule();
       const tests = (DB.tests || []).filter(test => test.enabled !== false);
@@ -1694,12 +1732,10 @@
         placements.set(lesson.id, {
           test,
           moved: Boolean(options.moved),
-          manual: Boolean(options.manual),
-          originalLesson: options.originalLesson || null
+          manual: Boolean(options.manual)
         });
       }
 
-      /* Ručně přiřazený test přes testId v override. */
       for (const lesson of lessons) {
         if (!lesson.explicitTestId) continue;
 
@@ -1707,72 +1743,44 @@
           String(item.id) === String(lesson.explicitTestId)
         );
 
-        if (test) {
-          place(lesson, test, { manual: true });
-        }
+        if (test) place(lesson, test, { manual: true });
       }
 
       for (const test of tests) {
-        if ([...placements.values()].some(entry => entry.test.id === test.id)) {
+        const alreadyPlaced = [...placements.values()].some(
+          placement => String(placement.test.id) === String(test.id)
+        );
+
+        if (alreadyPlaced) continue;
+
+        const direct = lessons.find(lesson =>
+          lesson.date === test.date &&
+          lesson.subjectId === test.subjectId &&
+          Number(lesson.daySlots?.from) === Number(test.daySlots?.from) &&
+          Number(lesson.daySlots?.to) === Number(test.daySlots?.to)
+        );
+
+        if (direct) {
+          place(direct, test);
           continue;
         }
 
-        const originalLesson = DB.schedule.find(item =>
-          item.date === test.date &&
-          item.subjectId === test.subjectId &&
-          Number(item.daySlots?.from) === Number(test.daySlots?.from) &&
-          Number(item.daySlots?.to) === Number(test.daySlots?.to)
+        const original = (DB.schedule || []).find(lesson =>
+          lesson.date === test.date &&
+          lesson.subjectId === test.subjectId &&
+          Number(lesson.daySlots?.from) === Number(test.daySlots?.from) &&
+          Number(lesson.daySlots?.to) === Number(test.daySlots?.to)
         );
 
-        const displayedAtOriginalTime = lessons.find(item =>
-          item.date === test.date &&
-          Number(item.daySlots?.from) === Number(test.daySlots?.from) &&
-          Number(item.daySlots?.to) === Number(test.daySlots?.to)
-        );
-
-        /* Na původním slotu zůstal stejný předmět. */
-        if (
-          displayedAtOriginalTime &&
-          displayedAtOriginalTime.subjectId === test.subjectId
-        ) {
-          place(displayedAtOriginalTime, test);
-          continue;
-        }
-
-        /*
-          Předmět na původním slotu byl nahrazen.
-          Hledáme nejbližší následující hodinu původního předmětu.
-        */
-        if (
-          originalLesson &&
-          displayedAtOriginalTime &&
-          displayedAtOriginalTime.subjectId !== test.subjectId
-        ) {
-          const nextSameSubject = lessons.find(item =>
-            item.subjectId === test.subjectId &&
-            lessonSortKey(item) > lessonSortKey(originalLesson)
+        if (original) {
+          const nextSameSubject = lessons.find(lesson =>
+            lesson.subjectId === test.subjectId &&
+            lessonSortKey(lesson) > lessonSortKey(original)
           );
 
           if (nextSameSubject) {
-            place(nextSameSubject, test, {
-              moved: true,
-              originalLesson
-            });
+            place(nextSameSubject, test, { moved: true });
           }
-
-          continue;
-        }
-
-        /* Záložní přímé párování. */
-        const directMatch = lessons.find(item =>
-          item.date === test.date &&
-          item.subjectId === test.subjectId &&
-          Number(item.daySlots?.from) === Number(test.daySlots?.from) &&
-          Number(item.daySlots?.to) === Number(test.daySlots?.to)
-        );
-
-        if (directMatch) {
-          place(directMatch, test);
         }
       }
 
@@ -1783,91 +1791,27 @@
       return buildTestPlacements().get(lesson.id) || null;
     }
 
+    function testLesson(test) {
+      const placements = buildTestPlacements();
+
+      for (const [lessonId, placement] of placements.entries()) {
+        if (String(placement.test.id) === String(test.id)) {
+          return effectiveSchedule().find(item => item.id === lessonId) || null;
+        }
+      }
+
+      return effectiveSchedule().find(lesson =>
+        lesson.date === test.date &&
+        lesson.subjectId === test.subjectId &&
+        Number(lesson.daySlots?.from) === Number(test.daySlots?.from) &&
+        Number(lesson.daySlots?.to) === Number(test.daySlots?.to)
+      ) || null;
+    }
+
     function lessonsForDay(date) {
       return effectiveSchedule()
         .filter(item => item.date === date)
         .sort((a, b) => Number(a.daySlots.from) - Number(b.daySlots.from));
-    }
-
-    function eventsForDay(date) {
-      return (DB.events || []).filter(item => item.date === date);
-    }
-
-    /*
-      Celodenní událost má absolutní přednost před běžným rozvrhem.
-      Díky tomu se při svátku nebo dovolené nevykreslí snídaně,
-      nástupy, přestávky, oběd ani konec služby.
-    */
-    function fullDayEventsForDay(date) {
-      return eventsForDay(date).filter(event =>
-        event.allDay === true ||
-        event.type === "statni-svatek" ||
-        event.type === "volno"
-      );
-    }
-
-    function createFullDayEventView(events) {
-      const uniqueEvents = [
-        ...new Map(
-          events.map(event => [
-            `${event.type || ""}-${event.title || ""}`,
-            event
-          ])
-        ).values()
-      ];
-
-      const title = uniqueEvents
-        .map(event => event.title || "Celodenní událost")
-        .join(" · ");
-
-      const isHoliday = uniqueEvents.some(
-        event => event.type === "statni-svatek"
-      );
-
-      const isLeave = uniqueEvents.some(
-        event => event.type === "volno"
-      );
-
-      let label = "Celodenní událost";
-      let icon = "●";
-      let description =
-        "Běžný denní režim ani výuka se v tento den nezobrazují.";
-
-      if (isHoliday) {
-        label = "Státní svátek";
-        icon = "★";
-        description =
-          "V tento den neprobíhá standardní výuka ani běžný denní režim.";
-      } else if (isLeave) {
-        label = "Volno";
-        icon = "✓";
-        description =
-          "Řádná dovolená – v tento den neprobíhá standardní výuka ani běžný denní režim.";
-      }
-
-      const notes = uniqueEvents
-        .map(event => event.note)
-        .filter(Boolean);
-
-      return `
-        <section class="day-event">
-          <div>
-            <div class="day-event-icon">${icon}</div>
-            <span class="day-event-label">${escapeHtml(label)}</span>
-            <h3>${escapeHtml(title)}</h3>
-            <p>${escapeHtml(description)}</p>
-            ${
-              notes.length
-                ? `<p>${escapeHtml(notes.join(" "))}</p>`
-                : ""
-            }
-          </div>
-        </section>
-      `;
-    }
-
-    function lessonLocation(item) {
-      return item.effectiveLocationLabel || roomNames(item.roomIds);
     }
 
     function cssClassFor(type) {
@@ -1877,7 +1821,6 @@
         break: "break",
         lunch: "lunch",
         meal: "meal",
-        service: "service",
         "service-end": "service-end"
       }[type] || "break";
     }
@@ -1896,17 +1839,7 @@
         ? 46
         : Math.max(18, calculatedDuration || 18);
 
-      const tag = lessonId ? "button" : "div";
       const time = start && end ? `${start}–${end}` : "čas doplnit";
-
-      const classes = [
-        "block",
-        cssClass,
-        isOverride ? "has-override" : "",
-        testPlacement ? "has-test" : ""
-      ]
-        .filter(Boolean)
-        .join(" ");
 
       const markers =
         (isOverride
@@ -1914,28 +1847,24 @@
           : "") +
         (testPlacement
           ? `<span class="test-marker">${
-              testPlacement.moved
-                ? "! TEST · PŘESUN"
-                : "! TEST"
+              testPlacement.moved ? "! TEST · PŘESUN" : "! TEST"
             }</span>`
           : "");
 
       const content = `
         ${markers}
-
         <span class="block-content">
           <span class="block-title">${titleHtml}</span>
         </span>
-
         <span class="block-time">${escapeHtml(time)}</span>
       `;
 
       if (lessonId) {
         return `
           <button
-            type="button"
-            class="${classes}"
+            class="block ${cssClass} ${isOverride ? "has-override" : ""} ${testPlacement ? "has-test" : ""}"
             style="--duration:${height}px"
+            type="button"
             data-lesson="${escapeHtml(lessonId)}"
           >
             ${content}
@@ -1944,10 +1873,7 @@
       }
 
       return `
-        <div
-          class="${classes}"
-          style="--duration:${height}px"
-        >
+        <div class="block ${cssClass}" style="--duration:${height}px">
           ${content}
         </div>
       `;
@@ -1955,7 +1881,7 @@
 
     function createLunchBlock(lunch, transition) {
       return `
-        <div class="block lunch lunch-block" style="--duration:75px">
+        <div class="block lunch lunch-block">
           <div class="lunch-main">
             <span>${escapeHtml(lunch.shortLabel || lunch.label)}</span>
             <span>${escapeHtml(lunch.start)}–${escapeHtml(lunch.end)}</span>
@@ -1980,10 +1906,6 @@
     }
 
     function makeTimeline(date) {
-      /*
-        Státní svátky, dovolená a allDay události nahrazují celý
-        standardní denní režim.
-      */
       const fullDayEvents = fullDayEventsForDay(date);
 
       if (fullDayEvents.length) {
@@ -2014,10 +1936,6 @@
         lessons.map(item => [Number(item.daySlots.from), item])
       );
 
-      /*
-        Časově omezené events, například Nájezd etapy, zůstávají
-        součástí normální časové osy.
-      */
       const eventsAtTime = new Map(
         eventsForDay(date)
           .filter(event => event.allDay !== true)
@@ -2037,15 +1955,10 @@
 
           const sub = subject(lesson.subjectId);
           const time = lessonTime(lesson);
-          const testPlacement = testPlacementForLesson(lesson);
 
           blocks.push(
             createStandardBlock({
-              cssClass: lesson.isOverride
-                ? "override"
-                : time.pending
-                  ? "unknown-time"
-                  : "lesson",
+              cssClass: lesson.isOverride ? "override" : "lesson",
               titleHtml: `
                 ${escapeHtml(sub?.short || lesson.subjectId)}
                 · ${escapeHtml(teacherShortNames(lesson.teacherIds))}
@@ -2055,7 +1968,7 @@
               end: time.end,
               lessonId: lesson.id,
               isOverride: lesson.isOverride,
-              testPlacement
+              testPlacement: testPlacementForLesson(lesson)
             })
           );
 
@@ -2094,18 +2007,19 @@
 
       return blocks.join("");
     }
+
     function getWeeks() {
-      const relevantDates = [
+      const allDates = [
         ...(DB.schedule || []).map(item => item.date),
         ...(DB.events || []).map(item => item.date)
       ].filter(Boolean);
 
-      const dates = [
-        ...new Set(relevantDates.map(date => toIso(monday(date))))
+      const mondays = [
+        ...new Set(allDates.map(date => toIso(monday(date))))
       ].sort();
 
-      return dates.map(iso => {
-        const mondayDate = new Date(`${iso}T12:00:00`);
+      return mondays.map(iso => {
+        const mondayDate = parseDate(iso);
 
         return {
           iso,
@@ -2117,66 +2031,24 @@
 
     function automaticWeekIndex() {
       const weeks = getWeeks();
-
       if (!weeks.length) return 0;
 
-      const now = new Date();
-      const weekday = now.getDay();
-      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const target = toIso(monday(toIso(new Date())));
+      const exact = weeks.findIndex(item => item.iso === target);
 
-      let targetMonday = monday(toIso(now));
-
-      if (
-        (weekday === 5 && currentMinutes >= 14 * 60) ||
-        weekday === 6 ||
-        weekday === 0
-      ) {
-        targetMonday = addDays(targetMonday, 7);
-      }
-
-      const targetIso = toIso(targetMonday);
-
-      const exact = weeks.findIndex(item => item.iso === targetIso);
       if (exact !== -1) return exact;
 
-      const next = weeks.findIndex(item => item.iso > targetIso);
-      if (next !== -1) return next;
-
-      return weeks.length - 1;
-    }
-
-    function getRelevantMobileDate() {
-      const dates = [
-        ...new Set([
-          ...effectiveSchedule().map(item => item.date),
-          ...(DB.events || []).map(item => item.date)
-        ].filter(Boolean))
-      ].sort();
-
-      if (!dates.length) return null;
-
-      const now = new Date();
-      const today = toIso(now);
-      const currentMinutes = now.getHours() * 60 + now.getMinutes();
-
-      if (dates.includes(today) && currentMinutes < (15 * 60 + 15)) {
-        return today;
-      }
-
-      return dates.find(date => date > today) || dates[dates.length - 1];
+      const next = weeks.findIndex(item => item.iso > target);
+      return next !== -1 ? next : weeks.length - 1;
     }
 
     function attachTimelineEvents(parent) {
       $$("[data-lesson]", parent).forEach(button => {
-        button.addEventListener("click", () => {
-          openLesson(button.dataset.lesson);
-        });
+        button.addEventListener("click", () => openLesson(button.dataset.lesson));
       });
 
       $$("[data-segment]", parent).forEach(button => {
-        button.addEventListener("click", () => {
-          openSegment(button.dataset.segment);
-        });
+        button.addEventListener("click", () => openSegment(button.dataset.segment));
       });
     }
 
@@ -2192,7 +2064,6 @@
       weekIndex = Math.max(0, Math.min(weekIndex, weeks.length - 1));
 
       const week = weeks[weekIndex];
-      const mobileDate = getRelevantMobileDate();
 
       $("#week-label").textContent =
         `Týden ${weekIndex + 1}/${weeks.length} · ${week.label}`;
@@ -2206,7 +2077,7 @@
             const date = toIso(addDays(week.monday, index));
 
             return `
-              <article class="day ${date === mobileDate ? "mobile-active" : ""}">
+              <article class="day">
                 <header class="day-head">
                   <div>
                     <strong>${dayName}</strong>
@@ -2226,34 +2097,14 @@
       `;
 
       $$("[data-day]", $("#schedule-root")).forEach(button => {
-        button.addEventListener("click", () => {
-          openDay(button.dataset.day);
-        });
+        button.addEventListener("click", () => openDay(button.dataset.day));
       });
 
       attachTimelineEvents($("#schedule-root"));
-
-      if (mobileDate) {
-        const dateObject = new Date(`${mobileDate}T12:00:00`);
-        const dayName = DAYS[(dateObject.getDay() + 6) % 7];
-
-        $("#mobile-day-title").textContent =
-          `${dayName} · ${czechDate(mobileDate)}`;
-
-        $("#mobile-day-subtitle").textContent =
-          mobileDate === toIso(new Date())
-            ? "Aktuální vyučovací den"
-            : "Nejbližší následující vyučovací den";
-
-        $("#mobile-day-timeline").innerHTML = makeTimeline(mobileDate);
-        $("#mobile-day-detail").onclick = () => openDay(mobileDate);
-
-        attachTimelineEvents($("#mobile-day-timeline"));
-      }
     }
 
     function taughtSubjectsForTeacher(teacherId) {
-      const usual = DB.subjects
+      const usual = (DB.subjects || [])
         .filter(item => (item.defaultTeacherIds || []).includes(teacherId))
         .map(item => item.short);
 
@@ -2280,11 +2131,11 @@
 
       const department = $("#department-filter").value;
 
-      const list = DB.teachers
+      const list = (DB.teachers || [])
         .filter(item => {
           const taught = taughtSubjectsForTeacher(item.id);
 
-          const text = [
+          const searchable = [
             teacherName(item),
             item.short,
             item.department,
@@ -2293,7 +2144,7 @@
             .join(" ")
             .toLocaleLowerCase("cs-CZ");
 
-          return (!query || text.includes(query)) &&
+          return (!query || searchable.includes(query)) &&
             (!department || item.department === department);
         })
         .sort((a, b) => a.lastName.localeCompare(b.lastName, "cs"));
@@ -2304,16 +2155,13 @@
         return `
           <button class="teacher-card" type="button" data-teacher="${escapeHtml(item.id)}">
             <span class="avatar">${escapeHtml(item.short)}</span>
-
             <span>
               <strong>
                 ${escapeHtml(teacherName(item))}
                 <span class="chip">${escapeHtml(item.short)}</span>
               </strong>
 
-              <small>
-                Vyučuje: ${escapeHtml(taught.merged.join(", ") || "zatím neuvedeno")}
-              </small>
+              <small>Vyučuje: ${escapeHtml(taught.merged.join(", ") || "zatím neuvedeno")}</small>
 
               <small>
                 ${
@@ -2328,34 +2176,30 @@
       }).join("");
 
       $$("[data-teacher]", $("#teacher-root")).forEach(button => {
-        button.addEventListener("click", () => {
-          openTeacher(button.dataset.teacher);
-        });
+        button.addEventListener("click", () => openTeacher(button.dataset.teacher));
       });
     }
 
-    function testsForSubject(subjectId) {
-      return [...buildTestPlacements().values()]
-        .filter(entry => entry.test.subjectId === subjectId);
-    }
-
     function renderSubjects() {
-      $("#subject-root").innerHTML = DB.subjects.map(item => {
+      $("#subject-root").innerHTML = (DB.subjects || []).map(item => {
         const page = subjectPage(item.id);
 
-        const teachers = (item.defaultTeacherIds || [])
+        const defaultTeachers = (item.defaultTeacherIds || [])
           .map(id => teacherName(teacher(id)))
           .filter(Boolean)
           .join(", ");
 
+        const testCount = (DB.tests || [])
+          .filter(test => test.enabled !== false && test.subjectId === item.id)
+          .length;
+
         return `
           <button class="subject-card" type="button" data-subject="${escapeHtml(item.id)}">
             <span class="subject-avatar">${escapeHtml(item.short)}</span>
-
             <span>
               <strong>${escapeHtml(item.name)}</strong>
-              <small>Obvyklý lektor: ${escapeHtml(teachers || "zatím neuveden")}</small>
-              <small>Testy v rozvrhu: ${testsForSubject(item.id).length}</small>
+              <small>Obvyklý lektor: ${escapeHtml(defaultTeachers || "zatím neuveden")}</small>
+              <small>Testy: ${testCount}</small>
               <small>${page?.content ? "Obsahuje stálé poznámky" : "Stálé poznámky lze doplnit"}</small>
             </span>
           </button>
@@ -2363,9 +2207,61 @@
       }).join("");
 
       $$("[data-subject]", $("#subject-root")).forEach(button => {
-        button.addEventListener("click", () => {
-          openSubject(button.dataset.subject);
+        button.addEventListener("click", () => openSubject(button.dataset.subject));
+      });
+    }
+
+    function renderTests() {
+      const today = toIso(new Date());
+
+      const tests = (DB.tests || [])
+        .filter(test => test.enabled !== false)
+        .filter(test => !test.date || test.date >= today)
+        .sort((a, b) => {
+          const left = `${a.date}-${String(a.daySlots?.from ?? 99).padStart(2, "0")}`;
+          const right = `${b.date}-${String(b.daySlots?.from ?? 99).padStart(2, "0")}`;
+          return left.localeCompare(right);
         });
+
+      $("#tests-root").innerHTML = tests.length
+        ? tests.map(test => {
+            const sub = subject(test.subjectId);
+            const lesson = testLesson(test);
+
+            return `
+              <button class="test-card" type="button" data-test="${escapeHtml(test.id)}">
+                <div class="test-card-date">
+                  ${escapeHtml(czechDate(test.date))}
+                  · ${escapeHtml(dayOrder({ daySlots: test.daySlots }))}
+                </div>
+
+                <h3>
+                  ${escapeHtml(sub?.short || test.subjectId)}
+                  · ${escapeHtml(test.title || "Test")}
+                </h3>
+
+                <p>
+                  ${
+                    lesson
+                      ? `${escapeHtml(teacherShortNames(lesson.teacherIds))} · ${escapeHtml(lessonLocation(lesson))}`
+                      : "Navázaná hodina není v rozvrhu nalezena."
+                  }
+                </p>
+
+                <p>
+                  ${
+                    test.topics?.length
+                      ? `Témata: ${escapeHtml(test.topics.slice(0, 2).join(" · "))}${test.topics.length > 2 ? "…" : ""}`
+                      : "Témata nejsou uvedena."
+                  }
+                </p>
+              </button>
+            `;
+          }).join("")
+        : `<div class="loading">V databázi nejsou žádné nadcházející testy.</div>`;
+
+      $$("[data-test]", $("#tests-root")).forEach(button => {
+        button.addEventListener("click", () => openTest(button.dataset.test));
       });
     }
 
@@ -2385,27 +2281,21 @@
       let week = toIso(monday(rotation.startWeek));
       let position = 0;
 
-      while (week <= rotation.endDate && position < 150) {
+      while (week <= rotation.endDate && position < 160) {
         entries.push({
           weekStart: week,
-          weekEnd: toIso(addDays(new Date(`${week}T12:00:00`), 4)),
+          weekEnd: toIso(addDays(parseDate(week), 4)),
           pair: getById(
             DB.servicePairs || [],
             rotation.pairOrder[position % rotation.pairOrder.length]
           )
         });
 
-        week = toIso(addDays(new Date(`${week}T12:00:00`), 7));
+        week = toIso(addDays(parseDate(week), 7));
         position++;
       }
 
       return entries;
-    }
-
-    function pairText(pair) {
-      return pair?.students?.length
-        ? pair.students.map(escapeHtml).join("<br>")
-        : "Dvojice není nastavena";
     }
 
     function renderServices() {
@@ -2417,65 +2307,30 @@
         return;
       }
 
-      const thisWeek = toIso(monday(toIso(new Date())));
+      const currentMonday = toIso(monday(toIso(new Date())));
 
-      const current =
-        entries.find(item => item.weekStart === thisWeek) ||
-        entries.find(item => item.weekStart > thisWeek) ||
+      const current = entries.find(item => item.weekStart === currentMonday) ||
+        entries.find(item => item.weekStart > currentMonday) ||
         entries[entries.length - 1];
 
-      const currentIndex = entries.findIndex(
-        item => item.weekStart === current.weekStart
-      );
-
-      const next = entries[currentIndex + 1];
+      const pairText = current.pair?.students?.join(" · ") || "Není nastavena";
 
       $("#services-root").innerHTML = `
         <div class="service-top">
           <section class="card service-card">
-            <div class="service-current">Aktuální / nejbližší služba</div>
-
-            <h3 style="margin-top:7px">
-              ${czechDate(current.weekStart)} – ${czechDate(current.weekEnd)}
-            </h3>
-
-            <div class="service-pair-name">Služební dvojice</div>
-            <p class="service-students">${pairText(current.pair)}</p>
-
-            <div class="service-place">
-              ${escapeHtml(DB.serviceRotation?.note || "")}
-            </div>
+            <h3>Aktuální / nejbližší služba</h3>
+            <p><strong>${czechDate(current.weekStart)} – ${czechDate(current.weekEnd)}</strong></p>
+            <p>${escapeHtml(pairText)}</p>
+            <p>${escapeHtml(DB.serviceRotation?.note || "")}</p>
           </section>
 
-          <section class="card service-card">
-            <div class="service-current">Následující služba</div>
-
-            <h3 style="margin-top:7px">
-              ${next ? `${czechDate(next.weekStart)} – ${czechDate(next.weekEnd)}` : "Konec nastavené rotace"}
-            </h3>
-
-            <div class="service-pair-name">Služební dvojice</div>
-            <p class="service-students">${next ? pairText(next.pair) : "—"}</p>
-          </section>
-        </div>
-
-        <div class="two-col">
           <section class="card service-card">
             <h3>Povinnosti služby</h3>
-
             <ul class="duty-list">
               ${(DB.serviceDuties || [])
                 .map(item => `<li>${escapeHtml(item.text)}</li>`)
                 .join("")}
             </ul>
-          </section>
-
-          <section class="card service-card">
-            <h3>Princip rotace</h3>
-
-            <p style="margin:0;color:var(--muted);line-height:1.55">
-              ${escapeHtml(DB.serviceRotation?.rotationDirection || "")}
-            </p>
           </section>
         </div>
       `;
@@ -2496,67 +2351,22 @@
     }
 
     function renderRegime() {
-      const home = room(DB.meta.homeRoomId);
-      const schedule = effectiveSchedule();
-
       $("#regime-root").innerHTML = `
-        <div class="stats">
-          <article class="card stat">
-            <div class="stat-label">Položek rozvrhu</div>
-            <div class="stat-number">${schedule.length}</div>
-          </article>
+        <section class="card section">
+          <h3>Časový režim dne</h3>
 
-          <article class="card stat">
-            <div class="stat-label">Předmětů v rozvrhu</div>
-            <div class="stat-number">${new Set(schedule.map(item => item.subjectId)).size}</div>
-          </article>
-
-          <article class="card stat">
-            <div class="stat-label">Lektorů v rozvrhu</div>
-            <div class="stat-number">${new Set(schedule.flatMap(item => item.teacherIds)).size}</div>
-          </article>
-
-          <article class="card stat">
-            <div class="stat-label">Kmenová učebna</div>
-            <div class="stat-number">${escapeHtml(home?.name?.replace("Učebna ", "") || "130")}</div>
-          </article>
-        </div>
-
-        <div class="two-col">
-          <section class="card section">
-            <h3>Časový režim dne</h3>
-
-            ${DB.timeline.segments.map(item => `
-              <div class="regime-row">
-                <div class="regime-time">
-                  ${item.start && item.end ? `${item.start} – ${item.end}` : "Doplnit čas"}
-                </div>
-
-                <div>
-                  ${escapeHtml(item.label)}
-                  ${item.detail ? `<br><small>${escapeHtml(item.detail)}</small>` : ""}
-                </div>
+          ${(DB.timeline?.segments || []).map(item => `
+            <div class="regime-row">
+              <div class="regime-time">
+                ${item.start && item.end ? `${item.start} – ${item.end}` : "Doplnit čas"}
               </div>
-            `).join("")}
-          </section>
-
-          <section class="card section">
-            <h3>Kmenová učebna</h3>
-
-            <p style="color:var(--muted);line-height:1.6">
-              <strong style="color:var(--navy)">
-                ${escapeHtml(home?.name || "Učebna 130")}
-              </strong><br>
-
-              ${escapeHtml(building(home?.buildingId)?.name || "Školská budova")}
-              · ${escapeHtml(floorName(home?.buildingId, home?.floorId))}
-            </p>
-
-            <p style="color:var(--muted);line-height:1.55;font-size:.9rem">
-              ${escapeHtml(DB.meta.scheduleRule || "")}
-            </p>
-          </section>
-        </div>
+              <div>
+                ${escapeHtml(item.label)}
+                ${item.detail ? `<br><small>${escapeHtml(item.detail)}</small>` : ""}
+              </div>
+            </div>
+          `).join("")}
+        </section>
       `;
     }
 
@@ -2568,7 +2378,6 @@
             <article class="card change-entry">
               <time>${escapeHtml(entry.date || "")}</time>
               <h3>${escapeHtml(entry.title || "Změna")}</h3>
-
               <ul>
                 ${(entry.items || [])
                   .map(item => `<li>${escapeHtml(item)}</li>`)
@@ -2579,10 +2388,58 @@
         : `<div class="loading">Changelog zatím neobsahuje žádné záznamy.</div>`;
     }
 
+    function teacherButtons(ids = []) {
+      if (!ids.length) return "Není uvedeno";
+
+      return `
+        <div class="link-list">
+          ${ids.map(id => {
+            const item = teacher(id);
+
+            return item
+              ? `
+                <button
+                  class="subject-link"
+                  type="button"
+                  data-open-teacher="${escapeHtml(id)}"
+                >
+                  ${escapeHtml(teacherName(item))}
+                </button>
+              `
+              : "";
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function subjectButtons(ids = []) {
+      if (!ids.length) return "Není uvedeno";
+
+      return `
+        <div class="link-list">
+          ${ids.map(id => {
+            const item = subject(id);
+
+            return item
+              ? `
+                <button
+                  class="subject-link"
+                  type="button"
+                  data-open-subject="${escapeHtml(id)}"
+                >
+                  ${escapeHtml(item.short)} · ${escapeHtml(item.name)}
+                </button>
+              `
+              : "";
+          }).join("")}
+        </div>
+      `;
+    }
+
     function testCallout(placement) {
       if (!placement) return "";
 
-      const { test, moved, originalLesson, manual } = placement;
+      const test = placement.test;
 
       return `
         <div class="callout test-callout">
@@ -2600,73 +2457,7 @@
               : ""
           }
 
-          ${test.note ? `<p style="margin:9px 0 0">${escapeHtml(test.note)}</p>` : ""}
-        </div>
-
-        ${
-          moved
-            ? `
-              <div class="callout auto-move-callout">
-                <strong>Test byl automaticky přesunut.</strong><br>
-                Původní hodina předmětu
-                <strong>${escapeHtml(subject(originalLesson?.subjectId)?.short || originalLesson?.subjectId || "")}</strong>
-                dne ${escapeHtml(czechDate(originalLesson?.date || test.date))}
-                byla nahrazena jiným předmětem. Test se proto zobrazuje na nejbližší následující hodině původního předmětu.
-              </div>
-            `
-            : ""
-        }
-
-        ${
-          manual
-            ? `
-              <div class="callout">
-                <strong>Ruční přiřazení testu.</strong><br>
-                Test je navázán přímo přes <code>testId</code> u přepsané nebo suplované hodiny.
-              </div>
-            `
-            : ""
-        }
-      `;
-    }
-
-    function defaultTeacherInfo(sub, actualIds) {
-      const defaults = sub.defaultTeacherIds || [];
-
-      if (!defaults.length) {
-        return `
-          <div class="callout">
-            ${escapeHtml(sub.note || "Obvyklý lektor tohoto předmětu zatím není potvrzen.")}
-          </div>
-        `;
-      }
-
-      const same =
-        defaults.length === actualIds.length &&
-        defaults.every(id => actualIds.includes(id));
-
-      if (same) {
-        return `
-          <div class="callout">
-            Aktuální lektor odpovídá obvyklému přiřazení předmětu.
-          </div>
-        `;
-      }
-
-      return `
-        <div class="callout">
-          <strong>Obvyklý lektor předmětu:</strong>
-          ${
-            defaults.map(id => {
-              const item = teacher(id);
-
-              return item
-                ? `<button class="teacher-link" type="button" data-open-teacher="${escapeHtml(id)}">${escapeHtml(teacherName(item))}</button>`
-                : "";
-            }).join(", ")
-          }
-          <br>
-          Aktuální rozvrh má vždy přednost před obvyklým přiřazením.
+          ${test.note ? `<p>${escapeHtml(test.note)}</p>` : ""}
         </div>
       `;
     }
@@ -2677,41 +2468,23 @@
 
       const sub = subject(lesson.subjectId);
       const time = lessonTime(lesson);
-      const placement = testPlacementForLesson(lesson);
 
       openModal(
         `${sub?.short || lesson.subjectId} · ${sub?.name || ""}`,
-        `${czechDate(lesson.date)} · ${
-          time.pending
-            ? "čas doplnit"
-            : `${time.start}–${time.end}`
-        }`,
+        `${czechDate(lesson.date)} · ${time.pending ? "čas doplnit" : `${time.start}–${time.end}`}`,
         `
           <dl class="detail">
             <dt>Čas výuky</dt>
-            <dd>
-              ${
-                time.pending
-                  ? "Čas není doplněn."
-                  : `${escapeHtml(time.start)}–${escapeHtml(time.end)}`
-              }
-            </dd>
+            <dd>${time.pending ? "Čas není doplněn." : `${escapeHtml(time.start)}–${escapeHtml(time.end)}`}</dd>
 
             <dt>Pořadí v daném dni</dt>
             <dd>${escapeHtml(dayOrder(lesson))}</dd>
 
-            <dt>Aktuální lektor</dt>
-            <dd>
-              ${
-                lesson.teacherIds.map(teacherId => {
-                  const current = teacher(teacherId);
+            <dt>Celkové pořadí předmětu</dt>
+            <dd>${escapeHtml(curriculumOrder(lesson))}</dd>
 
-                  return current
-                    ? `<button class="teacher-link" type="button" data-open-teacher="${escapeHtml(teacherId)}">${escapeHtml(teacherName(current))}</button>`
-                    : "";
-                }).join(", ")
-              }
-            </dd>
+            <dt>Aktuální lektor</dt>
+            <dd>${teacherButtons(lesson.teacherIds)}</dd>
 
             <dt>Místnost / prostor</dt>
             <dd>${escapeHtml(lessonLocation(lesson))}</dd>
@@ -2719,31 +2492,67 @@
             ${lesson.note ? `<dt>Poznámka</dt><dd>${escapeHtml(lesson.note)}</dd>` : ""}
           </dl>
 
-          ${testCallout(placement)}
+          ${testCallout(testPlacementForLesson(lesson))}
 
           ${
             lesson.isOverride
               ? `
                 <div class="callout override-callout">
                   <strong>Operativní změna rozvrhu.</strong><br>
-                  ${escapeHtml(lesson.overrideReason || "Přepsaná nebo suplovaná hodina.")}
+                  ${escapeHtml(lesson.overrideReason || "")}
                 </div>
               `
               : ""
           }
+        `
+      );
+    }
 
-          ${
-            lesson.periodRuleNote
-              ? `
-                <div class="callout">
-                  <strong>Pravidlo období:</strong><br>
-                  ${escapeHtml(lesson.periodRuleNote)}
-                </div>
-              `
-              : ""
-          }
+    function openTest(testId) {
+      const test = (DB.tests || []).find(item => String(item.id) === String(testId));
+      if (!test) return;
 
-          ${defaultTeacherInfo(sub || { defaultTeacherIds: [] }, lesson.teacherIds)}
+      const sub = subject(test.subjectId);
+      const lesson = testLesson(test);
+
+      openModal(
+        `${sub?.short || test.subjectId} · ${test.title || "Test"}`,
+        czechDate(test.date),
+        `
+          <dl class="detail">
+            <dt>Předmět</dt>
+            <dd>
+              <button
+                class="teacher-link"
+                type="button"
+                data-open-subject="${escapeHtml(test.subjectId)}"
+              >
+                ${escapeHtml(sub?.name || test.subjectId)}
+              </button>
+            </dd>
+
+            <dt>Pořadí v dni</dt>
+            <dd>${escapeHtml(dayOrder({ daySlots: test.daySlots }))}</dd>
+
+            ${
+              lesson
+                ? `
+                  <dt>Hodina v rozvrhu</dt>
+                  <dd>
+                    <button
+                      class="teacher-link"
+                      type="button"
+                      data-open-lesson="${escapeHtml(lesson.id)}"
+                    >
+                      Otevřít detail výuky
+                    </button>
+                  </dd>
+                `
+                : ""
+            }
+          </dl>
+
+          ${testCallout({ test })}
         `
       );
     }
@@ -2753,13 +2562,35 @@
       if (!sub) return;
 
       const page = subjectPage(subjectId);
-      const tests = testsForSubject(subjectId);
+
+      const lessons = effectiveSchedule()
+        .filter(item => item.subjectId === subjectId);
+
+      const teacherIds = [
+        ...new Set([
+          ...(sub.defaultTeacherIds || []),
+          ...lessons.flatMap(item => item.teacherIds || [])
+        ])
+      ];
+
+      const futureLessons = lessons
+        .filter(item => item.date >= toIso(new Date()))
+        .slice(0, 12);
+
+      const tests = (DB.tests || [])
+        .filter(test =>
+          test.enabled !== false &&
+          test.subjectId === subjectId
+        );
 
       openModal(
         `${sub.short} · ${sub.name}`,
-        "Stálé poznámky, odkazy a testy",
+        "Lektoři, hodiny, testy a materiály",
         `
           <dl class="detail">
+            <dt>Vyučující</dt>
+            <dd>${teacherButtons(teacherIds)}</dd>
+
             <dt>Stálé poznámky</dt>
             <dd>${escapeHtml(page?.content || "Zatím nejsou vloženy žádné stálé poznámky.")}</dd>
 
@@ -2768,84 +2599,184 @@
               ${
                 page?.links?.length
                   ? page.links
-                      .map(link => `
-                        <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">
-                          ${escapeHtml(link.label || link.url)}
-                        </a>
-                      `)
-                      .join("<br>")
+                    .map(link => `
+                      <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">
+                        ${escapeHtml(link.label || link.url)}
+                      </a>
+                    `)
+                    .join("<br>")
                   : "Zatím nejsou vloženy žádné odkazy."
               }
             </dd>
           </dl>
 
+          <div class="callout" style="margin-top:15px">
+            <strong>Nadcházející hodiny</strong>
+
+            ${
+              futureLessons.length
+                ? `
+                  <div class="link-list" style="margin-top:10px">
+                    ${futureLessons.map(lesson => `
+                      <button
+                        class="lesson-link"
+                        type="button"
+                        data-open-lesson="${escapeHtml(lesson.id)}"
+                      >
+                        ${escapeHtml(czechDate(lesson.date))}
+                        · ${escapeHtml(curriculumOrder(lesson))}
+                      </button>
+                    `).join("")}
+                  </div>
+                `
+                : "<br>Další hodiny zatím nejsou v databázi."
+            }
+          </div>
+
           ${
             tests.length
-              ? tests.map(testCallout).join("")
-              : `<div class="callout">V rozvrhu zatím není u tohoto předmětu zapsaný žádný test.</div>`
+              ? `
+                <div class="callout test-callout">
+                  <strong>Testy předmětu</strong>
+
+                  <div class="link-list" style="margin-top:10px">
+                    ${tests.map(test => `
+                      <button
+                        class="lesson-link"
+                        type="button"
+                        data-open-test="${escapeHtml(test.id)}"
+                      >
+                        ${escapeHtml(czechDate(test.date))}
+                        · ${escapeHtml(test.title || "Test")}
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
+              `
+              : ""
           }
         `
       );
     }
 
-    function contactLinks(items, type) {
-      if (!items?.length) return "Doplní se";
+    function officeFloorId(office) {
+      if (!office) return "";
 
-      return items.map(value => {
-        if (type === "email") {
-          return `<a href="mailto:${escapeHtml(value)}">${escapeHtml(value)}</a>`;
-        }
+      if (office.floorId) return office.floorId;
 
-        return `<a href="tel:${escapeHtml(value)}">${escapeHtml(value)}</a>`;
-      }).join("<br>");
+      const number = String(office.room || "");
+
+      if (number.startsWith("2")) return "patro-2";
+      if (number.startsWith("1")) return "patro-1";
+
+      return "";
     }
 
     function openTeacher(id) {
       const item = teacher(id);
       if (!item) return;
 
-      const taught = taughtSubjectsForTeacher(id);
       const office = item.office;
       const contacts = item.contacts || {};
 
+      const subjectIds = [
+        ...new Set([
+          ...(DB.subjects || [])
+            .filter(sub => (sub.defaultTeacherIds || []).includes(id))
+            .map(sub => sub.id),
+          ...effectiveSchedule()
+            .filter(lesson => lesson.teacherIds.includes(id))
+            .map(lesson => lesson.subjectId)
+        ])
+      ];
+
       openModal(
         teacherName(item),
-        `${item.short} · ${
-          taught.merged.length
-            ? `vyučuje ${taught.merged.join(", ")}`
-            : "předměty zatím neuvedeny"
-        }`,
+        `${item.short} · profil lektora`,
         `
           <dl class="detail">
-            <dt>Obvykle vyučuje</dt>
-            <dd>${escapeHtml(taught.usual.join(", ") || "Není uvedeno")}</dd>
-
-            <dt>V aktuálním rozvrhu</dt>
-            <dd>${escapeHtml(taught.current.join(", ") || "Není uvedeno")}</dd>
+            <dt>Vyučované předměty</dt>
+            <dd>${subjectButtons(subjectIds)}</dd>
 
             <dt>Oddělení</dt>
             <dd>${escapeHtml(item.department || "Není uvedeno")}</dd>
 
             <dt>Kancelář</dt>
-            <dd>${office ? escapeHtml(office.room) : "Není uvedena"}</dd>
+            <dd>
+              ${
+                office
+                  ? `
+                    ${escapeHtml(office.room)}
+                    <br><br>
+                    <button
+                      class="map-link"
+                      type="button"
+                      data-show-office="${escapeHtml(item.id)}"
+                    >
+                      Zobrazit patro na mapě U1
+                    </button>
+                  `
+                  : "Není uvedena"
+              }
+            </dd>
 
             <dt>Budova a patro</dt>
             <dd>
               ${
                 office
-                  ? `${escapeHtml(building(office.buildingId)?.name || "")} · ${escapeHtml(floorName(office.buildingId, office.floorId))}`
+                  ? `${escapeHtml(building(office.buildingId)?.name || "")} · ${escapeHtml(floorName(office.buildingId, officeFloorId(office)) || "")}`
                   : "—"
               }
             </dd>
 
             <dt>E-mail</dt>
-            <dd>${contactLinks(contacts.emails || [], "email")}</dd>
+            <dd>
+              ${
+                contacts.emails?.length
+                  ? contacts.emails
+                    .map(email => `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>`)
+                    .join("<br>")
+                  : "Doplní se"
+              }
+            </dd>
 
             <dt>Telefon</dt>
-            <dd>${contactLinks(contacts.phones || [], "phone")}</dd>
+            <dd>
+              ${
+                contacts.phones?.length
+                  ? contacts.phones
+                    .map(phone => `<a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a>`)
+                    .join("<br>")
+                  : "Doplní se"
+              }
+            </dd>
           </dl>
         `
       );
+    }
+
+    function showTeacherOfficeOnMap(teacherId) {
+      const item = teacher(teacherId);
+      const office = item?.office;
+
+      if (!item || !office) return;
+
+      closeModal();
+      showView("maps");
+
+      const floorId = officeFloorId(office);
+
+      if (office.buildingId === "u1" && floorId) {
+        setFloor(floorId);
+      }
+
+      $("#map-info").innerHTML = `
+        <strong>${escapeHtml(teacherName(item))}</strong>
+        · kancelář ${escapeHtml(office.room || "neuvedena")}
+        · ${escapeHtml(floorName(office.buildingId, floorId) || "")}
+      `;
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function openSegment(id) {
@@ -2857,33 +2788,17 @@
         `${segment.start}–${segment.end}`,
         `
           <dl class="detail">
-            <dt>Celkový čas</dt>
+            <dt>Čas</dt>
             <dd>${escapeHtml(segment.start)}–${escapeHtml(segment.end)}</dd>
 
             ${segment.detail ? `<dt>Informace</dt><dd>${escapeHtml(segment.detail)}</dd>` : ""}
-
-            ${
-              Array.isArray(segment.details)
-                ? `
-                  <dt>Rozpis</dt>
-                  <dd>
-                    ${segment.details
-                      .map(item => `
-                        ${escapeHtml(item.label)}:
-                        <strong>${escapeHtml(item.start)}–${escapeHtml(item.end)}</strong>
-                      `)
-                      .join("<br>")}
-                  </dd>
-                `
-                : ""
-            }
           </dl>
         `
       );
     }
 
     function openDay(date) {
-      const dateObject = new Date(`${date}T12:00:00`);
+      const dateObject = parseDate(date);
       const dayName = DAYS[(dateObject.getDay() + 6) % 7];
 
       openModal(
@@ -2897,12 +2812,27 @@
       $("#modal-title").textContent = title;
       $("#modal-subtitle").textContent = subtitle;
       $("#modal-body").innerHTML = content;
-
       $("#modal-overlay").classList.add("open");
 
       $$("[data-open-teacher]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openTeacher(button.dataset.openTeacher));
+      });
+
+      $$("[data-open-subject]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openSubject(button.dataset.openSubject));
+      });
+
+      $$("[data-open-lesson]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openLesson(button.dataset.openLesson));
+      });
+
+      $$("[data-open-test]", $("#modal-body")).forEach(button => {
+        button.addEventListener("click", () => openTest(button.dataset.openTest));
+      });
+
+      $$("[data-show-office]", $("#modal-body")).forEach(button => {
         button.addEventListener("click", () => {
-          openTeacher(button.dataset.openTeacher);
+          showTeacherOfficeOnMap(button.dataset.showOffice);
         });
       });
 
@@ -2942,7 +2872,11 @@
 
     function populateDepartments() {
       const departments = [
-        ...new Set(DB.teachers.map(item => item.department).filter(Boolean))
+        ...new Set(
+          (DB.teachers || [])
+            .map(item => item.department)
+            .filter(Boolean)
+        )
       ].sort((a, b) => a.localeCompare(b, "cs"));
 
       $("#department-filter").innerHTML = `
@@ -2967,7 +2901,9 @@
       const home = room(DB.meta.homeRoomId);
 
       $("#subtitle").textContent =
-        `${DB.meta.displayClassLabel || "1. A"} · ${DB.meta.stageLabel || "III. etapa"} · ${DB.meta.academicYear || ""} · rozvrh, lektoři a orientace`;
+        `${DB.meta.displayClassLabel || "1. A"} · ` +
+        `${DB.meta.stageLabel || "III. etapa"} · ` +
+        `${DB.meta.academicYear || ""} · rozvrh, lektoři a orientace`;
 
       $("#home-badge").innerHTML =
         `Kmenová učebna: ${escapeHtml(home?.name?.replace("Učebna ", "") || "130")}<br>` +
@@ -2977,50 +2913,13 @@
       weekIndex = automaticWeekIndex();
 
       renderSchedule();
+      renderTests();
       renderTeachers();
       renderSubjects();
       renderServices();
       renderStudy();
       renderRegime();
       renderChangelog();
-
-      $("#loader-overlay").classList.remove("open");
-    }
-
-    function importLocalFile(file) {
-      if (!file) return;
-
-      const reader = new FileReader();
-
-      reader.onload = event => {
-        try {
-          const parsed = JSON.parse(event.target.result);
-
-          if (!validateDatabase(parsed)) {
-            throw new Error("Vybraný soubor nemá očekávanou strukturu data.json.");
-          }
-
-          DB = parsed;
-          localStorage.setItem(STORAGE_KEY, event.target.result);
-
-          applyDatabase();
-
-          alert(
-            `Databáze byla načtena.
-Položek rozvrhu: ${DB.schedule.length}`
-          );
-        } catch (error) {
-          console.error(error);
-
-          alert(
-            `Databázi se nepodařilo načíst.
-
-${error.message}`
-          );
-        }
-      };
-
-      reader.readAsText(file, "utf-8");
     }
 
     async function loadDatabase() {
@@ -3039,10 +2938,15 @@ ${error.message}`
           throw new Error("data.json nemá očekávanou strukturu.");
         }
 
-        DB = parsed;
+        const externalTests = await loadExternalTests();
 
-        /* Offline kopie pro případ otevření index.html dvojklikem. */
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+        parsed.tests = mergeTests(
+          Array.isArray(parsed.tests) ? parsed.tests : [],
+          externalTests
+        );
+
+        DB = parsed;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
 
         applyDatabase();
         return;
@@ -3063,29 +2967,159 @@ ${error.message}`
           }
         }
       } catch (error) {
-        console.warn("Nelze načíst offline databázi:", error);
         localStorage.removeItem(STORAGE_KEY);
       }
 
-      $("#loader-overlay").classList.add("open");
+      $("#schedule-root").innerHTML = `
+        <div class="loading">
+          Nepodařilo se načíst data.json. Otevři web přes GitHub Pages,
+          lokální server nebo zkontroluj soubor data.json.
+        </div>
+      `;
+    }
+
+
+    function readJsonFile(file) {
+      return new Promise((resolve, reject) => {
+        if (!file) {
+          reject(new Error("Nebyl vybrán žádný soubor."));
+          return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = event => {
+          try {
+            resolve(JSON.parse(event.target.result));
+          } catch (error) {
+            reject(new Error("Vybraný soubor není platný JSON."));
+          }
+        };
+
+        reader.onerror = () => {
+          reject(new Error("Soubor se nepodařilo načíst."));
+        };
+
+        reader.readAsText(file, "utf-8");
+      });
+    }
+
+    async function importLocalDataFile(file) {
+      try {
+        const parsed = await readJsonFile(file);
+
+        if (!validateDatabase(parsed)) {
+          throw new Error(
+            "Vybraný soubor nemá očekávanou strukturu data.json."
+          );
+        }
+
+        /*
+          Při ručním načtení se nejdřív použijí testy z vybraného data.json.
+          testy.json lze následně přidat přes dialog.
+        */
+        parsed.tests = Array.isArray(parsed.tests)
+          ? parsed.tests
+          : [];
+
+        DB = parsed;
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(DB)
+        );
+
+        applyDatabase();
+
+        const loadTests = confirm(
+          "data.json byl načten.\n\n" +
+          "Chceš nyní načíst také samostatný soubor testy.json?"
+        );
+
+        if (loadTests) {
+          $("#tests-file-input").click();
+        } else {
+          alert(
+            "Databáze byla načtena.\n" +
+            `Položek rozvrhu: ${DB.schedule.length}\n` +
+            `Testů: ${DB.tests.length}`
+          );
+        }
+      } catch (error) {
+        console.error(error);
+        alert(
+          "Databázi se nepodařilo načíst.\n" +
+          error.message
+        );
+      }
+    }
+
+    async function importLocalTestsFile(file) {
+      try {
+        if (!DB) {
+          throw new Error(
+            "Nejdříve načti hlavní soubor data.json."
+          );
+        }
+
+        const parsed = await readJsonFile(file);
+        const externalTests = parseTestsFile(parsed);
+
+        /*
+          Testy ze samostatného testy.json mají při shodném ID přednost.
+        */
+        DB.tests = mergeTests(
+          Array.isArray(DB.tests) ? DB.tests : [],
+          externalTests
+        );
+
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify(DB)
+        );
+
+        applyDatabase();
+
+        alert(
+          "testy.json byl načten.\n" +
+          `Celkový počet testů: ${DB.tests.length}`
+        );
+      } catch (error) {
+        console.error(error);
+        alert(
+          "Testy se nepodařilo načíst.\n" +
+          error.message
+        );
+      }
     }
 
     function attachEvents() {
+      $("#load-local-data").addEventListener("click", () => {
+        $("#data-file-input").click();
+      });
+
+      $("#data-file-input").addEventListener("change", event => {
+        importLocalDataFile(event.target.files[0]);
+
+        /*
+          Díky vymazání hodnoty lze načíst znovu i stejný soubor.
+        */
+        event.target.value = "";
+      });
+
+      $("#tests-file-input").addEventListener("change", event => {
+        importLocalTestsFile(event.target.files[0]);
+        event.target.value = "";
+      });
+
       $$(".nav button").forEach(button => {
-        button.addEventListener("click", () => {
-          showView(button.dataset.view);
-        });
+        button.addEventListener("click", () => showView(button.dataset.view));
       });
 
       $("#changelog-link").addEventListener("click", event => {
         event.preventDefault();
-
         showView("changelog");
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
       $("#prev-week").addEventListener("click", () => {
@@ -3110,32 +3144,355 @@ ${error.message}`
       $("#modal-close").addEventListener("click", closeModal);
 
       $("#modal-overlay").addEventListener("click", event => {
-        if (event.target === $("#modal-overlay")) {
-          closeModal();
-        }
+        if (event.target === $("#modal-overlay")) closeModal();
       });
 
       document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-          closeModal();
-        }
+        if (event.key === "Escape") closeModal();
       });
 
       $$(".floor-btn").forEach(button => {
+        button.addEventListener("click", () => setFloor(button.dataset.floor));
+      });
+    }
+
+
+    /*
+      ================================================================
+      ROZVRH_TYDEN_MOBIL_SLZBY_V1
+      ================================================================
+    */
+
+    function endOfTeachingDay(dateObject) {
+      /*
+        Pátek má zvláštní konec služby ve 12:45.
+        Ostatní běžné výukové dny končí v 15:15.
+      */
+      const weekday = dateObject.getDay();
+
+      if (weekday === 5) {
+        return 12 * 60 + 45;
+      }
+
+      return 15 * 60 + 15;
+    }
+
+    function automaticWeekIndex() {
+      const weeks = getWeeks();
+
+      if (!weeks.length) {
+        return 0;
+      }
+
+      const now = new Date();
+      const weekday = now.getDay();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+      let targetMonday = monday(toIso(now));
+
+      /*
+        Pátek od 12:45, sobota a neděle:
+        přechod na následující rozvrhový týden.
+      */
+      if (
+        (weekday === 5 && currentMinutes >= 12 * 60 + 45) ||
+        weekday === 6 ||
+        weekday === 0
+      ) {
+        targetMonday = addDays(targetMonday, 7);
+      }
+
+      const targetIso = toIso(targetMonday);
+
+      /*
+        Pokud existuje přímo tento týden, použij jej.
+      */
+      const exact = weeks.findIndex(item => item.iso === targetIso);
+
+      if (exact !== -1) {
+        return exact;
+      }
+
+      /*
+        Pokud ještě není přesně tento týden v datech, najdi první
+        budoucí týden, který v databázi opravdu existuje.
+      */
+      const next = weeks.findIndex(item => item.iso > targetIso);
+
+      if (next !== -1) {
+        return next;
+      }
+
+      /*
+        Po skončení všech známých dat zůstane poslední týden.
+      */
+      return weeks.length - 1;
+    }
+
+    function relevantMobileDates() {
+      return [
+        ...new Set([
+          ...effectiveSchedule().map(item => item.date),
+          ...(DB.events || []).map(item => item.date)
+        ].filter(Boolean))
+      ].sort();
+    }
+
+    function getRelevantMobileDate() {
+      const dates = relevantMobileDates();
+
+      if (!dates.length) {
+        return null;
+      }
+
+      const now = new Date();
+      const today = toIso(now);
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const weekday = now.getDay();
+
+      /*
+        Aktuální den ukazujeme pouze v pracovní den před koncem služby,
+        a pouze pokud se v databázi tento den opravdu nachází.
+      */
+      const isWorkingDay = weekday >= 1 && weekday <= 5;
+      const dayStillActive = currentMinutes < endOfTeachingDay(now);
+
+      if (
+        isWorkingDay &&
+        dayStillActive &&
+        dates.includes(today)
+      ) {
+        return today;
+      }
+
+      /*
+        Pokud už aktuální den skončil nebo je víkend,
+        zvol nejbližší následující den z rozvrhu/událostí.
+      */
+      const nextDate = dates.find(date => date > today);
+
+      if (nextDate) {
+        return nextDate;
+      }
+
+      /*
+        Pokud už žádný další den v datech není, ukaž poslední známý.
+      */
+      return dates[dates.length - 1];
+    }
+
+    function renderMobileDay() {
+      const mobileDate = getRelevantMobileDate();
+
+      if (!mobileDate) {
+        $("#mobile-day-title").textContent = "Není k dispozici";
+        $("#mobile-day-subtitle").textContent =
+          "V databázi nejsou žádné termíny.";
+        $("#mobile-day-timeline").innerHTML =
+          `<div class="loading">Rozvrh zatím neobsahuje žádné dny.</div>`;
+        return;
+      }
+
+      const dateObject = parseDate(mobileDate);
+      const dayName = DAYS[(dateObject.getDay() + 6) % 7];
+      const today = toIso(new Date());
+
+      $("#mobile-day-title").textContent =
+        `${dayName} · ${czechDate(mobileDate)}`;
+
+      if (mobileDate === today) {
+        $("#mobile-day-subtitle").textContent =
+          "Aktuální vyučovací den";
+      } else {
+        $("#mobile-day-subtitle").textContent =
+          "Nejbližší následující den";
+      }
+
+      $("#mobile-day-timeline").innerHTML = makeTimeline(mobileDate);
+
+      $("#mobile-day-detail").onclick = () => {
+        openDay(mobileDate);
+      };
+
+      attachTimelineEvents($("#mobile-day-timeline"));
+    }
+
+    function renderSchedule() {
+      const weeks = getWeeks();
+
+      if (!weeks.length) {
+        $("#schedule-root").innerHTML =
+          `<div class="loading">V databázi zatím není žádný rozvrh.</div>`;
+
+        renderMobileDay();
+        return;
+      }
+
+      weekIndex = Math.max(0, Math.min(weekIndex, weeks.length - 1));
+
+      const week = weeks[weekIndex];
+
+      $("#week-label").textContent =
+        `Týden ${weekIndex + 1}/${weeks.length} · ${week.label}`;
+
+      $("#prev-week").disabled = weekIndex === 0;
+      $("#next-week").disabled = weekIndex === weeks.length - 1;
+
+      $("#schedule-root").innerHTML = `
+        <div class="week-grid">
+          ${DAYS.map((dayName, index) => {
+            const date = toIso(addDays(week.monday, index));
+
+            return `
+              <article class="day">
+                <header class="day-head">
+                  <div>
+                    <strong>${dayName}</strong>
+                    <span>${czechDate(date)}</span>
+                  </div>
+
+                  <button class="day-detail" type="button" data-day="${date}">
+                    Detail dne
+                  </button>
+                </header>
+
+                <div class="timeline">${makeTimeline(date)}</div>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
+
+      $$("[data-day]", $("#schedule-root")).forEach(button => {
         button.addEventListener("click", () => {
-          setFloor(button.dataset.floor);
+          openDay(button.dataset.day);
         });
       });
 
-      $("#update-data").addEventListener("click", () => {
-        $("#file-input").click();
-      });
-
-      $("#file-input").addEventListener("change", event => {
-        importLocalFile(event.target.files[0]);
-        event.target.value = "";
-      });
+      attachTimelineEvents($("#schedule-root"));
+      renderMobileDay();
     }
+
+    function pairText(pair) {
+      return pair?.students?.length
+        ? pair.students.map(escapeHtml).join(" · ")
+        : "Dvojice není nastavena";
+    }
+
+    function renderServices() {
+      const entries = serviceEntries();
+
+      if (!entries.length) {
+        $("#services-root").innerHTML =
+          `<div class="loading">Rozpis služeb zatím není nastaven.</div>`;
+        return;
+      }
+
+      const currentMonday = toIso(monday(toIso(new Date())));
+
+      const current =
+        entries.find(item => item.weekStart === currentMonday) ||
+        entries.find(item => item.weekStart > currentMonday) ||
+        entries[entries.length - 1];
+
+      $("#services-root").innerHTML = `
+        <div class="service-top">
+          <section class="card service-card">
+            <h3>Aktuální / nejbližší služba</h3>
+            <p style="margin:14px 0 6px">
+              <strong>
+                ${escapeHtml(czechDate(current.weekStart))}
+                –
+                ${escapeHtml(czechDate(current.weekEnd))}
+              </strong>
+            </p>
+            <p style="font-size:1.05rem;font-weight:850">
+              ${pairText(current.pair)}
+            </p>
+            <p style="color:var(--muted)">
+              ${escapeHtml(DB.serviceRotation?.note || "")}
+            </p>
+          </section>
+
+          <section class="card service-card">
+            <h3>Povinnosti služby</h3>
+            <ul class="duty-list" style="margin-top:14px">
+              ${(DB.serviceDuties || [])
+                .map(item => `<li>${escapeHtml(item.text)}</li>`)
+                .join("")}
+            </ul>
+          </section>
+        </div>
+
+        <section class="card section">
+          <h3 class="service-table-title">
+            Kompletní rozpis služeb
+          </h3>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pořadí</th>
+                  <th>Od</th>
+                  <th>Do</th>
+                  <th>Služební dvojice</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                ${entries.map((entry, index) => `
+                  <tr class="${
+                    entry.weekStart === current.weekStart
+                      ? "service-current-row"
+                      : ""
+                  }">
+                    <td>${index + 1}.</td>
+                    <td>${escapeHtml(czechDate(entry.weekStart))}</td>
+                    <td>${escapeHtml(czechDate(entry.weekEnd))}</td>
+                    <td>${pairText(entry.pair)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
+    function applyDatabase() {
+      const home = room(DB.meta.homeRoomId);
+
+      $("#subtitle").textContent =
+        `${DB.meta.displayClassLabel || "1. A"} · ` +
+        `${DB.meta.stageLabel || "III. etapa"} · ` +
+        `${DB.meta.academicYear || ""} · rozvrh, lektoři a orientace`;
+
+      $("#home-badge").innerHTML =
+        `Kmenová učebna: ${
+          escapeHtml(home?.name?.replace("Učebna ", "") || "130")
+        }<br>` +
+        `${escapeHtml(
+          building(home?.buildingId)?.name || "Školská budova"
+        )}`;
+
+      populateDepartments();
+
+      /*
+        Při každém načtení dat se znovu vypočítá správný aktuální týden.
+      */
+      weekIndex = automaticWeekIndex();
+
+      renderSchedule();
+      renderTests();
+      renderTeachers();
+      renderSubjects();
+      renderServices();
+      renderStudy();
+      renderRegime();
+      renderChangelog();
+    }
+
 
     attachEvents();
     loadDatabase();
