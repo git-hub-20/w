@@ -3724,13 +3724,13 @@
       "note": ""
     },
     {
-      "id": "test-spp-2026-09-24",
+      "id": "test-spp-2026-10-01",
       "enabled": true,
-      "date": "2026-09-24",
+      "date": "2026-10-01",
       "subjectId": "SPP",
       "daySlots": {
-        "from": 7,
-        "to": 8
+        "from": 5,
+        "to": 6
       },
       "title": "Test — donucovací prostředky",
       "topics": [
