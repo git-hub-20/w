@@ -220,6 +220,13 @@
       "type": "kmenová učebna"
     },
     {
+      "id": "7A",
+      "name": "7A",
+      "buildingId": "7A",
+      "floorId": "patro-1",
+      "type": "proste pred 7A"
+    },
+    {
       "id": "SB-016",
       "name": "PC učebna 016",
       "buildingId": "skolska",
@@ -2166,7 +2173,7 @@
         "bul"
       ],
       "roomIds": [
-        "SB-130"
+        "7A"
       ],
       "curriculumHours": {
         "from": 17,
@@ -3895,7 +3902,7 @@
         "bul"
       ],
       "roomIds": [
-        "SB-130"
+        "7A"
       ],
       "curriculumHours": {
         "from": 15,
