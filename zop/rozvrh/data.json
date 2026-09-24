@@ -3736,8 +3736,8 @@
       "date": "2026-10-01",
       "subjectId": "SPP",
       "daySlots": {
-        "from": 5,
-        "to": 6
+        "from": 4,
+        "to": 5
       },
       "title": "Test — donucovací prostředky",
       "topics": [
