@@ -3770,6 +3770,98 @@
       "note": "Operativní změna: KPE místo původně plánovaného SPP.",
       "reason": "Operativní změna rozvrhu"
     },
+     {
+      "id": "2026-10-16-spp-misto-kpe",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-10-16",
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "note": "Operativní změna: SPP místo původně plánovaného KPE.",
+      "reason": "Úprava rozvrhu"
+    },
+{
+      "id": "2026-10-15-spp-misto-kpe",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-10-15",
+      "daySlots": {
+        "from": 2,
+        "to": 3
+      },
+      "subjectId": "SPP",
+      "teacherIds": [
+        "cep"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "note": "Operativní změna: SPP místo původně plánovaného KPE.",
+      "reason": "Úprava rozvrhu"
+    },
+ {
+      "id": "2026-10-08-kpe-misto-spp",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-10-08",
+      "daySlots": {
+        "from": 7,
+        "to": 8
+      },
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 19,
+        "to": 20
+      },
+      "note": "Operativní změna: KPE místo původně plánovaného SPP.",
+      "reason": "Úprava rozvrhu"
+    },
+ {
+      "id": "2026-10-09-kpe-misto-spp",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-10-09",
+      "daySlots": {
+        "from": 4,
+        "to": 5
+      },
+      "subjectId": "KPE",
+      "teacherIds": [
+        "nok"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "note": "Operativní změna: KPE místo původně plánovaného SPP.",
+      "reason": "Úprava rozvrhu"
+    },
     {
       "id": "2026-09-11-spp-misto-kpe",
       "enabled": true,
@@ -3941,7 +4033,7 @@
       "enabled": true,
       "subjectId": "KPE",
       "dateFrom": "2026-09-01",
-      "dateTo": "2026-09-25",
+      "dateTo": "2027-12-25",
       "buildingId": "u1",
       "locationLabel": "U1 - 325",
       "note": "KPE probíhá v budově U1 během prvních čtyř výukových týdnů."
