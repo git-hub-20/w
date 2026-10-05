@@ -22,9 +22,9 @@
     "note": ""
   },
   {
-    "id": "test-pra-2026-10-02",
+    "id": "test-pra-2026-10-07",
     "enabled": true,
-    "date": "2026-10-02",
+    "date": "2026-10-07",
     "subjectId": "PRA",
     "daySlots": {
       "from": 2,
@@ -34,7 +34,7 @@
     "topics": [
       "Přestupky"
     ],
-    "note": "Pátek 2. 10. 2026, 2. výukový blok — 3. a 4. vyučovací hodina dne."
+    "note": "Asi, já už nevim, je v tom bordel."
   },
   {
     "id": "test-kri-2026-10-07",
