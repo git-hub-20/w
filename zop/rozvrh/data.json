@@ -3770,6 +3770,29 @@
       "note": "Operativní změna: KPE místo původně plánovaného SPP.",
       "reason": "Operativní změna rozvrhu"
     },
+    {
+      "id": "2026-10-08-kri-misto-pra",
+      "enabled": true,
+      "action": "replace",
+      "date": "2026-10-08",
+      "daySlots": {
+        "from": 0,
+        "to": 1
+      },
+      "subjectId": "KRI",
+      "teacherIds": [
+        "bul"
+      ],
+      "roomIds": [
+        "SB-130"
+      ],
+      "curriculumHours": {
+        "from": 21,
+        "to": 22
+      },
+      "note": "Operativní změna: KRI místo původně plánovaného PRA.",
+      "reason": "Úprava rozvrhu"
+    },
      {
       "id": "2026-10-16-spp-misto-kpe",
       "enabled": true,
