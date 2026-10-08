@@ -37,9 +37,9 @@
     "note": "Asi, já už nevim, je v tom bordel."
   },
   {
-    "id": "test-kri-2026-10-07",
+    "id": "test-kri-2026-10-08",
     "enabled": true,
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "subjectId": "KRI",
     "daySlots": {
       "from": 0,
@@ -51,7 +51,7 @@
       "Balistika",
       "Otázky zaslané ve skupině"
     ],
-    "note": "Středa 7. 10. 2026, první výukový blok."
+    "note": "puvodne Středa 7. 10. 2026, první výukový blok."
   },
   {
     "id": "test-spp-2026-10-07",
