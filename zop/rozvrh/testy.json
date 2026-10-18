@@ -22,13 +22,13 @@
     "note": ""
   },
   {
-    "id": "test-pra-2026-10-07",
+    "id": "test-pra-2026-10-19",
     "enabled": true,
-    "date": "2026-10-07",
+    "date": "2026-10-19",
     "subjectId": "PRA",
     "daySlots": {
-      "from": 2,
-      "to": 3
+      "from": 0,
+      "to": 1
     },
     "title": "Test — přestupky",
     "topics": [
