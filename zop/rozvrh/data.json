@@ -948,6 +948,18 @@
         "to": 5
       }
     },
+        {
+      "id": "2026-11-11-o-s",
+      "date": "2026-11-11",
+      "title": "AMOK cvičení OS",
+      "type": "organizacni-udalost",
+      "start": "07:30",
+      "end": "13:30",
+      "daySlots": {
+        "from": 0,
+        "to": 8
+      }
+    },
     {
       "id": "2026-09-28-denceskéstatnosti",
       "date": "2026-09-28",
@@ -3997,91 +4009,6 @@
         "to": 8
       },
       "note": ""
-    },
-    {
-      "type": "lesson",
-      "id": "2026-11-11-sdp-0-1",
-      "date": "2026-11-11",
-      "subjectId": "SDP",
-      "teacherIds": [
-        "dou"
-      ],
-      "roomIds": [
-        "OCHRANNA-SLUZBA"
-      ],
-      "curriculumHours": {
-        "from": 33,
-        "to": 34
-      },
-      "daySlots": {
-        "from": 0,
-        "to": 1
-      },
-      "note": "Součinnostní cvičení."
-    },
-    {
-      "type": "lesson",
-      "id": "2026-11-11-spp-2-3",
-      "date": "2026-11-11",
-      "subjectId": "SPP",
-      "teacherIds": [
-        "cep"
-      ],
-      "roomIds": [
-        "OCHRANNA-SLUZBA"
-      ],
-      "curriculumHours": {
-        "from": 47,
-        "to": 48
-      },
-      "daySlots": {
-        "from": 2,
-        "to": 3
-      },
-      "note": "Součinnostní cvičení."
-    },
-    {
-      "type": "lesson",
-      "id": "2026-11-11-ait-4-5",
-      "date": "2026-11-11",
-      "subjectId": "AIT",
-      "teacherIds": [
-        "kou",
-        "jav"
-      ],
-      "roomIds": [
-        "OCHRANNA-SLUZBA"
-      ],
-      "curriculumHours": {
-        "from": 33,
-        "to": 34
-      },
-      "daySlots": {
-        "from": 4,
-        "to": 5
-      },
-      "note": "Součinnostní cvičení."
-    },
-    {
-      "type": "lesson",
-      "id": "2026-11-11-pdp-7-8",
-      "date": "2026-11-11",
-      "subjectId": "PDP",
-      "teacherIds": [
-        "han"
-      ],
-      "roomIds": [
-        "OCHRANNA-SLUZBA"
-      ],
-      "curriculumHours": {
-        "from": 25,
-        "to": 26
-      },
-      "daySlots": {
-        "from": 7,
-        "to": 8
-      },
-      "note": "Součinnostní cvičení."
     },
     {
       "type": "lesson",
