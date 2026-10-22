@@ -22,6 +22,21 @@
     "note": ""
   },
   {
+    "id": "test-spp-2026-10-26",
+    "enabled": true,
+    "date": "2026-10-26",
+    "subjectId": "SPP",
+    "daySlots": {
+      "from": 4,
+      "to": 5
+    },
+    "title": "Test — prokazovani totoznosti a podani vysvetleni",
+    "topics": [
+      "alespon tak mi to rekla Čepicová na modelovkach"
+    ],
+    "note": ""
+  },
+  {
     "id": "test-pra-2026-10-19",
     "enabled": true,
     "date": "2026-10-19",
