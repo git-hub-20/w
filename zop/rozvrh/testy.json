@@ -97,5 +97,20 @@
       "§ 56 — použití zbraně"
     ],
     "note": "Středa 7. 10. 2026, odpolední blok SPP."
+  },
+    {
+    "id": "test-ait-2026-11-27",
+    "enabled": true,
+    "date": "2026-11-27",
+    "subjectId": "AIT",
+    "daySlots": {
+      "from": 2,
+      "to": 3
+    },
+    "title": "Test — závěrečný",
+    "topics": [
+      "Všechno"
+    ],
+    "note": "Všechno"
   }
 ]
