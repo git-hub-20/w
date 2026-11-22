@@ -1,9 +1,9 @@
 [
     {
-    "id": "test-spj-2026-12-16",
+    "id": "test-sjp-2026-12-16",
     "enabled": true,
     "date": "2026-12-16",
-    "subjectId": "SPJ",
+    "subjectId": "SJP",
     "daySlots": {
       "from": 7,
       "to": 8
