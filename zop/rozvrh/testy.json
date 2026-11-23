@@ -15,9 +15,9 @@
     "note": ""
   },
         {
-    "id": "test-spp-2026-12-25",
+    "id": "test-spp-2026-11-25",
     "enabled": true,
-    "date": "2026-12-25",
+    "date": "2026-11-25",
     "subjectId": "SPP",
     "daySlots": {
       "from": 0,
