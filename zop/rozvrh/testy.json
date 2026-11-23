@@ -112,6 +112,21 @@
     "note": "Asi, já už nevim, je v tom bordel."
   },
   {
+    "id": "test-spp-2026-12-25",
+    "enabled": true,
+    "date": "2026-12-25",
+    "subjectId": "SPP",
+    "daySlots": {
+      "from": 0,
+      "to": 1
+    },
+    "title": "omezeni osobni svobody tabulka",
+    "topics": [
+      ""
+    ],
+    "note": ""
+  },
+  {
     "id": "test-kri-2026-10-08",
     "enabled": true,
     "date": "2026-10-08",
