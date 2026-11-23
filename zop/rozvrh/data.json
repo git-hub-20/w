@@ -5570,7 +5570,7 @@
     },
     {
       "type": "lesson",
-      "id": "2026-11-25-spp-0-2",
+      "id": "2026-11-25-spp-0-1",
       "date": "2026-11-25",
       "subjectId": "SPP",
       "teacherIds": [
@@ -5585,13 +5585,13 @@
       },
       "daySlots": {
         "from": 0,
-        "to": 2
+        "to": 1
       },
       "note": ""
     },
     {
       "type": "lesson",
-      "id": "2026-11-25-spp-3-4",
+      "id": "2026-11-25-spp-2-3",
       "date": "2026-11-25",
       "subjectId": "SPP",
       "teacherIds": [
@@ -5605,8 +5605,8 @@
         "to": 58
       },
       "daySlots": {
-        "from": 3,
-        "to": 4
+        "from": 2,
+        "to": 3
       },
       "note": ""
     },
