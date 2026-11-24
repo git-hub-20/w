@@ -30,9 +30,9 @@
     "note": ""
   },
   {
-    "id": "test-pra-2026-12-01",
+    "id": "test-pra-2026-12-04",
     "enabled": true,
-    "date": "2026-12-01",
+    "date": "2026-12-04",
     "subjectId": "PRA",
     "daySlots": {
       "from": 2,
