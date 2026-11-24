@@ -14,6 +14,36 @@
     ],
     "note": ""
   },
+  {
+    "id": "test-sdp-2026-12-01",
+    "enabled": true,
+    "date": "2026-12-01",
+    "subjectId": "SDP",
+    "daySlots": {
+      "from": 0,
+      "to": 1
+    },
+    "title": "Řidičské oprávnění",
+    "topics": [
+      ""
+    ],
+    "note": ""
+  },
+  {
+    "id": "test-pra-2026-12-01",
+    "enabled": true,
+    "date": "2026-12-01",
+    "subjectId": "PRA",
+    "daySlots": {
+      "from": 2,
+      "to": 3
+    },
+    "title": "Trestní právo",
+    "topics": [
+      "trestní zákonník obecná část"
+    ],
+    "note": ""
+  },
         {
     "id": "test-spp-2026-11-25",
     "enabled": true,
